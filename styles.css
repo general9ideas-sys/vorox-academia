@@ -195,6 +195,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-body);
   font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700;
+  color: var(--dark);
   margin-bottom: 20px;
 }
 .hero__title .highlight {
