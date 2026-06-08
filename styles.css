@@ -233,12 +233,48 @@ img { max-width: 100%; display: block; }
   color: var(--blue);
   margin-bottom: 28px;
 }
-.companies__logos {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 40px;
+.companies__carousel {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
-.companies__logos span {
-  font-family: var(--font-title); font-weight: 700; font-size: 0.95rem;
-  color: var(--dark); opacity: 0.55;
+.companies__track {
+  display: flex;
+  width: max-content;
+  animation: companiesMarquee 36s linear infinite;
+}
+.companies__carousel:hover .companies__track {
+  animation-play-state: paused;
+}
+.companies__slide {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding-right: 56px;
+  flex-shrink: 0;
+}
+.companies__slide span {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  color: var(--dark);
+  opacity: 0.65;
+  white-space: nowrap;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+.companies__slide span:hover {
+  opacity: 1;
+  color: var(--blue);
+}
+@keyframes companiesMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .companies__track { animation: none; flex-wrap: wrap; justify-content: center; width: 100%; }
+  .companies__carousel { -webkit-mask-image: none; mask-image: none; }
+  .companies__slide[aria-hidden="true"] { display: none; }
+  .companies__slide { flex-wrap: wrap; justify-content: center; gap: 24px 40px; padding-right: 0; }
 }
 
 /* 3. Why */
