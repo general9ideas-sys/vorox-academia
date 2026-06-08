@@ -243,6 +243,68 @@ img { max-width: 100%; display: block; }
   background: url('assets/hero-poster.png') center / cover no-repeat;
   animation: heroKenBurns 18s ease-in-out infinite alternate;
 }
+.hero__scene-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.hero__scene-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--dark);
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.hero__scene-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e53935;
+  animation: heroPulse 1.4s ease-in-out infinite;
+}
+.hero__scene-card {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  max-width: calc(100% - 32px);
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(26, 26, 26, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.hero__scene-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 4px;
+}
+.hero__scene-career {
+  display: block;
+  font-family: var(--font-title);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--yellow);
+  min-height: 1.4em;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.hero__scene-career.is-changing {
+  opacity: 0;
+  transform: translateY(6px);
+}
 .hero__video-play {
   position: absolute;
   top: 50%;
@@ -284,8 +346,14 @@ img { max-width: 100%; display: block; }
   from { transform: scale(1); }
   to { transform: scale(1.06); }
 }
+@keyframes heroPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .hero__scene-poster { animation: none; }
+  .hero__scene-poster,
+  .hero__scene-live { animation: none; }
+  .hero__scene-career { transition: none; }
 }
 
 /* 2. Companies */

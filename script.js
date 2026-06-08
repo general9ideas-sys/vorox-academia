@@ -127,6 +127,26 @@
     });
   }, observerOptions);
 
+  const heroCareers = [
+    'Programación',
+    'Marketing Digital',
+    'Data Science',
+    'Inteligencia Artificial'
+  ];
+  const heroCareerText = document.getElementById('heroCareerText');
+  let heroCareerIndex = 0;
+
+  if (heroCareerText) {
+    setInterval(function () {
+      heroCareerText.classList.add('is-changing');
+      setTimeout(function () {
+        heroCareerIndex = (heroCareerIndex + 1) % heroCareers.length;
+        heroCareerText.textContent = heroCareers[heroCareerIndex];
+        heroCareerText.classList.remove('is-changing');
+      }, 350);
+    }, 2800);
+  }
+
   const heroPlayer = document.getElementById('heroVideoPlayer');
   const heroVideo = document.getElementById('heroVideo');
   const heroPlay = document.getElementById('heroVideoPlay');
