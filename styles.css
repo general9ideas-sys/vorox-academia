@@ -81,7 +81,13 @@ img { max-width: 100%; display: block; }
 }
 .navbar--scrolled { box-shadow: var(--shadow); }
 .navbar__inner { display: flex; align-items: center; gap: 24px; height: 76px; }
-.navbar__logo, .footer__logo {
+.navbar__logo {
+  display: inline-flex; align-items: center; flex-shrink: 0;
+  padding: var(--logo-protection);
+  margin: calc(var(--logo-protection) * -1);
+  margin-left: calc(var(--logo-protection) * -1 - 14px);
+}
+.footer__logo {
   display: inline-flex; align-items: center; flex-shrink: 0;
   padding: var(--logo-protection); margin: calc(var(--logo-protection) * -1);
 }
