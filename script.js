@@ -128,10 +128,10 @@
   }, observerOptions);
 
   const heroCareers = [
-    'Programación',
-    'Marketing Digital',
+    'Full Stack Development',
     'Data Science',
-    'Inteligencia Artificial'
+    'AI Engineering',
+    'Data Engineering'
   ];
   const heroCareerText = document.getElementById('heroCareerText');
   let heroCareerIndex = 0;

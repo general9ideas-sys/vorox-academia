@@ -86,6 +86,7 @@ img { max-width: 100%; display: block; }
   padding: var(--logo-protection); margin: calc(var(--logo-protection) * -1);
 }
 .logo { display: block; height: 38px; width: auto; }
+.navbar__logo .logo { height: 48px; }
 .navbar__audience { display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; }
 .nav-dropdown { position: relative; }
 .nav-dropdown__trigger {
