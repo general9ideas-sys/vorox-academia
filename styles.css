@@ -301,19 +301,7 @@ img { max-width: 100%; display: block; }
 .tag--duration { background: transparent; border: 1px solid var(--gray-light); color: var(--gray); }
 .tag--full { background: rgba(56,94,167,0.12); }
 
-/* 6. Tech */
-.tech { padding: 88px 0; background: var(--bg); }
-.tech__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.tech__item {
-  background: var(--white); border: 1px solid #e5e7eb; border-radius: var(--radius-lg);
-  padding: 28px; text-align: center; transition: var(--transition);
-}
-.tech__item:hover { border-color: var(--blue); box-shadow: var(--shadow); }
-.tech__emoji { font-size: 2rem; display: block; margin-bottom: 12px; }
-.tech__item strong { display: block; font-family: var(--font-title); font-size: 1rem; color: var(--dark); margin-bottom: 6px; }
-.tech__item span { font-size: 0.85rem; color: var(--gray); }
-
-/* 7. Vocational test */
+/* 6. Vocational test */
 .vocational {
   padding: 88px 0;
   background: var(--yellow);
@@ -478,7 +466,6 @@ img { max-width: 100%; display: block; }
   .hero__subtitle { margin-left: auto; margin-right: auto; }
   .why__grid { grid-template-columns: repeat(2, 1fr); }
   .careers__grid, .success__grid { grid-template-columns: repeat(2, 1fr); }
-  .tech__grid { grid-template-columns: repeat(2, 1fr); }
   .community__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__grid { grid-template-columns: repeat(2, 1fr); }
   .apply__inner { grid-template-columns: 1fr; }
@@ -493,7 +480,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 640px) {
-  .why__grid, .careers__grid, .success__grid, .tech__grid,
+  .why__grid, .careers__grid, .success__grid,
   .community__grid, .pricing__grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
