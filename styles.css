@@ -182,15 +182,21 @@ img { max-width: 100%; display: block; }
 
 /* 1. Hero */
 .hero {
-  padding: 120px 0 80px;
+  padding: 88px 0 40px;
   background: var(--bg);
   margin-top: 76px;
 }
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+.hero__text { padding-top: 4px; }
+.hero__companies {
+  padding-top: 28px;
+  border-top: 1px solid #e5e7eb;
 }
 .hero__title {
   font-family: var(--font-body);
@@ -357,20 +363,14 @@ img { max-width: 100%; display: block; }
   .hero__scene-career { transition: none; }
 }
 
-/* 2. Companies */
-.companies {
-  padding: 48px 0;
-  background: var(--white);
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
+/* Companies (dentro del hero) */
 .companies__phrase {
   text-align: center;
   font-family: var(--font-title);
   font-weight: 700;
   font-size: 1rem;
   color: var(--blue);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .companies__carousel {
   overflow: hidden;
@@ -685,5 +685,6 @@ img { max-width: 100%; display: block; }
   .community__grid, .pricing__grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
-  .hero { padding: 100px 0 60px; }
+  .hero { padding: 76px 0 32px; }
+  .hero__companies { padding-top: 24px; }
 }
