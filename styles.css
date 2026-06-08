@@ -450,6 +450,32 @@ img { max-width: 100%; display: block; }
 .footer__contact a:hover, .footer__social a:hover { color: var(--yellow); }
 .footer__links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .footer__links h4 { color: var(--white); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+.footer__legal-trigger {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 14px;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.footer__legal-trigger:hover { color: var(--yellow); }
+.footer__legal-credit {
+  font-size: 0.875rem;
+  color: var(--yellow);
+  margin: -8px 0 12px;
+  animation: legalCreditIn 0.3s ease;
+}
+@keyframes legalCreditIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .footer__links a { display: block; font-size: 0.875rem; padding: 4px 0; color: var(--gray-light); transition: var(--transition); }
 .footer__links a:hover { color: var(--yellow); }
 .footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; text-align: center; font-size: 0.8rem; }

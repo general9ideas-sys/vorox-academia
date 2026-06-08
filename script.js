@@ -127,6 +127,17 @@
     });
   }, observerOptions);
 
+  const legalTrigger = document.getElementById('legalTrigger');
+  const legalCredit = document.getElementById('legalCredit');
+
+  if (legalTrigger && legalCredit) {
+    legalTrigger.addEventListener('click', function () {
+      const isHidden = legalCredit.hidden;
+      legalCredit.hidden = !isHidden;
+      legalTrigger.setAttribute('aria-expanded', String(isHidden));
+    });
+  }
+
   document.querySelectorAll(
     '.why__card, .career-card, .success-card, .pricing__card, .community__card'
   ).forEach(function (el) {
