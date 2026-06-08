@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=carousel" />
+  <link rel="stylesheet" href="styles.css?v=hero-video" />
 </head>
 <body>
 
@@ -109,12 +109,52 @@
         <p class="hero__subtitle">Formación práctica, clases en vivo y acompañamiento personalizado para que consigas empleo en los perfiles más demandados del mercado.</p>
         <a href="#inscripcion" class="btn btn--cta btn--lg">Quiero información</a>
       </div>
-      <div class="hero__media" aria-label="Estudiantes de VOROX en clase online">
-        <div class="hero__video-placeholder">
-          <div class="hero__play-btn" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="32" height="32"><polygon points="8,5 19,12 8,19" fill="currentColor"/></svg>
+      <div class="hero__media">
+        <div class="hero__video-player" id="heroVideoPlayer">
+          <video
+            id="heroVideo"
+            class="hero__video"
+            poster="assets/hero-poster.png"
+            playsinline
+            muted
+            loop
+            preload="metadata"
+            aria-label="Estudiantes de VOROX en clase online"
+          >
+            <source src="assets/hero-vorox.mp4" type="video/mp4" />
+          </video>
+
+          <div class="hero__video-scene" id="heroVideoScene" aria-hidden="true">
+            <div class="hero__scene-poster"></div>
+            <div class="hero__scene-ui">
+              <div class="hero__scene-badge"><span class="hero__scene-live"></span> Clase en vivo</div>
+              <div class="hero__scene-screen">
+                <div class="hero__scene-toolbar">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="hero__scene-code">
+                  <span class="hero__scene-line hero__scene-line--1">const futuro = await vorox.aprender();</span>
+                  <span class="hero__scene-line hero__scene-line--2">console.log('¡Listo para trabajar!');</span>
+                  <span class="hero__scene-line hero__scene-line--3">export default futuro;</span>
+                </div>
+              </div>
+              <div class="hero__scene-participants">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
           </div>
-          <p>Estudiantes aprendiendo en vivo</p>
+
+          <button type="button" class="hero__video-play" id="heroVideoPlay" aria-label="Reproducir video">
+            <svg class="hero__video-play-icon hero__video-play-icon--play" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+              <polygon points="8,5 19,12 8,19" fill="currentColor" />
+            </svg>
+            <svg class="hero__video-play-icon hero__video-play-icon--pause" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" fill="currentColor" />
+              <rect x="14" y="5" width="4" height="14" fill="currentColor" />
+            </svg>
+          </button>
+
+          <p class="hero__video-caption">Estudiantes aprendiendo en vivo</p>
         </div>
       </div>
     </div>
@@ -487,6 +527,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=d4d7e64"></script>
+  <script src="script.js?v=hero-video"></script>
 </body>
 </html>
