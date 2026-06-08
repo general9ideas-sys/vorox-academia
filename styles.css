@@ -243,94 +243,6 @@ img { max-width: 100%; display: block; }
   background: url('assets/hero-poster.png') center / cover no-repeat;
   animation: heroKenBurns 18s ease-in-out infinite alternate;
 }
-.hero__scene-ui {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
-  background: linear-gradient(180deg, transparent 35%, rgba(26, 26, 26, 0.55) 100%);
-}
-.hero__scene-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--dark);
-  font-family: var(--font-title);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-.hero__scene-live {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #e53935;
-  animation: heroPulse 1.4s ease-in-out infinite;
-}
-.hero__scene-screen {
-  background: rgba(26, 26, 26, 0.88);
-  border-radius: 12px;
-  padding: 14px;
-  margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-}
-.hero__scene-toolbar {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-.hero__scene-toolbar span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--gray-light);
-  opacity: 0.5;
-}
-.hero__scene-toolbar span:first-child { background: #ff5f57; opacity: 1; }
-.hero__scene-toolbar span:nth-child(2) { background: #febc2e; opacity: 1; }
-.hero__scene-toolbar span:nth-child(3) { background: #28c840; opacity: 1; }
-.hero__scene-code {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: clamp(0.65rem, 1.4vw, 0.8rem);
-  color: #e8eef8;
-}
-.hero__scene-line {
-  display: block;
-  opacity: 0;
-  transform: translateY(6px);
-  animation: heroTypeLine 8s ease infinite;
-}
-.hero__scene-line--1 { animation-delay: 0s; color: #7dd3fc; }
-.hero__scene-line--2 { animation-delay: 1.2s; color: var(--yellow); }
-.hero__scene-line--3 { animation-delay: 2.4s; color: #86efac; }
-.hero__scene-participants {
-  display: flex;
-  gap: 8px;
-}
-.hero__scene-participants span {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid var(--yellow);
-  background: linear-gradient(135deg, var(--blue), var(--blue-deep));
-  animation: heroParticipant 3s ease-in-out infinite;
-}
-.hero__scene-participants span:nth-child(2) { animation-delay: 0.4s; background: linear-gradient(135deg, #4a73c4, var(--blue)); }
-.hero__scene-participants span:nth-child(3) { animation-delay: 0.8s; background: linear-gradient(135deg, var(--yellow), #e4b300); }
-.hero__scene-participants span:nth-child(4) { animation-delay: 1.2s; background: linear-gradient(135deg, #2c4d8a, #1a2a4a); }
 .hero__video-play {
   position: absolute;
   top: 50%;
@@ -368,44 +280,12 @@ img { max-width: 100%; display: block; }
 .hero__video-player.is-playing-real:not(.is-paused) .hero__video-play-icon--play { display: none; }
 .hero__video-player.is-playing-scene:not(.is-paused) .hero__video-play-icon--pause,
 .hero__video-player.is-playing-real:not(.is-paused) .hero__video-play-icon--pause { display: block; }
-.hero__video-caption {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  z-index: 3;
-  transform: translateX(-50%);
-  margin: 0;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.45);
-  color: var(--white);
-  font-size: 0.8rem;
-  white-space: nowrap;
-  pointer-events: none;
-}
 @keyframes heroKenBurns {
   from { transform: scale(1); }
-  to { transform: scale(1.08); }
-}
-@keyframes heroPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
-@keyframes heroTypeLine {
-  0%, 8% { opacity: 0; transform: translateY(6px); }
-  12%, 70% { opacity: 1; transform: translateY(0); }
-  78%, 100% { opacity: 0; transform: translateY(-4px); }
-}
-@keyframes heroParticipant {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  to { transform: scale(1.06); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero__scene-poster,
-  .hero__scene-live,
-  .hero__scene-line,
-  .hero__scene-participants span { animation: none; }
-  .hero__scene-line { opacity: 1; transform: none; }
+  .hero__scene-poster { animation: none; }
 }
 
 /* 2. Companies */
