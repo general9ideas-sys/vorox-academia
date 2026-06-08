@@ -195,7 +195,7 @@ img { max-width: 100%; display: block; }
 }
 .hero__text { padding-top: 4px; }
 .hero__companies {
-  padding-top: 28px;
+  padding-top: 18px;
   border-top: 1px solid #e5e7eb;
 }
 .hero__title {
@@ -686,5 +686,5 @@ img { max-width: 100%; display: block; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
   .hero { padding: 20px 0 32px; }
-  .hero__companies { padding-top: 24px; }
+  .hero__companies { padding-top: 14px; }
 }
