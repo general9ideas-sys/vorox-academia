@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=footer-logo-lg" />
+  <link rel="stylesheet" href="styles.css?v=hero-slides" />
 </head>
 <body>
 
@@ -110,21 +110,11 @@
         </div>
         <div class="hero__media">
         <div class="hero__video-player" id="heroVideoPlayer">
-          <video
-            id="heroVideo"
-            class="hero__video"
-            poster="assets/hero-poster.png"
-            playsinline
-            muted
-            loop
-            preload="metadata"
-            aria-label="Estudiantes de VOROX en clase online"
-          >
-            <source src="assets/hero-vorox.mp4" type="video/mp4" />
-          </video>
-
-          <div class="hero__video-scene" id="heroVideoScene" aria-hidden="true">
-            <div class="hero__scene-poster"></div>
+          <div class="hero__slides" id="heroSlides" aria-hidden="true">
+            <img src="assets/hero-poster.png" alt="" class="hero__slide is-active" />
+            <img src="assets/hero-career-1.png" alt="" class="hero__slide" />
+            <img src="assets/hero-career-2.png" alt="" class="hero__slide" />
+            <img src="assets/hero-career-4.png" alt="" class="hero__slide" />
           </div>
 
           <div class="hero__scene-ui">
@@ -132,19 +122,9 @@
             <div class="hero__scene-card">
               <span class="hero__scene-label">Estudiá:</span>
               <span class="hero__scene-career" id="heroCareerText" aria-live="polite">Full Stack Development</span>
+              <span class="hero__scene-desc" id="heroCareerDesc" aria-live="polite">Desarrollá aplicaciones web de punta a punta</span>
             </div>
           </div>
-
-          <button type="button" class="hero__video-play" id="heroVideoPlay" aria-label="Reproducir video">
-            <svg class="hero__video-play-icon hero__video-play-icon--play" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-              <polygon points="8,5 19,12 8,19" fill="currentColor" />
-            </svg>
-            <svg class="hero__video-play-icon hero__video-play-icon--pause" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-              <rect x="6" y="5" width="4" height="14" fill="currentColor" />
-              <rect x="14" y="5" width="4" height="14" fill="currentColor" />
-            </svg>
-          </button>
-
         </div>
         </div>
       </div>
@@ -515,6 +495,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=logo-careers"></script>
+  <script src="script.js?v=hero-slides"></script>
 </body>
 </html>

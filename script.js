@@ -127,81 +127,59 @@
     });
   }, observerOptions);
 
-  const heroCareers = [
-    'Full Stack Development',
-    'Data Science',
-    'AI Engineering',
-    'Data Engineering'
+  const heroSlides = [
+    {
+      name: 'Full Stack Development',
+      desc: 'Desarrollá aplicaciones web de punta a punta'
+    },
+    {
+      name: 'Data Science',
+      desc: 'Analizá datos y creá modelos de machine learning'
+    },
+    {
+      name: 'AI Engineering',
+      desc: 'Construí soluciones con inteligencia artificial'
+    },
+    {
+      name: 'Data Engineering',
+      desc: 'Diseñá pipelines y arquitecturas de datos a escala'
+    }
   ];
   const heroCareerText = document.getElementById('heroCareerText');
-  let heroCareerIndex = 0;
+  const heroCareerDesc = document.getElementById('heroCareerDesc');
+  const heroSlideEls = document.querySelectorAll('.hero__slide');
+  let heroSlideIndex = 0;
+  let heroSlideTimer;
 
-  if (heroCareerText) {
-    setInterval(function () {
-      heroCareerText.classList.add('is-changing');
-      setTimeout(function () {
-        heroCareerIndex = (heroCareerIndex + 1) % heroCareers.length;
-        heroCareerText.textContent = heroCareers[heroCareerIndex];
-        heroCareerText.classList.remove('is-changing');
-      }, 350);
-    }, 2800);
-  }
-
-  const heroPlayer = document.getElementById('heroVideoPlayer');
-  const heroVideo = document.getElementById('heroVideo');
-  const heroPlay = document.getElementById('heroVideoPlay');
-  let heroMode = 'idle';
-
-  function startHeroScene() {
-    if (!heroPlayer || heroMode === 'real') return;
-    heroMode = 'scene';
-    heroPlayer.classList.add('is-playing-scene');
-    heroPlayer.classList.remove('is-paused');
-    heroPlay?.setAttribute('aria-label', 'Pausar video');
-  }
-
-  function startHeroRealVideo() {
-    if (!heroPlayer || !heroVideo) return;
-    heroMode = 'real';
-    heroPlayer.classList.add('is-playing-real');
-    heroPlayer.classList.remove('is-playing-scene', 'is-paused');
-    heroPlay?.setAttribute('aria-label', 'Pausar video');
-    heroVideo.play().catch(function () {
-      startHeroScene();
+  function showHeroSlide(index) {
+    heroSlideIndex = index;
+    heroSlideEls.forEach(function (slide, i) {
+      slide.classList.toggle('is-active', i === index);
     });
+    if (heroCareerText) heroCareerText.textContent = heroSlides[index].name;
+    if (heroCareerDesc) heroCareerDesc.textContent = heroSlides[index].desc;
   }
 
-  function pauseHero() {
-    if (!heroPlayer) return;
-    heroPlayer.classList.add('is-paused');
-    heroPlay?.setAttribute('aria-label', 'Reproducir video');
-    if (heroMode === 'real' && heroVideo) heroVideo.pause();
-  }
-
-  if (heroVideo) {
-    heroVideo.addEventListener('loadeddata', function () {
-      if (heroVideo.videoWidth > 0) startHeroRealVideo();
-    }, { once: true });
-
-    heroVideo.addEventListener('error', function () {
-      if (heroMode === 'idle') startHeroScene();
-    }, { once: true });
-  }
-
-  if (heroPlayer) {
+  function nextHeroSlide() {
+    if (heroCareerText) heroCareerText.classList.add('is-changing');
+    if (heroCareerDesc) heroCareerDesc.classList.add('is-changing');
     setTimeout(function () {
-      if (heroMode === 'idle') startHeroScene();
-    }, 1000);
+      showHeroSlide((heroSlideIndex + 1) % heroSlides.length);
+      heroCareerText?.classList.remove('is-changing');
+      heroCareerDesc?.classList.remove('is-changing');
+    }, 350);
   }
 
-  heroPlay?.addEventListener('click', function () {
-    if (heroPlayer?.classList.contains('is-paused') || heroMode === 'idle') {
-      if (heroMode === 'real') startHeroRealVideo();
-      else startHeroScene();
-    } else {
-      pauseHero();
-    }
-  });
+  function startHeroSlideshow() {
+    if (!heroSlideEls.length) return;
+    clearInterval(heroSlideTimer);
+    heroSlideTimer = setInterval(nextHeroSlide, 3200);
+  }
+
+  if (heroSlideEls.length) {
+    showHeroSlide(0);
+    startHeroSlideshow();
+  }
 
   const legalTrigger = document.getElementById('legalTrigger');
   const legalCredit = document.getElementById('legalCredit');
