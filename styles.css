@@ -77,8 +77,8 @@ img { max-width: 100%; display: block; }
 /* Navbar */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: var(--salmon);
-  border-bottom: 1px solid var(--salmon-border);
+  background: var(--cream);
+  border-bottom: 1px solid #f0e4b8;
   transition: var(--transition);
 }
 .navbar--scrolled { box-shadow: var(--shadow); }
@@ -156,7 +156,7 @@ img { max-width: 100%; display: block; }
 .more-menu a:hover { background: var(--bg); color: var(--blue); }
 .navbar__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .navbar__toggle span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
-.mobile-nav { display: none; border-top: 1px solid var(--salmon-border); background: var(--salmon); padding: 16px 24px 24px; }
+.mobile-nav { display: none; border-top: 1px solid #f0e4b8; background: var(--cream); padding: 16px 24px 24px; }
 .mobile-nav__tabs { display: flex; }
 .mobile-nav__tab {
   flex: 1; padding: 10px; font-family: var(--font-title); font-weight: 700; font-size: 0.85rem;
@@ -168,7 +168,7 @@ img { max-width: 100%; display: block; }
 .mobile-nav__panel { display: flex; flex-direction: column; gap: 4px; margin: 16px 0; }
 .mobile-nav__panel a { padding: 12px; font-size: 0.9rem; color: var(--dark); border-radius: 8px; }
 .mobile-nav__panel a:hover { background: var(--bg); }
-.mobile-nav__extras { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding-top: 16px; border-top: 1px solid var(--salmon-border); }
+.mobile-nav__extras { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding-top: 16px; border-top: 1px solid #f0e4b8; }
 .mobile-nav__extras a { padding: 10px 12px; font-size: 0.85rem; color: var(--gray); }
 .mobile-nav__extras a:hover { color: var(--blue); }
 .mobile-nav__actions {
