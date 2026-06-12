@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curso de Data Science en VOROX Academia — Python, estadística, Machine Learning y proyecto final con empleabilidad." />
+  <title>Data Science | VOROX Academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=ds-course" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html#inicio" class="navbar__logo" aria-label="VOROX Academia — Inicio">
+        <img src="assets/logo-vorox.png?v=new" alt="VOROX Academia" class="logo" width="118" height="48" />
+      </a>
+      <nav class="navbar__audience" aria-label="Audiencias">
+        <div class="nav-dropdown" data-dropdown="estudiantes">
+          <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Para estudiantes
+            <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <div class="nav-dropdown__panel" hidden>
+            <p class="nav-dropdown__label">Carreras más solicitadas</p>
+            <a href="index.html#carreras" class="nav-dropdown__item"><strong>Full Stack Development</strong><span>Full-time 4 meses · Part-time 8 meses</span></a>
+            <a href="data-science.html" class="nav-dropdown__item"><strong>Data Science</strong><span>Análisis de datos y Machine Learning</span></a>
+            <a href="index.html#carreras" class="nav-dropdown__item"><strong>AI Engineering <span class="nav-dropdown__tag">Nueva</span></strong><span>IA aplicada y agentes inteligentes</span></a>
+            <a href="index.html#carreras" class="nav-dropdown__item"><strong>Data Engineering</strong><span>Pipelines y sistemas a gran escala</span></a>
+            <a href="index.html#carreras" class="nav-dropdown__footer">Ver todas las carreras →</a>
+          </div>
+        </div>
+        <div class="nav-dropdown" data-dropdown="empresas">
+          <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Para empresas
+            <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <div class="nav-dropdown__panel" hidden>
+            <p class="nav-dropdown__label">Soluciones corporativas</p>
+            <a href="index.html#empresas-logos" class="nav-dropdown__item"><strong>Contratar talento VOROX</strong><span>Graduados listos para producir</span></a>
+            <a href="index.html#inscripcion" class="nav-dropdown__item"><strong>Capacitación en IA</strong><span>Formá expertos en tu equipo</span></a>
+            <a href="index.html#inscripcion" class="nav-dropdown__footer">Hablar con ventas →</a>
+          </div>
+        </div>
+      </nav>
+      <div class="navbar__actions">
+        <div class="navbar__buttons">
+          <a href="#" class="btn btn--cta btn--sm">Ingresar</a>
+        </div>
+        <button class="navbar__toggle" id="navToggle" aria-label="Menú móvil"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero curso -->
+    <section class="course-hero">
+      <div class="container">
+        <a href="index.html#carreras" class="course-hero__back">← Volver a carreras</a>
+        <span class="section-tag">Carrera</span>
+        <h1>Data Science</h1>
+        <p class="course-hero__lead">Programa intensivo para convertirte en Data Scientist: desde Python y estadística hasta Machine Learning, proyectos reales y preparación para el mercado laboral.</p>
+        <div class="course-hero__meta">
+          <span><strong>Duración:</strong> 4–8 meses</span>
+          <span><strong>Modalidad:</strong> Full-time / Part-time</span>
+          <span><strong>Clases:</strong> En vivo + mentoría</span>
+          <span><strong>Nivel:</strong> Desde cero</span>
+        </div>
+        <a href="index.html#inscripcion" class="btn btn--cta btn--lg">Quiero información</a>
+      </div>
+    </section>
+
+    <!-- Resumen -->
+    <section class="course-section">
+      <div class="container course-summary">
+        <div>
+          <h2>¿Qué vas a aprender?</h2>
+          <ul class="course-list">
+            <li>Programar en Python para análisis y modelado de datos</li>
+            <li>Aplicar estadística y probabilidad a problemas reales de negocio</li>
+            <li>Explorar, limpiar y visualizar datasets con pandas, NumPy y Matplotlib/Seaborn</li>
+            <li>Construir modelos de Machine Learning supervisado y no supervisado</li>
+            <li>Trabajar con SQL, APIs y fuentes de datos en la nube</li>
+            <li>Comunicar hallazgos con dashboards y storytelling de datos</li>
+            <li>Desarrollar un proyecto final para tu portfolio profesional</li>
+          </ul>
+        </div>
+        <div class="course-stack">
+          <h3>Stack tecnológico</h3>
+          <div class="course-stack__tags">
+            <span>Python</span><span>Jupyter</span><span>pandas</span><span>NumPy</span>
+            <span>scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>SQL</span>
+            <span>Git</span><span>Power BI</span><span>Streamlit</span>
+          </div>
+          <h3>Salida laboral</h3>
+          <p>Data Analyst · Data Scientist · ML Engineer junior · Business Intelligence Analyst</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programa completo -->
+    <section class="course-section course-section--cream" id="programa">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Programa completo</span>
+          <h2>8 módulos · 42 clases en vivo</h2>
+          <p class="section-sub">Cada módulo incluye clases teórico-prácticas, ejercicios semanales, checkpoint con mentor y mini-proyecto aplicado.</p>
+        </div>
+
+        <div class="course-modules">
+
+          <details class="course-module" open>
+            <summary>
+              <span class="course-module__num">01</span>
+              <span class="course-module__info">
+                <strong>Fundamentos de Data Science</strong>
+                <span>2 semanas · 4 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Comprender el rol del Data Scientist, el ciclo de vida de un proyecto de datos y las herramientas del ecosistema.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 1</span> Introducción a Data Science y casos de uso en la industria</li>
+                <li><span>Clase 2</span> El proceso CRISP-DM: del problema al modelo</li>
+                <li><span>Clase 3</span> Entorno de trabajo: Jupyter, VS Code, Git y buenas prácticas</li>
+                <li><span>Clase 4</span> Ética de datos, privacidad y sesgos algorítmicos</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Definir un caso de negocio y armar el dataset inicial del proyecto final.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">02</span>
+              <span class="course-module__info">
+                <strong>Python para Ciencia de Datos</strong>
+                <span>3 semanas · 6 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Dominar Python como lenguaje principal para manipulación, análisis y automatización de datos.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 5</span> Sintaxis, tipos de datos, estructuras y funciones</li>
+                <li><span>Clase 6</span> NumPy: arrays, operaciones vectorizadas y álgebra básica</li>
+                <li><span>Clase 7</span> pandas I: Series, DataFrames, lectura de CSV/Excel/JSON</li>
+                <li><span>Clase 8</span> pandas II: filtrado, groupby, merge y pivot tables</li>
+                <li><span>Clase 9</span> Limpieza de datos: valores nulos, duplicados y outliers</li>
+                <li><span>Clase 10</span> Automatización con scripts y manejo de errores</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Pipeline de limpieza y transformación sobre un dataset de e-commerce.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">03</span>
+              <span class="course-module__info">
+                <strong>Estadística y Probabilidad</strong>
+                <span>3 semanas · 5 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Aplicar estadística descriptiva e inferencial para tomar decisiones basadas en evidencia.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 11</span> Estadística descriptiva: medidas de tendencia central y dispersión</li>
+                <li><span>Clase 12</span> Distribuciones, probabilidad y teorema de Bayes</li>
+                <li><span>Clase 13</span> Muestreo, intervalos de confianza y pruebas de hipótesis</li>
+                <li><span>Clase 14</span> Correlación, causalidad y experimentos A/B</li>
+                <li><span>Clase 15</span> Regresión lineal simple y múltiple con interpretación</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Análisis estadístico de una campaña de marketing con conclusiones accionables.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">04</span>
+              <span class="course-module__info">
+                <strong>Exploración y Visualización de Datos (EDA)</strong>
+                <span>3 semanas · 5 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Descubrir patrones, anomalías y relaciones en los datos mediante visualización efectiva.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 16</span> EDA sistemático: preguntas, hipótesis y validación</li>
+                <li><span>Clase 17</span> Visualización con Matplotlib y Seaborn</li>
+                <li><span>Clase 18</span> Feature engineering: variables categóricas, fechas y encoding</li>
+                <li><span>Clase 19</span> SQL para extracción y agregación de datos</li>
+                <li><span>Clase 20</span> Dashboards con Power BI / Streamlit</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Dashboard interactivo con KPIs para un negocio real o simulado.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">05</span>
+              <span class="course-module__info">
+                <strong>Machine Learning Supervisado</strong>
+                <span>4 semanas · 7 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Construir, evaluar y optimizar modelos predictivos para clasificación y regresión.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 21</span> Introducción al ML: train/test split y métricas de evaluación</li>
+                <li><span>Clase 22</span> Regresión: Linear, Ridge, Lasso y Random Forest</li>
+                <li><span>Clase 23</span> Clasificación: Logistic Regression, SVM y árboles de decisión</li>
+                <li><span>Clase 24</span> Ensemble methods: Bagging, Boosting (XGBoost)</li>
+                <li><span>Clase 25</span> Validación cruzada, Grid Search y prevención de overfitting</li>
+                <li><span>Clase 26</span> Interpretabilidad: feature importance y SHAP básico</li>
+                <li><span>Clase 27</span> Despliegue de un modelo con pickle y API REST simple</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Modelo de churn o scoring de crédito con reporte de métricas y recomendaciones.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">06</span>
+              <span class="course-module__info">
+                <strong>Machine Learning No Supervisado</strong>
+                <span>2 semanas · 4 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Segmentar clientes, detectar anomalías y reducir dimensionalidad sin etiquetas.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 28</span> Clustering: K-Means, DBSCAN y evaluación de clusters</li>
+                <li><span>Clase 29</span> PCA y reducción de dimensionalidad</li>
+                <li><span>Clase 30</span> Detección de anomalías para fraude y calidad</li>
+                <li><span>Clase 31</span> Sistemas de recomendación: filtrado colaborativo básico</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Segmentación de clientes con perfilado y estrategia de negocio por cluster.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">07</span>
+              <span class="course-module__info">
+                <strong>NLP, Series Temporales e IA aplicada</strong>
+                <span>3 semanas · 5 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Introducir técnicas modernas para texto, pronósticos y automatización inteligente.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 32</span> NLP: tokenización, TF-IDF y análisis de sentimiento</li>
+                <li><span>Clase 33</span> Introducción a embeddings y modelos de lenguaje (LLMs)</li>
+                <li><span>Clase 34</span> Series temporales: tendencia, estacionalidad y ARIMA</li>
+                <li><span>Clase 35</span> Forecasting con Prophet y evaluación de pronósticos</li>
+                <li><span>Clase 36</span> Automatización de reportes y agentes de datos con IA</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto:</strong> Clasificador de reviews o forecast de demanda con informe ejecutivo.</p>
+            </div>
+          </details>
+
+          <details class="course-module">
+            <summary>
+              <span class="course-module__num">08</span>
+              <span class="course-module__info">
+                <strong>Proyecto Final y Empleabilidad</strong>
+                <span>4 semanas · 6 clases</span>
+              </span>
+            </summary>
+            <div class="course-module__body">
+              <p class="course-module__goal">Consolidar todo el aprendizaje en un proyecto de portfolio y prepararte para entrevistas técnicas.</p>
+              <ul class="course-lessons">
+                <li><span>Clase 37</span> Definición del problema y arquitectura de la solución</li>
+                <li><span>Clase 38</span> Desarrollo del pipeline end-to-end (datos → modelo → visualización)</li>
+                <li><span>Clase 39</span> Documentación, README profesional y GitHub portfolio</li>
+                <li><span>Clase 40</span> Presentación de resultados: storytelling para stakeholders</li>
+                <li><span>Clase 41</span> Simulacros de entrevista técnica y case studies</li>
+                <li><span>Clase 42</span> Demo Day: presentación ante mentores y empresas aliadas</li>
+              </ul>
+              <p class="course-project"><strong>Proyecto final:</strong> Solución completa de Data Science publicada en GitHub con dashboard y modelo desplegado.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Metodología del curso -->
+    <section class="course-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Cómo se dicta</span>
+          <h2>Metodología VOROX aplicada a Data Science</h2>
+        </div>
+        <div class="course-pillars">
+          <article>
+            <h3>Clases en vivo</h3>
+            <p>2–3 sesiones semanales con profesores activos en la industria. Grabaciones disponibles.</p>
+          </article>
+          <article>
+            <h3>Práctica semanal</h3>
+            <p>Ejercicios en Jupyter, datasets reales y feedback personalizado de mentores.</p>
+          </article>
+          <article>
+            <h3>Proyectos por módulo</h3>
+            <p>Cada bloque cierra con un entregable que suma a tu portfolio profesional.</p>
+          </article>
+          <article>
+            <h3>Career coaching</h3>
+            <p>CV optimizado, LinkedIn, preparación para entrevistas y conexión con empresas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="course-cta">
+      <div class="container">
+        <h2>¿Listo para empezar en Data Science?</h2>
+        <p>Dejanos tus datos y un asesor te orienta sobre modalidad, becas y próximas cohortes.</p>
+        <a href="index.html#inscripcion" class="btn btn--cta btn--lg">Quiero que me contacten</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html#inicio" class="footer__logo" aria-label="VOROX Academia">
+          <img src="assets/logo-vorox-footer.png?v=new" alt="VOROX Academia" class="logo" width="125" height="48" />
+        </a>
+        <p>Educación en tecnología con foco en empleabilidad.</p>
+      </div>
+      <div class="footer__links">
+        <div>
+          <h4>Programas</h4>
+          <a href="index.html#carreras">Carreras</a>
+          <a href="data-science.html">Data Science</a>
+          <a href="index.html#planes">Planes y becas</a>
+        </div>
+        <div>
+          <h4>VOROX</h4>
+          <a href="index.html#por-que">¿Por qué VOROX?</a>
+          <a href="index.html#inscripcion">Inscripción</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; 2026 VOROX Academia. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=ds-course"></script>
+</body>
+</html>
