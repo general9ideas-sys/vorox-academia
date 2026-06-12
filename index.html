@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=ea60cbc" />
+  <link rel="stylesheet" href="styles.css?v=hero-video" />
 </head>
 <body>
 
@@ -101,31 +101,21 @@
 
   <!-- 1. Hero -->
   <section class="hero" id="inicio">
-    <div class="container">
-      <div class="hero__grid">
-        <div class="hero__text">
-          <h1 class="hero__title">Tu carrera en <span class="highlight">tecnología</span> empieza acá</h1>
-          <p class="hero__subtitle">Formación práctica, clases en vivo y acompañamiento personalizado para que consigas empleo en los perfiles más demandados del mercado.</p>
-          <a href="#inscripcion" class="btn btn--cta btn--lg">Quiero información</a>
-        </div>
-        <div class="hero__media">
-        <div class="hero__video-player" id="heroVideoPlayer">
-          <div class="hero__slides" id="heroSlides" aria-hidden="true">
-            <img src="assets/hero-poster.png?v=ea60cbc" alt="" class="hero__slide is-active" />
-            <img src="assets/hero-career-1.png?v=ea60cbc" alt="" class="hero__slide" />
-            <img src="assets/hero-career-2.png?v=ea60cbc" alt="" class="hero__slide" />
-            <img src="assets/hero-career-4.png?v=ea60cbc" alt="" class="hero__slide" />
-          </div>
+    <video class="hero__bg-video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="assets/hero-video.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
 
-          <div class="hero__scene-ui">
-            <div class="hero__scene-badge"><span class="hero__scene-live"></span> Clase en vivo</div>
-            <div class="hero__scene-card">
-              <span class="hero__scene-label">Estudiá:</span>
-              <span class="hero__scene-career" id="heroCareerText" aria-live="polite">Full Stack Development</span>
-              <span class="hero__scene-desc" id="heroCareerDesc" aria-live="polite">Desarrollá aplicaciones web de punta a punta</span>
-            </div>
-          </div>
-        </div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="hero__scene-badge"><span class="hero__scene-live"></span> Clase en vivo</div>
+        <h1 class="hero__title">Tu carrera en <span class="highlight">tecnología</span> empieza acá</h1>
+        <p class="hero__subtitle">Formación práctica, clases en vivo y acompañamiento personalizado para que consigas empleo en los perfiles más demandados del mercado.</p>
+        <a href="#inscripcion" class="btn btn--cta btn--lg">Quiero información</a>
+        <div class="hero__scene-card">
+          <span class="hero__scene-label">Estudiá:</span>
+          <span class="hero__scene-career" id="heroCareerText" aria-live="polite">Full Stack Development</span>
+          <span class="hero__scene-desc" id="heroCareerDesc" aria-live="polite">Desarrollá aplicaciones web de punta a punta</span>
         </div>
       </div>
 
@@ -495,6 +485,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=ea60cbc"></script>
+  <script src="script.js?v=hero-video"></script>
 </body>
 </html>

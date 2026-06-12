@@ -127,58 +127,28 @@
     });
   }, observerOptions);
 
-  const heroSlides = [
-    {
-      name: 'Full Stack Development',
-      desc: 'Desarrollá aplicaciones web de punta a punta'
-    },
-    {
-      name: 'Data Science',
-      desc: 'Analizá datos y creá modelos de machine learning'
-    },
-    {
-      name: 'AI Engineering',
-      desc: 'Construí soluciones con inteligencia artificial'
-    },
-    {
-      name: 'Data Engineering',
-      desc: 'Diseñá pipelines y arquitecturas de datos a escala'
-    }
+  const heroCareers = [
+    { name: 'Full Stack Development', desc: 'Desarrollá aplicaciones web de punta a punta' },
+    { name: 'Data Science', desc: 'Analizá datos y creá modelos de machine learning' },
+    { name: 'AI Engineering', desc: 'Construí soluciones con inteligencia artificial' },
+    { name: 'Data Engineering', desc: 'Diseñá pipelines y arquitecturas de datos a escala' }
   ];
   const heroCareerText = document.getElementById('heroCareerText');
   const heroCareerDesc = document.getElementById('heroCareerDesc');
-  const heroSlideEls = document.querySelectorAll('.hero__slide');
-  let heroSlideIndex = 0;
-  let heroSlideTimer;
+  let heroCareerIndex = 0;
 
-  function showHeroSlide(index) {
-    heroSlideIndex = index;
-    heroSlideEls.forEach(function (slide, i) {
-      slide.classList.toggle('is-active', i === index);
-    });
-    if (heroCareerText) heroCareerText.textContent = heroSlides[index].name;
-    if (heroCareerDesc) heroCareerDesc.textContent = heroSlides[index].desc;
-  }
-
-  function nextHeroSlide() {
-    if (heroCareerText) heroCareerText.classList.add('is-changing');
-    if (heroCareerDesc) heroCareerDesc.classList.add('is-changing');
-    setTimeout(function () {
-      showHeroSlide((heroSlideIndex + 1) % heroSlides.length);
-      heroCareerText?.classList.remove('is-changing');
-      heroCareerDesc?.classList.remove('is-changing');
-    }, 350);
-  }
-
-  function startHeroSlideshow() {
-    if (!heroSlideEls.length) return;
-    clearInterval(heroSlideTimer);
-    heroSlideTimer = setInterval(nextHeroSlide, 3200);
-  }
-
-  if (heroSlideEls.length) {
-    showHeroSlide(0);
-    startHeroSlideshow();
+  if (heroCareerText && heroCareerDesc) {
+    setInterval(function () {
+      heroCareerText.classList.add('is-changing');
+      heroCareerDesc.classList.add('is-changing');
+      setTimeout(function () {
+        heroCareerIndex = (heroCareerIndex + 1) % heroCareers.length;
+        heroCareerText.textContent = heroCareers[heroCareerIndex].name;
+        heroCareerDesc.textContent = heroCareers[heroCareerIndex].desc;
+        heroCareerText.classList.remove('is-changing');
+        heroCareerDesc.classList.remove('is-changing');
+      }, 350);
+    }, 3200);
   }
 
   const legalTrigger = document.getElementById('legalTrigger');
