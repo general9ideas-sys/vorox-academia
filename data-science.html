@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=ds-classes" />
+  <link rel="stylesheet" href="styles.css?v=ds-toggle" />
 </head>
 <body>
 
@@ -114,15 +114,19 @@
 
         <div class="course-modules">
 
-          <details class="course-module" open>
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">01</span>
               <span class="course-module__info">
                 <strong>Fundamentos de Data Science</strong>
                 <span>2 semanas · 4 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-01">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-01" hidden>
               <p class="course-module__goal">Comprender el rol del Data Scientist, el ciclo de vida de un proyecto de datos y las herramientas del ecosistema.</p>
               <ul class="course-lessons">
                 <li><span>Clase 1</span> Introducción a Data Science y casos de uso en la industria</li>
@@ -133,17 +137,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Definir un caso de negocio y armar el dataset inicial del proyecto final.</p>
               <a href="data-science/clases.html#modulo-01" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">02</span>
               <span class="course-module__info">
                 <strong>Python para Ciencia de Datos</strong>
                 <span>3 semanas · 6 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-02">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-02" hidden>
               <p class="course-module__goal">Dominar Python como lenguaje principal para manipulación, análisis y automatización de datos.</p>
               <ul class="course-lessons">
                 <li><span>Clase 5</span> Sintaxis, tipos de datos, estructuras y funciones</li>
@@ -156,17 +164,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Pipeline de limpieza y transformación sobre un dataset de e-commerce.</p>
               <a href="data-science/clases.html#modulo-02" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">03</span>
               <span class="course-module__info">
                 <strong>Estadística y Probabilidad</strong>
                 <span>3 semanas · 5 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-03">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-03" hidden>
               <p class="course-module__goal">Aplicar estadística descriptiva e inferencial para tomar decisiones basadas en evidencia.</p>
               <ul class="course-lessons">
                 <li><span>Clase 11</span> Estadística descriptiva: medidas de tendencia central y dispersión</li>
@@ -178,17 +190,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Análisis estadístico de una campaña de marketing con conclusiones accionables.</p>
               <a href="data-science/clases.html#modulo-03" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">04</span>
               <span class="course-module__info">
                 <strong>Exploración y Visualización de Datos (EDA)</strong>
                 <span>3 semanas · 5 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-04">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-04" hidden>
               <p class="course-module__goal">Descubrir patrones, anomalías y relaciones en los datos mediante visualización efectiva.</p>
               <ul class="course-lessons">
                 <li><span>Clase 16</span> EDA sistemático: preguntas, hipótesis y validación</li>
@@ -200,17 +216,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Dashboard interactivo con KPIs para un negocio real o simulado.</p>
               <a href="data-science/clases.html#modulo-04" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">05</span>
               <span class="course-module__info">
                 <strong>Machine Learning Supervisado</strong>
                 <span>4 semanas · 7 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-05">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-05" hidden>
               <p class="course-module__goal">Construir, evaluar y optimizar modelos predictivos para clasificación y regresión.</p>
               <ul class="course-lessons">
                 <li><span>Clase 21</span> Introducción al ML: train/test split y métricas de evaluación</li>
@@ -224,17 +244,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Modelo de churn o scoring de crédito con reporte de métricas y recomendaciones.</p>
               <a href="data-science/clases.html#modulo-05" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">06</span>
               <span class="course-module__info">
                 <strong>Machine Learning No Supervisado</strong>
                 <span>2 semanas · 4 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-06">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-06" hidden>
               <p class="course-module__goal">Segmentar clientes, detectar anomalías y reducir dimensionalidad sin etiquetas.</p>
               <ul class="course-lessons">
                 <li><span>Clase 28</span> Clustering: K-Means, DBSCAN y evaluación de clusters</li>
@@ -245,17 +269,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Segmentación de clientes con perfilado y estrategia de negocio por cluster.</p>
               <a href="data-science/clases.html#modulo-06" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">07</span>
               <span class="course-module__info">
                 <strong>NLP, Series Temporales e IA aplicada</strong>
                 <span>3 semanas · 5 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-07">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-07" hidden>
               <p class="course-module__goal">Introducir técnicas modernas para texto, pronósticos y automatización inteligente.</p>
               <ul class="course-lessons">
                 <li><span>Clase 32</span> NLP: tokenización, TF-IDF y análisis de sentimiento</li>
@@ -267,17 +295,21 @@
               <p class="course-project"><strong>Proyecto:</strong> Clasificador de reviews o forecast de demanda con informe ejecutivo.</p>
               <a href="data-science/clases.html#modulo-07" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
-          <details class="course-module">
-            <summary>
+          <div class="course-module">
+            <div class="course-module__header">
               <span class="course-module__num">08</span>
               <span class="course-module__info">
                 <strong>Proyecto Final y Empleabilidad</strong>
                 <span>4 semanas · 6 clases</span>
               </span>
-            </summary>
-            <div class="course-module__body">
+              <button type="button" class="course-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="course-mod-08">
+                <span class="course-module__toggle-text">Ver clases</span>
+                <svg class="course-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+            <div class="course-module__body" id="course-mod-08" hidden>
               <p class="course-module__goal">Consolidar todo el aprendizaje en un proyecto de portfolio y prepararte para entrevistas técnicas.</p>
               <ul class="course-lessons">
                 <li><span>Clase 37</span> Definición del problema y arquitectura de la solución</li>
@@ -290,7 +322,7 @@
               <p class="course-project"><strong>Proyecto final:</strong> Solución completa de Data Science publicada en GitHub con dashboard y modelo desplegado.</p>
               <a href="data-science/clases.html#modulo-08" class="course-module__link">Ver clases del módulo →</a>
             </div>
-          </details>
+          </div>
 
         </div>
       </div>
@@ -363,6 +395,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=ds-course"></script>
+  <script src="script.js?v=ds-toggle"></script>
 </body>
 </html>

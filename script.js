@@ -92,7 +92,23 @@
     });
   });
 
-  applyForm.addEventListener('submit', function (e) {
+  document.querySelectorAll('.course-module__toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var bodyId = btn.getAttribute('aria-controls');
+      var body = bodyId ? document.getElementById(bodyId) : null;
+      var module = btn.closest('.course-module');
+      var label = btn.querySelector('.course-module__toggle-text');
+      if (!body || !module) return;
+
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      body.hidden = expanded;
+      module.classList.toggle('is-open', !expanded);
+      if (label) label.textContent = expanded ? 'Ver clases' : 'Ocultar clases';
+    });
+  });
+
+  if (applyForm) applyForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const nombre = document.getElementById('nombre').value.trim();
