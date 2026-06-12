@@ -247,10 +247,6 @@ img { max-width: 100%; display: block; }
   align-self: flex-end;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
 }
-.hero__companies {
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
 .hero__title {
   font-family: var(--font-body);
   font-size: clamp(2rem, 4.5vw, 3rem);
@@ -302,23 +298,12 @@ img { max-width: 100%; display: block; }
   .hero__bg-video { transform: none; }
 }
 
-/* Companies (dentro del hero) */
-.hero__companies .companies__phrase {
-  text-align: center;
-  font-family: var(--font-title);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--white);
-  margin-bottom: 16px;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-.hero__companies .companies__slide span {
-  color: var(--white);
-  opacity: 0.85;
-}
-.hero__companies .companies__slide span:hover {
-  opacity: 1;
-  color: var(--yellow);
+/* 2. Companies */
+.companies {
+  padding: 40px 0;
+  background: var(--white);
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
 }
 .companies__phrase {
   text-align: center;
@@ -643,5 +628,4 @@ img { max-width: 100%; display: block; }
   .footer__links { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 460px; }
   .hero__inner { padding: 28px 24px 24px; }
-  .hero__companies { padding-top: 16px; }
 }
