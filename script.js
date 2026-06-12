@@ -127,30 +127,6 @@
     });
   }, observerOptions);
 
-  const heroCareers = [
-    { name: 'Full Stack Development', desc: 'Desarrollá aplicaciones web de punta a punta' },
-    { name: 'Data Science', desc: 'Analizá datos y creá modelos de machine learning' },
-    { name: 'AI Engineering', desc: 'Construí soluciones con inteligencia artificial' },
-    { name: 'Data Engineering', desc: 'Diseñá pipelines y arquitecturas de datos a escala' }
-  ];
-  const heroCareerText = document.getElementById('heroCareerText');
-  const heroCareerDesc = document.getElementById('heroCareerDesc');
-  let heroCareerIndex = 0;
-
-  if (heroCareerText && heroCareerDesc) {
-    setInterval(function () {
-      heroCareerText.classList.add('is-changing');
-      heroCareerDesc.classList.add('is-changing');
-      setTimeout(function () {
-        heroCareerIndex = (heroCareerIndex + 1) % heroCareers.length;
-        heroCareerText.textContent = heroCareers[heroCareerIndex].name;
-        heroCareerDesc.textContent = heroCareers[heroCareerIndex].desc;
-        heroCareerText.classList.remove('is-changing');
-        heroCareerDesc.classList.remove('is-changing');
-      }, 350);
-    }, 3200);
-  }
-
   const legalTrigger = document.getElementById('legalTrigger');
   const legalCredit = document.getElementById('legalCredit');
 
