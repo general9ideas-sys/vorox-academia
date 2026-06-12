@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clases de Data Science — VOROX Academia. 42 lecciones con teoría, código y ejercicios." />
+  <title>Clases Data Science | VOROX Academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=ds-classes" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="../index.html#inicio" class="navbar__logo" aria-label="VOROX Academia">
+        <img src="../assets/logo-vorox.png?v=new" alt="VOROX Academia" class="logo" width="118" height="48" />
+      </a>
+      <div class="navbar__actions">
+        <div class="navbar__buttons">
+          <a href="#" class="btn btn--cta btn--sm">Ingresar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="classes-topbar">
+    <div class="container">
+      <h1>Clases — Data Science</h1>
+      <a href="../data-science.html">← Volver al programa</a>
+    </div>
+  </div>
+
+  <div class="container classes-layout">
+    <aside class="classes-sidebar" id="classesNav" aria-label="Navegación de clases"></aside>
+    <main class="classes-main" id="classesMain"></main>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__bottom" style="border:none;padding:20px 0;">
+      <p>&copy; 2026 VOROX Academia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="lessons-data.js?v=1"></script>
+  <script>
+    (function () {
+      'use strict';
+      var nav = document.getElementById('classesNav');
+      var main = document.getElementById('classesMain');
+      if (!window.DS_MODULES || !nav || !main) return;
+
+      var navHtml = '<h2>Índice de clases</h2>';
+      var mainHtml = '';
+
+      window.DS_MODULES.forEach(function (mod) {
+        var modId = 'modulo-' + String(mod.id).padStart(2, '0');
+        navHtml += '<div class="classes-nav__mod"><strong>Módulo ' + mod.id + '</strong>';
+        mod.lessons.forEach(function (lesson) {
+          var lessonId = 'clase-' + String(lesson.n).padStart(2, '0');
+          navHtml += '<a href="#' + lessonId + '">Clase ' + lesson.n + ': ' + lesson.title + '</a>';
+        });
+        navHtml += '</div>';
+
+        mainHtml += '<section class="classes-module" id="' + modId + '">';
+        mainHtml += '<div class="classes-module__header"><span>Módulo ' + mod.id + '</span>';
+        mainHtml += '<h2>' + mod.title + '</h2><p>' + mod.weeks + ' · ' + mod.lessons.length + ' clases</p></div>';
+
+        mod.lessons.forEach(function (lesson) {
+          var lessonId = 'clase-' + String(lesson.n).padStart(2, '0');
+          mainHtml += '<article class="lesson" id="' + lessonId + '">';
+          mainHtml += '<div class="lesson__top">';
+          mainHtml += '<span class="lesson__num">Clase ' + lesson.n + '</span>';
+          mainHtml += '<h3>' + lesson.title + '</h3>';
+          mainHtml += '<span class="lesson__duration">' + lesson.duration + '</span>';
+          mainHtml += '</div>';
+
+          mainHtml += '<div class="lesson__block"><h4>Objetivos</h4><ul>';
+          lesson.objectives.forEach(function (obj) {
+            mainHtml += '<li>' + obj + '</li>';
+          });
+          mainHtml += '</ul></div>';
+
+          mainHtml += '<div class="lesson__block"><h4>Contenido</h4>' + lesson.content + '</div>';
+
+          if (lesson.code) {
+            mainHtml += '<div class="lesson__block"><h4>Ejemplo en código</h4>';
+            mainHtml += '<pre class="lesson__code"><code>' + lesson.code.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre></div>';
+          }
+
+          mainHtml += '<div class="lesson__block lesson__exercise"><h4>Ejercicio práctico</h4>';
+          mainHtml += '<p>' + lesson.exercise + '</p></div>';
+          mainHtml += '</article>';
+        });
+
+        mainHtml += '</section>';
+      });
+
+      nav.innerHTML = navHtml;
+      main.innerHTML = mainHtml;
+    })();
+  </script>
+  <script src="../script.js?v=ds-classes"></script>
+</body>
+</html>
