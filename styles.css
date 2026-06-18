@@ -429,6 +429,16 @@ img { max-width: 100%; display: block; }
   padding-bottom: 10px;
   border-bottom: 2px solid var(--yellow);
 }
+.platform__group-note {
+  font-size: 0.95rem;
+  color: var(--gray);
+  margin: -8px 0 0;
+  padding-bottom: 8px;
+}
+.platform__group-note a {
+  color: var(--blue);
+  font-weight: 700;
+}
 .platform__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -494,6 +504,92 @@ img { max-width: 100%; display: block; }
   color: var(--blue);
 }
 .platform__link:hover { color: var(--blue-deep); }
+.platform__card--link {
+  display: block;
+  color: inherit;
+}
+.platform__card--link:hover h4 { color: var(--blue); }
+
+/* Páginas del ecosistema */
+.feature-hero {
+  margin-top: 76px;
+  padding: 56px 0 48px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  color: var(--white);
+}
+.feature-hero__back {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+.feature-hero__back:hover { color: var(--yellow); }
+.feature-hero__tag {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+.feature-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.feature-hero__lead {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 680px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.feature-hero__meta {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 28px;
+}
+.feature-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.feature-hero .btn--outline-nav {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
+  background: transparent;
+}
+.feature-hero .btn--outline-nav:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--white);
+}
+.feature-section { padding: 72px 0; background: var(--white); }
+.feature-content { max-width: 720px; }
+.feature-block { margin-bottom: 40px; }
+.feature-block:last-child { margin-bottom: 0; }
+.feature-block h2 {
+  font-size: 1.35rem;
+  margin-bottom: 16px;
+  color: var(--blue);
+}
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.feature-list li {
+  font-size: 0.95rem;
+  color: var(--gray);
+  padding: 14px 18px;
+  background: var(--bg);
+  border-radius: 8px;
+  border-left: 3px solid var(--yellow);
+  line-height: 1.55;
+}
 
 /* 6. Vocational test */
 .vocational {
