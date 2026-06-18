@@ -155,7 +155,7 @@
   }
 
   document.querySelectorAll(
-    '.why__card, .career-card, .success-card, .pricing__card, .community__card'
+    '.why__card, .career-card, .success-card, .pricing__card, .community__card, .platform__card'
   ).forEach(function (el) {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';

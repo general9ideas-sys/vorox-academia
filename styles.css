@@ -412,6 +412,89 @@ img { max-width: 100%; display: block; }
 .tag--duration { background: transparent; border: 1px solid var(--gray-light); color: var(--gray); }
 .tag--full { background: rgba(56,94,167,0.12); }
 
+/* 5. Platform ecosystem */
+.platform {
+  padding: 88px 0;
+  background: var(--cream);
+}
+.platform__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.platform__group-title {
+  font-size: 1.1rem;
+  color: var(--blue);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--yellow);
+}
+.platform__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.platform__card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius-lg);
+  padding: 24px 24px 20px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.platform__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.platform__card--highlight {
+  border-color: var(--blue);
+  background: linear-gradient(180deg, var(--white) 0%, var(--blue-soft) 100%);
+}
+.platform__num {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.platform__tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: var(--yellow-soft);
+  color: var(--blue-deep);
+}
+.platform__card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  padding-right: 72px;
+}
+.platform__card p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.55;
+  margin: 0;
+}
+.platform__card p strong { color: var(--dark); }
+.platform__link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--blue);
+}
+.platform__link:hover { color: var(--blue-deep); }
+
 /* 6. Vocational test */
 .vocational {
   padding: 88px 0;
@@ -1018,6 +1101,7 @@ img { max-width: 100%; display: block; }
   .hero__text { max-width: 100%; }
   .hero__cta { align-self: flex-end; }
   .why__grid { grid-template-columns: repeat(2, 1fr); }
+  .platform__grid { grid-template-columns: repeat(2, 1fr); }
   .careers__grid, .success__grid { grid-template-columns: repeat(2, 1fr); }
   .community__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1037,7 +1121,7 @@ img { max-width: 100%; display: block; }
   .course-module__header { flex-wrap: wrap; gap: 12px; }
   .course-module__toggle { margin-left: 0; width: 100%; justify-content: center; }
   .why__grid, .careers__grid, .success__grid,
-  .community__grid, .pricing__grid { grid-template-columns: 1fr; }
+  .platform__grid, .community__grid, .pricing__grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 460px; }
