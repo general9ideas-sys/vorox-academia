@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nivelación Data Science — VOROX Academia. Matemática, Python y estadística inferencial antes de la carrera." />
+  <meta name="description" content="Nivelación Data Science — VOROX Academia. 21 clases gratuitas: matemática, Python, estadística inferencial y primeros pasos en ML." />
   <title>Nivelación Data Science | VOROX Academia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=nivelacion-ds" />
+  <link rel="stylesheet" href="../styles.css?v=nivelacion-ds-full" />
 </head>
 <body>
 
@@ -25,32 +25,27 @@
     </div>
   </header>
 
-  <main>
-    <section class="feature-hero">
-      <div class="container">
-        <a href="../data-science.html" class="feature-hero__back">← Volver a Data Science</a>
-        <span class="feature-hero__tag">Nivelación</span>
-        <h1>Nivelación — Data Science</h1>
-        <p class="feature-hero__lead">Matemática, Python y estadística inferencial para llegar preparado al programa de ciencia de datos.</p>
-        <p class="feature-hero__meta">Gratis · Incluida en tu admisión</p>
-      </div>
-    </section>
+  <div class="classes-topbar">
+    <div class="container">
+      <h1>Nivelación — Data Science</h1>
+      <a href="../data-science.html">← Volver a la carrera</a>
+    </div>
+  </div>
 
-    <section class="feature-section">
-      <div class="container feature-content">
-        <div class="feature-block nivelacion-soon">
-          <span class="career-card__badge career-card__badge--muted">Próximamente</span>
-          <h2>Estamos armando las clases</h2>
-          <p>La nivelación de Data Science estará disponible muy pronto con módulos de matemática, Python y estadística inferencial.</p>
-          <p>Mientras tanto, podés reforzar bases con la <a href="data-analyst.html">nivelación de Data Analyst</a> o explorar el <a href="../nivelacion.html">hub de nivelaciones</a>.</p>
-          <div class="nivelacion-soon__actions">
-            <a href="../data-science.html" class="btn btn--outline-nav">Volver a la carrera</a>
-            <a href="../index.html#inscripcion" class="btn btn--cta">Quiero información</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <div class="container nivelacion-intro">
+    <p>Programa gratuito de bases: mentalidad de Data Scientist, matemática aplicada, Python con NumPy y pandas, estadística inferencial y primer contacto con scikit-learn. Completalo antes de la cohorte para arrancar al mismo nivel que tus compañeros.</p>
+    <div class="nivelacion-intro__meta">
+      <span><strong>5 módulos</strong></span>
+      <span><strong>21 clases</strong></span>
+      <span><strong>~6 semanas</strong></span>
+      <span><strong>Gratis</strong></span>
+    </div>
+  </div>
+
+  <div class="container classes-layout">
+    <aside class="classes-sidebar" id="classesNav" aria-label="Navegación de clases"></aside>
+    <main class="classes-main" id="classesMain"></main>
+  </div>
 
   <footer class="footer">
     <div class="container footer__bottom" style="border:none;padding:20px 0;">
@@ -58,6 +53,116 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=nivelacion-ds"></script>
+  <script src="data-science-lessons.js?v=1"></script>
+  <script>
+    (function () {
+      'use strict';
+      var modules = window.DS_NIV_MODULES;
+      var nav = document.getElementById('classesNav');
+      var main = document.getElementById('classesMain');
+      if (!modules || !nav || !main) return;
+
+      var navHtml = '<h2>Índice</h2>';
+      var mainHtml = '';
+
+      modules.forEach(function (mod) {
+        var modId = 'modulo-' + String(mod.id).padStart(2, '0');
+        var navListId = 'nav-mod-' + mod.id;
+        navHtml += '<div class="classes-nav__mod">';
+        navHtml += '<button type="button" class="classes-nav__toggle" aria-expanded="false" aria-controls="' + navListId + '">';
+        navHtml += '<span>Módulo ' + mod.id + '</span>';
+        navHtml += '<svg class="classes-nav__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+        navHtml += '</button>';
+        navHtml += '<div class="classes-nav__list" id="' + navListId + '" hidden>';
+        mod.lessons.forEach(function (lesson) {
+          var lessonId = 'clase-' + String(lesson.n).padStart(2, '0');
+          navHtml += '<a href="#' + lessonId + '">Clase ' + lesson.n + ': ' + lesson.title + '</a>';
+        });
+        navHtml += '</div></div>';
+
+        var lessonsId = 'lessons-mod-' + mod.id;
+        mainHtml += '<section class="classes-module" id="' + modId + '">';
+        mainHtml += '<div class="classes-module__header">';
+        mainHtml += '<div><span>Módulo ' + mod.id + '</span>';
+        mainHtml += '<h2>' + mod.title + '</h2><p>' + mod.weeks + ' · ' + mod.lessons.length + ' clases</p></div>';
+        mainHtml += '<button type="button" class="classes-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="' + lessonsId + '">';
+        mainHtml += '<span class="classes-module__toggle-text">Ver clases</span>';
+        mainHtml += '<svg class="classes-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+        mainHtml += '</button></div>';
+        mainHtml += '<div class="classes-module__lessons" id="' + lessonsId + '" hidden>';
+
+        mod.lessons.forEach(function (lesson) {
+          var lessonId = 'clase-' + String(lesson.n).padStart(2, '0');
+          mainHtml += '<article class="lesson" id="' + lessonId + '">';
+          mainHtml += '<div class="lesson__top">';
+          mainHtml += '<span class="lesson__num">Clase ' + lesson.n + '</span>';
+          mainHtml += '<h3>' + lesson.title + '</h3>';
+          mainHtml += '<span class="lesson__duration">' + lesson.duration + '</span>';
+          mainHtml += '</div>';
+          mainHtml += '<div class="lesson__block"><h4>Objetivos</h4><ul>';
+          lesson.objectives.forEach(function (obj) {
+            mainHtml += '<li>' + obj + '</li>';
+          });
+          mainHtml += '</ul></div>';
+          mainHtml += '<div class="lesson__block"><h4>Contenido</h4>' + lesson.content + '</div>';
+          if (lesson.code) {
+            mainHtml += '<div class="lesson__block"><h4>Ejemplo</h4>';
+            mainHtml += '<pre class="lesson__code"><code>' + lesson.code.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre></div>';
+          }
+          mainHtml += '<div class="lesson__block lesson__exercise"><h4>Ejercicio práctico</h4><p>' + lesson.exercise + '</p></div>';
+          mainHtml += '</article>';
+        });
+        mainHtml += '</div></section>';
+      });
+
+      nav.innerHTML = navHtml;
+      main.innerHTML = mainHtml;
+
+      document.querySelectorAll('.classes-nav__toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var list = document.getElementById(btn.getAttribute('aria-controls'));
+          if (!list) return;
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          list.hidden = expanded;
+          btn.closest('.classes-nav__mod').classList.toggle('is-open', !expanded);
+        });
+      });
+
+      document.querySelectorAll('.classes-module__toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var panel = document.getElementById(btn.getAttribute('aria-controls'));
+          var label = btn.querySelector('.classes-module__toggle-text');
+          var section = btn.closest('.classes-module');
+          if (!panel || !section) return;
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          panel.hidden = expanded;
+          section.classList.toggle('is-open', !expanded);
+          if (label) label.textContent = expanded ? 'Ver clases' : 'Ocultar clases';
+        });
+      });
+
+      var hash = window.location.hash;
+      if (hash) {
+        var target = document.querySelector(hash);
+        if (target) {
+          var parentPanel = target.closest('.classes-module__lessons');
+          var parentSection = target.closest('.classes-module');
+          if (parentPanel && parentSection) {
+            parentPanel.hidden = false;
+            parentSection.classList.add('is-open');
+            var toggleBtn = parentSection.querySelector('.classes-module__toggle');
+            if (toggleBtn) {
+              toggleBtn.setAttribute('aria-expanded', 'true');
+              var toggleLabel = toggleBtn.querySelector('.classes-module__toggle-text');
+              if (toggleLabel) toggleLabel.textContent = 'Ocultar clases';
+            }
+          }
+        }
+      }
+    })();
+  </script>
+  <script src="../script.js?v=nivelacion-ds-full"></script>
 </body>
 </html>
