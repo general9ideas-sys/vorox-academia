@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=nivelacion-career-only" />
+  <link rel="stylesheet" href="styles.css?v=vocational-test" />
 </head>
 <body>
 
@@ -55,8 +55,6 @@
           <div class="nav-dropdown__panel nav-dropdown__panel--platform" hidden>
             <a href="nivelacion.html" class="nav-dropdown__item"><strong>Cursos de nivelación</strong><span>Data Science y Data Analyst disponibles</span></a>
             <a href="plataforma/aula-virtual.html" class="nav-dropdown__item"><strong>Aula virtual</strong><span>Campus digital en vivo</span></a>
-            <p class="nav-dropdown__label">Orientación</p>
-            <a href="#test-vocacional" class="nav-dropdown__item"><strong>Test vocacional</strong><span>Descubrí tu carrera ideal con IA</span></a>
             <p class="nav-dropdown__label">Inteligencia artificial</p>
             <a href="plataforma/agente-ia.html" class="nav-dropdown__item"><strong>Agente IA</strong><span>Acompañamiento en el cursado</span></a>
             <p class="nav-dropdown__label">Comunidad</p>
@@ -309,16 +307,8 @@
 
   <!-- 6. Test vocacional -->
   <section class="vocational" id="test-vocacional">
-    <div class="container vocational__inner">
-      <div>
-        <span class="section-tag">Test vocacional</span>
-        <h2>¿No sabés qué carrera elegir?</h2>
-        <p>Nuestro test con IA analiza tus intereses, habilidades y objetivos para recomendarte el curso o carrera VOROX ideal. Rápido, personalizado y sin compromiso.</p>
-        <a href="#inscripcion" class="btn btn--cta btn--lg">Descubrir mi carrera ideal</a>
-      </div>
-      <div class="vocational__visual" aria-hidden="true">
-        <div class="vocational__card-preview"><span>?</span><p>Tu camino ideal</p></div>
-      </div>
+    <div class="container">
+      <div class="vocational-test" id="vocationalTest" aria-live="polite"></div>
     </div>
   </section>
 
@@ -424,7 +414,7 @@
       <div class="faq__list">
         <details class="faq-item">
           <summary>¿Qué incluye la plataforma VOROX?</summary>
-          <p>Google Meet y aula virtual en vivo, cursos de nivelación gratis, test vocacional con IA, agente de acompañamiento, WhatsApp, Discord, editor de código, VOROX Lab, quizzes, campus de empleabilidad y certificación.</p>
+          <p>Aula virtual en vivo, cursos de nivelación gratis, agente de acompañamiento, WhatsApp, Discord, editor de código, VOROX Lab, quizzes, campus de empleabilidad y certificación. El test vocacional está en la landing.</p>
         </details>
         <details class="faq-item">
           <summary>¿Cómo puedo pagar desde Argentina o Paraguay?</summary>
@@ -537,6 +527,8 @@
     </div>
   </footer>
 
-  <script src="script.js?v=platform"></script>
+  <script src="script.js?v=vocational"></script>
+  <script src="js/vocational-test.js?v=1"></script>
+  <script>VoroxVocationalTest.init('vocationalTest');</script>
 </body>
 </html>
