@@ -439,6 +439,18 @@ img { max-width: 100%; display: block; }
 }
 .career-card h3 { font-size: 1.15rem; padding-right: 50px; }
 .career-card__meta { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+.career-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+.career-card__actions .btn--outline-nav { padding: 10px 20px; font-size: 0.8rem; }
+.nivelacion-hub__grid .career-card { scroll-margin-top: 100px; }
+.nivelacion-hub__grid .career-card:target {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px var(--yellow-soft);
+}
 .tag {
   font-family: var(--font-title); font-weight: 700; font-size: 0.75rem;
   padding: 6px 14px; border-radius: 50px; background: var(--blue-soft); color: var(--blue);
@@ -1071,10 +1083,20 @@ img { max-width: 100%; display: block; }
 .course-cta h2 { color: var(--white); margin-bottom: 12px; }
 .course-cta p {
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 24px;
-  max-width: 480px;
+  margin-bottom: 28px;
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
+}
+.course-cta .course-hero__actions { justify-content: center; }
+.course-cta .btn--outline-nav {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
+  background: transparent;
+}
+.course-cta .btn--outline-nav:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--white);
 }
 
 /* Clases — contenido de lecciones */
