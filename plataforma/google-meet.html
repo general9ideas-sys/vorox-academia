@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Google Meet en VOROX — charlas y clases en vivo vinculadas con el profesor." />
-  <title>Google Meet | VOROX Academia</title>
+  <meta name="description" content="Clases en vivo VOROX — agenda Zoom y Google Meet coordinada con el profesor, clase a clase." />
+  <title>Clases en vivo | VOROX Academia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=platform-pages" />
+  <link rel="stylesheet" href="../styles.css?v=live-meet" />
 </head>
 <body>
   <header class="navbar" id="navbar">
@@ -24,38 +24,89 @@
       <div class="container">
         <a href="../index.html#inicio" class="feature-hero__back">← VOROX Academia</a>
         <span class="feature-hero__tag">En vivo</span>
-        <h1>Google Meet</h1>
-        <p class="feature-hero__lead">Charlas y temas orientados a tu curso o carrera, vinculadas clase a clase con el profesor mediante Google Meet.</p>
-        <p class="feature-hero__meta">Clases sincronizadas · Coordinación con profesor</p>
+        <h1>Clases en vivo</h1>
+        <p class="feature-hero__lead">Cada clase del programa se agenda en concordancia con el profesor. Accedé al link de Zoom o Google Meet desde tu aula cuando la clase esté desbloqueada.</p>
+        <p class="feature-hero__meta">Zoom · Google Meet · Desbloqueo progresivo</p>
         <div class="feature-hero__actions">
-          <a href="../index.html#inscripcion" class="btn btn--cta btn--lg">Quiero información</a>
+          <a href="../data-science/clases.html" class="btn btn--cta btn--lg">Ir a Data Science</a>
           <a href="../index.html#inicio" class="btn btn--outline-nav btn--lg">Volver al inicio</a>
         </div>
       </div>
     </section>
+
+    <section class="feature-section feature-section--cream" id="agenda">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Agenda</span>
+          <h2>Próximas sesiones — Data Science</h2>
+          <p class="section-sub">El profesor publica fecha, plataforma y link de acceso por cada clase. Las sesiones futuras se habilitan al completar la clase anterior.</p>
+        </div>
+        <div id="liveScheduleList"></div>
+      </div>
+    </section>
+
     <section class="feature-section">
       <div class="container feature-content">
         <div class="feature-block">
-          <h2>Cómo funciona</h2>
+          <h2>Cómo funciona el desbloqueo</h2>
           <ul class="feature-list">
-            <li>Cada clase del programa tiene su sesión en Meet, agendada y publicada en el aula virtual.</li>
-            <li>El profesor coordina temas, ejercicios y espacios de consulta en vivo.</li>
-            <li>Las charlas complementarias también se dictan por Meet.</li>
-            <li>Grabaciones disponibles para quienes no puedan asistir en directo.</li>
+            <li><strong>Clase 1</strong> está disponible desde el inicio de la cohorte.</li>
+            <li>Al <strong>completar</strong> una clase (material + ejercicio), se desbloquea la siguiente.</li>
+            <li>Cada clase desbloqueada muestra su <strong>link de Zoom</strong> (o Meet) cuando el profesor la agendó.</li>
+            <li>Si aún no hay fecha, verás «Por agendar» hasta que el profe coordine con la cohorte.</li>
           </ul>
         </div>
         <div class="feature-block">
-          <h2>Para el estudiante</h2>
+          <h2>Coordinación con el profesor</h2>
           <ul class="feature-list">
-            <li>Accedés al link de Meet desde tu aula virtual.</li>
-            <li>Participás en dinámicas prácticas y trabajo en grupo.</li>
-            <li>Recibís recordatorios antes de cada sesión.</li>
+            <li>El syllabus define el orden de clases; el profe fija horarios según la cohorte.</li>
+            <li>Los links se actualizan en <code>live-sessions.js</code> por carrera (fecha, Zoom ID, código).</li>
+            <li>Recordatorios por WhatsApp y correo antes de cada sesión (próximamente).</li>
+            <li>Grabaciones disponibles en el aula virtual para quien no pueda asistir en directo.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-section feature-section--cream">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Carreras</span>
+          <h2>Acceso por programa</h2>
+        </div>
+        <div class="careers__grid live-courses__grid">
+          <article class="career-card career-card--ready">
+            <div class="career-card__badge">Activo</div>
+            <h3>Data Science</h3>
+            <p class="nivelacion-card__desc">42 clases en vivo · Zoom coordinado con Lic. Ana Rodríguez</p>
+            <div class="career-card__meta">
+              <span class="tag tag--duration">4 clases agendadas</span>
+              <span class="tag tag--part">Desbloqueo secuencial</span>
+            </div>
+            <a href="../data-science/clases.html" class="btn btn--cta btn--sm">Entrar al aula</a>
+          </article>
+          <article class="career-card career-card--soon">
+            <div class="career-card__badge career-card__badge--muted">Próximamente</div>
+            <h3>Full Stack</h3>
+            <p class="nivelacion-card__desc">Sesiones en vivo por módulo con el profesor asignado.</p>
+            <span class="btn btn--sm btn--disabled" aria-disabled="true">En desarrollo</span>
+          </article>
         </div>
       </div>
     </section>
   </main>
   <footer class="footer"><div class="container footer__bottom" style="border:none;padding:24px 0;"><p>&copy; 2026 VOROX Academia. <a href="../index.html#inicio" style="color:var(--yellow);">Volver al inicio</a></p></div></footer>
-  <script src="../script.js?v=platform-pages"></script>
+
+  <script src="../js/class-progress.js?v=1"></script>
+  <script src="../data-science/lessons-data.js?v=1"></script>
+  <script src="../data-science/live-sessions.js?v=1"></script>
+  <script src="../js/class-viewer.js?v=1"></script>
+  <script>
+    VoroxClassViewer.renderScheduleList(window.DS_LIVE_SESSIONS, window.DS_MODULES, {
+      containerId: 'liveScheduleList',
+      filter: 'scheduled'
+    });
+  </script>
+  <script src="../script.js?v=live-meet"></script>
 </body>
 </html>

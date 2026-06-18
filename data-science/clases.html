@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Clases de Data Science — VOROX Academia. 42 lecciones con teoría, código y ejercicios." />
+  <meta name="description" content="Clases de Data Science — VOROX Academia. 42 lecciones con teoría, código, ejercicios y sesiones en vivo por Zoom." />
   <title>Clases Data Science | VOROX Academia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=ds-toggle" />
+  <link rel="stylesheet" href="../styles.css?v=live-classes" />
 </head>
 <body>
 
@@ -19,6 +19,7 @@
       </a>
       <div class="navbar__actions">
         <div class="navbar__buttons">
+          <a href="../plataforma/google-meet.html" class="btn btn--outline-nav btn--sm">Clases en vivo</a>
           <a href="#" class="btn btn--cta btn--sm">Ingresar</a>
         </div>
       </div>
@@ -32,6 +33,10 @@
     </div>
   </div>
 
+  <div class="container classes-intro-banner">
+    <p>Las clases se <strong>desbloquean en orden</strong>. Cada una incluye material, ejercicios y una <strong>sesión en vivo por Zoom</strong> coordinada con el profesor. Completá una clase para acceder a la siguiente.</p>
+  </div>
+
   <div class="container classes-layout">
     <aside class="classes-sidebar" id="classesNav" aria-label="Navegación de clases"></aside>
     <main class="classes-main" id="classesMain"></main>
@@ -39,125 +44,20 @@
 
   <footer class="footer">
     <div class="container footer__bottom" style="border:none;padding:20px 0;">
-      <p>&copy; 2026 VOROX Academia. Todos los derechos reservados.</p>
+      <p>&copy; 2026 VOROX Academia. <a href="../plataforma/google-meet.html" style="color:var(--yellow);">Agenda de clases en vivo</a></p>
     </div>
   </footer>
 
+  <script src="../js/class-progress.js?v=1"></script>
   <script src="lessons-data.js?v=1"></script>
+  <script src="live-sessions.js?v=1"></script>
+  <script src="../js/class-viewer.js?v=1"></script>
   <script>
-    (function () {
-      'use strict';
-      var nav = document.getElementById('classesNav');
-      var main = document.getElementById('classesMain');
-      if (!window.DS_MODULES || !nav || !main) return;
-
-      var navHtml = '<h2>Índice de clases</h2>';
-      var mainHtml = '';
-
-      window.DS_MODULES.forEach(function (mod) {
-        var modId = 'modulo-' + String(mod.id).padStart(2, '0');
-        var navListId = 'nav-mod-' + mod.id;
-        navHtml += '<div class="classes-nav__mod">';
-        navHtml += '<button type="button" class="classes-nav__toggle" aria-expanded="false" aria-controls="' + navListId + '">';
-        navHtml += '<span>Módulo ' + mod.id + '</span>';
-        navHtml += '<svg class="classes-nav__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
-        navHtml += '</button>';
-        navHtml += '<div class="classes-nav__list" id="' + navListId + '" hidden>';
-        mod.lessons.forEach(function (lesson) {
-          var lessonId = 'clase-' + String(lesson.n).padStart(2, '0');
-          navHtml += '<a href="#' + lessonId + '">Clase ' + lesson.n + ': ' + lesson.title + '</a>';
-        });
-        navHtml += '</div></div>';
-
-        var lessonsId = 'lessons-mod-' + mod.id;
-        mainHtml += '<section class="classes-module" id="' + modId + '">';
-        mainHtml += '<div class="classes-module__header">';
-        mainHtml += '<div><span>Módulo ' + mod.id + '</span>';
-        mainHtml += '<h2>' + mod.title + '</h2><p>' + mod.weeks + ' · ' + mod.lessons.length + ' clases</p></div>';
-        mainHtml += '<button type="button" class="classes-module__toggle btn btn--outline-nav btn--sm" aria-expanded="false" aria-controls="' + lessonsId + '">';
-        mainHtml += '<span class="classes-module__toggle-text">Ver clases</span>';
-        mainHtml += '<svg class="classes-module__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
-        mainHtml += '</button></div>';
-        mainHtml += '<div class="classes-module__lessons" id="' + lessonsId + '" hidden>';
-
-        mod.lessons.forEach(function (lesson) {
-          var lessonId = 'clase-' + String(lesson.n).padStart(2, '0');
-          mainHtml += '<article class="lesson" id="' + lessonId + '">';
-          mainHtml += '<div class="lesson__top">';
-          mainHtml += '<span class="lesson__num">Clase ' + lesson.n + '</span>';
-          mainHtml += '<h3>' + lesson.title + '</h3>';
-          mainHtml += '<span class="lesson__duration">' + lesson.duration + '</span>';
-          mainHtml += '</div>';
-
-          mainHtml += '<div class="lesson__block"><h4>Objetivos</h4><ul>';
-          lesson.objectives.forEach(function (obj) {
-            mainHtml += '<li>' + obj + '</li>';
-          });
-          mainHtml += '</ul></div>';
-
-          mainHtml += '<div class="lesson__block"><h4>Contenido</h4>' + lesson.content + '</div>';
-
-          if (lesson.code) {
-            mainHtml += '<div class="lesson__block"><h4>Ejemplo en código</h4>';
-            mainHtml += '<pre class="lesson__code"><code>' + lesson.code.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre></div>';
-          }
-
-          mainHtml += '<div class="lesson__block lesson__exercise"><h4>Ejercicio práctico</h4>';
-          mainHtml += '<p>' + lesson.exercise + '</p></div>';
-          mainHtml += '</article>';
-        });
-
-        mainHtml += '</div></section>';
-      });
-
-      nav.innerHTML = navHtml;
-      main.innerHTML = mainHtml;
-
-      document.querySelectorAll('.classes-nav__toggle').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var list = document.getElementById(btn.getAttribute('aria-controls'));
-          if (!list) return;
-          var expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          list.hidden = expanded;
-          btn.closest('.classes-nav__mod').classList.toggle('is-open', !expanded);
-        });
-      });
-
-      document.querySelectorAll('.classes-module__toggle').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var panel = document.getElementById(btn.getAttribute('aria-controls'));
-          var label = btn.querySelector('.classes-module__toggle-text');
-          var section = btn.closest('.classes-module');
-          if (!panel || !section) return;
-          var expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          panel.hidden = expanded;
-          section.classList.toggle('is-open', !expanded);
-          if (label) label.textContent = expanded ? 'Ver clases' : 'Ocultar clases';
-        });
-      });
-
-      var hash = window.location.hash;
-      if (hash) {
-        var target = document.querySelector(hash);
-        if (target) {
-          var parentPanel = target.closest('.classes-module__lessons');
-          var parentSection = target.closest('.classes-module');
-          if (parentPanel && parentSection) {
-            parentPanel.hidden = false;
-            parentSection.classList.add('is-open');
-            var toggleBtn = parentSection.querySelector('.classes-module__toggle');
-            if (toggleBtn) {
-              toggleBtn.setAttribute('aria-expanded', 'true');
-              var toggleLabel = toggleBtn.querySelector('.classes-module__toggle-text');
-              if (toggleLabel) toggleLabel.textContent = 'Ocultar clases';
-            }
-          }
-        }
-      }
-    })();
+    VoroxClassViewer.init({
+      modules: window.DS_MODULES,
+      liveSessions: window.DS_LIVE_SESSIONS
+    });
   </script>
-  <script src="../script.js?v=ds-classes"></script>
+  <script src="../script.js?v=live-classes"></script>
 </body>
 </html>
