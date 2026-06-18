@@ -20,6 +20,194 @@ window.VoroxCampus = (function () {
     { id: 'marketing', label: 'Marketing Digital' }
   ];
 
+  var EXTERNAL_KEYWORDS = {
+    'data-science': ['data scientist', 'data science', 'machine learning', 'ml '],
+    'full-stack': ['full stack', 'fullstack', 'software engineer', 'frontend', 'backend', 'react', 'node'],
+    'data-engineering': ['data engineer', 'etl', 'pipeline', 'warehouse'],
+    'ai-engineering': ['ai engineer', 'artificial intelligence', 'llm', 'machine learning engineer'],
+    'ai-automation': ['automation', 'rpa', 'workflow', 'n8n'],
+    'marketing': ['marketing', 'growth', 'digital marketing', 'seo', 'sem']
+  };
+
+  var EXTERNAL_CACHE_KEY = 'vorox-campus-external-jobs';
+  var EXTERNAL_CACHE_TTL = 60 * 60 * 1000;
+
+  function getSearchKeyword(careerId) {
+    var map = {
+      'data-science': 'Data Scientist',
+      'full-stack': 'Full Stack Developer',
+      'data-engineering': 'Data Engineer',
+      'ai-engineering': 'AI Engineer',
+      'ai-automation': 'AI Automation',
+      'marketing': 'Marketing Digital'
+    };
+    return map[careerId] || 'Tecnología';
+  }
+
+  function getPortalLinks(careerId) {
+    var q = encodeURIComponent(getSearchKeyword(careerId));
+    var loc = encodeURIComponent('Argentina');
+    return [
+      {
+        name: 'LinkedIn',
+        desc: 'Búsqueda filtrada por tu carrera',
+        url: 'https://www.linkedin.com/jobs/search/?keywords=' + q + '&location=' + encodeURIComponent('Latinoamérica') + '&f_TPR=r604800',
+        icon: 'in'
+      },
+      {
+        name: 'Indeed',
+        desc: 'Ofertas en Argentina y LATAM',
+        url: 'https://ar.indeed.com/jobs?q=' + q + '&l=' + loc,
+        icon: 'id'
+      },
+      {
+        name: 'Google Empleos',
+        desc: 'Agregador de múltiples portales',
+        url: 'https://www.google.com/search?q=' + encodeURIComponent(getSearchKeyword(careerId) + ' empleo remoto') + '&ibp=htl;jobs',
+        icon: 'go'
+      },
+      {
+        name: 'Remotive',
+        desc: 'Trabajos remotos en tech',
+        url: 'https://remotive.com/remote-jobs/search?query=' + q,
+        icon: 'rm'
+      }
+    ];
+  }
+
+  function jobMatchesCareer(job, careerId) {
+    if (!careerId) return true;
+    var keywords = EXTERNAL_KEYWORDS[careerId] || [];
+    var text = ((job.title || '') + ' ' + (job.description || '') + ' ' + (job.category || '') + ' ' + (job.tags || '')).toLowerCase();
+    return keywords.some(function (kw) { return text.indexOf(kw) !== -1; });
+  }
+
+  function getExternalCache() {
+    try {
+      var raw = sessionStorage.getItem(EXTERNAL_CACHE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (Date.now() - parsed.ts > EXTERNAL_CACHE_TTL) return null;
+      return parsed.jobs;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setExternalCache(jobs) {
+    sessionStorage.setItem(EXTERNAL_CACHE_KEY, JSON.stringify({ ts: Date.now(), jobs: jobs }));
+  }
+
+  function fetchExternalJobs() {
+    var cached = getExternalCache();
+    if (cached) return Promise.resolve(cached);
+
+    var remotive = fetch('https://remotive.com/api/remote-jobs')
+      .then(function (r) { return r.ok ? r.json() : { jobs: [] }; })
+      .then(function (d) {
+        return (d.jobs || []).map(function (j) {
+          return {
+            source: 'Remotive',
+            title: j.title,
+            company: j.company_name,
+            location: j.candidate_required_location || 'Remoto',
+            url: j.url,
+            description: (j.description || '').replace(/<[^>]+>/g, ' ').slice(0, 200),
+            category: j.category || '',
+            date: j.publication_date
+          };
+        });
+      })
+      .catch(function () { return []; });
+
+    var arbeitnow = fetch('https://www.arbeitnow.com/api/job-board-api')
+      .then(function (r) { return r.ok ? r.json() : { data: [] }; })
+      .then(function (d) {
+        return (d.data || []).map(function (j) {
+          return {
+            source: 'Arbeitnow',
+            title: j.title,
+            company: j.company_name,
+            location: j.location || (j.remote ? 'Remoto' : '—'),
+            url: j.url,
+            description: (j.description || '').replace(/<[^>]+>/g, ' ').slice(0, 200),
+            category: (j.tags || []).join(', '),
+            date: j.created_at
+          };
+        });
+      })
+      .catch(function () { return []; });
+
+    return Promise.all([remotive, arbeitnow]).then(function (results) {
+      var merged = results[0].concat(results[1]);
+      setExternalCache(merged);
+      return merged;
+    });
+  }
+
+  function renderExternalPortals(profile) {
+    var career = profile?.career || 'full-stack';
+    var links = getPortalLinks(career);
+    var html = '<section class="campus-external">';
+    html += '<h3>Buscar en portales externos</h3>';
+    html += '<p class="campus-hint">LinkedIn no permite importar ofertas directamente sin API empresarial. Abrimos búsquedas filtradas por tu carrera en los principales portales.</p>';
+    html += '<div class="campus-portals">';
+    links.forEach(function (p) {
+      html += '<a href="' + escapeHtml(p.url) + '" class="campus-portal" target="_blank" rel="noopener noreferrer">';
+      html += '<span class="campus-portal__icon">' + p.icon + '</span>';
+      html += '<span><strong>' + escapeHtml(p.name) + '</strong><small>' + escapeHtml(p.desc) + '</small></span>';
+      html += '</a>';
+    });
+    html += '</div>';
+    html += '<div id="externalJobsWrap">';
+    html += '<h4>Ofertas importadas de la red</h4>';
+    html += '<p class="campus-hint">Actualizadas desde APIs públicas (Remotive y Arbeitnow), filtradas según tu carrera.</p>';
+    html += '<p class="campus-external__loading">Cargando ofertas externas…</p>';
+    html += '</div></section>';
+    return html;
+  }
+
+  function renderExternalJobList(jobs, profile) {
+    var career = profile?.career;
+    var filtered = jobs.filter(function (j) { return jobMatchesCareer(j, career); }).slice(0, 12);
+
+    if (!filtered.length) {
+      return '<p class="campus-empty">No encontramos ofertas externas para tu carrera ahora. Usá los enlaces a LinkedIn o Indeed arriba.</p>';
+    }
+
+    var html = '<div class="campus-jobs campus-jobs--external">';
+    filtered.forEach(function (job) {
+      html += '<article class="campus-job campus-job--external">';
+      html += '<div class="campus-job__top">';
+      html += '<span class="campus-job__source">' + escapeHtml(job.source) + '</span>';
+      html += '<span class="campus-job__modality">' + escapeHtml(job.location) + '</span>';
+      html += '</div>';
+      html += '<h4>' + escapeHtml(job.title) + '</h4>';
+      html += '<p class="campus-job__company">' + escapeHtml(job.company) + '</p>';
+      if (job.description) {
+        html += '<p class="campus-job__desc">' + escapeHtml(job.description) + '…</p>';
+      }
+      html += '<a href="' + escapeHtml(job.url) + '" class="btn btn--outline-nav btn--sm" target="_blank" rel="noopener noreferrer">Ver oferta original →</a>';
+      html += '</article>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function loadExternalJobs(profile) {
+    var wrap = $('externalJobsWrap');
+    if (!wrap) return;
+
+    fetchExternalJobs().then(function (jobs) {
+      var inner = '<h4>Ofertas importadas de la red</h4>';
+      inner += '<p class="campus-hint">Desde APIs públicas (Remotive y Arbeitnow), filtradas según tu carrera. Para LinkedIn, usá el acceso directo arriba.</p>';
+      inner += renderExternalJobList(jobs, profile);
+      wrap.innerHTML = inner;
+    }).catch(function () {
+      wrap.innerHTML = '<p class="campus-empty">No se pudieron cargar ofertas externas. Usá los enlaces a LinkedIn o Indeed.</p>';
+    });
+  }
+
   var SEED_JOBS = [
     {
       id: 'job-seed-1',
@@ -216,8 +404,8 @@ window.VoroxCampus = (function () {
       var sorted = jobs.slice().sort(function (a, b) {
         return matchScore(b, profile) - matchScore(a, profile);
       });
-      html += '<h3>Ofertas laborales</h3>';
-      html += '<p class="campus-hint">Ordenadas por coincidencia con tu perfil y certificado VOROX.</p>';
+      html += '<h3>Ofertas VOROX y empresas aliadas</h3>';
+      html += '<p class="campus-hint">Publicadas en el campus. Ordenadas por coincidencia con tu perfil y certificado.</p>';
       if (!sorted.length) {
         html += '<p class="campus-empty">No hay ofertas publicadas aún.</p>';
       } else {
@@ -236,6 +424,9 @@ window.VoroxCampus = (function () {
           html += '<p class="campus-job__company">' + escapeHtml(job.companyName) + ' · ' + escapeHtml(job.location) + '</p>';
           html += '<p class="campus-job__career">' + careerLabel(job.career) + '</p>';
           html += '<p class="campus-job__desc">' + escapeHtml(job.description) + '</p>';
+          if (job.externalUrl) {
+            html += '<a href="' + escapeHtml(job.externalUrl) + '" class="campus-job__external" target="_blank" rel="noopener noreferrer">Ver en portal externo (LinkedIn, etc.) →</a>';
+          }
           if (applied) {
             html += '<span class="campus-job__applied">✓ Ya postulaste</span>';
           } else {
@@ -305,6 +496,10 @@ window.VoroxCampus = (function () {
         }
       });
     });
+
+    if (tab === 'empleos') {
+      loadExternalJobs(profile);
+    }
   }
 
   function renderCompany() {
@@ -332,6 +527,7 @@ window.VoroxCampus = (function () {
     html += selectField('Carrera requerida', 'career', '', CAREERS);
     html += field('Modalidad', 'modality', '', 'text', false, 'Remoto, Híbrido, Presencial');
     html += field('Ubicación', 'location', '', 'text', false);
+    html += field('URL externa (opcional)', 'externalUrl', '', 'url', false, 'https://www.linkedin.com/jobs/view/...');
     html += textareaField('Descripción', 'description', '', 'Requisitos, responsabilidades y qué buscan.');
     html += '<button type="submit" class="btn btn--cta">Publicar oferta</button>';
     html += '</form>';
@@ -406,6 +602,7 @@ window.VoroxCampus = (function () {
         career: fd.get('career'),
         modality: fd.get('modality').trim() || 'A convenir',
         location: fd.get('location').trim() || 'LATAM',
+        externalUrl: fd.get('externalUrl').trim(),
         description: fd.get('description').trim()
       });
       e.target.reset();

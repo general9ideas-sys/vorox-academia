@@ -2003,6 +2003,68 @@ img { max-width: 100%; display: block; }
 .campus-candidate__cv { font-size: 0.9rem; margin-top: 10px; font-style: italic; }
 .campus-job-list { margin: 0; padding-left: 20px; font-size: 0.9rem; }
 .campus-job-list li { margin-bottom: 8px; }
+.campus-external {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 2px solid #e5e7eb;
+}
+.campus-external h3 { margin: 0 0 8px; }
+.campus-external h4 { margin: 28px 0 8px; font-size: 1.05rem; }
+.campus-portals {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 20px 0 8px;
+}
+.campus-portal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.campus-portal:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow);
+}
+.campus-portal__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+.campus-portal strong { display: block; font-size: 0.9rem; color: var(--dark); }
+.campus-portal small { display: block; font-size: 0.75rem; color: var(--gray); margin-top: 2px; }
+.campus-job--external { border-style: dashed; }
+.campus-job__source {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+}
+.campus-job__external {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.campus-external__loading { color: var(--gray); font-size: 0.9rem; padding: 16px 0; }
 @media (max-width: 768px) {
   .campus-hub__grid, .campus-split, .campus-split--company { grid-template-columns: 1fr; }
   .campus-cv-preview { position: static; }
