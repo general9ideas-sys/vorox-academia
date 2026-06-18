@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Editor de código integrado en VOROX — crear y testear proyectos." />
+  <meta name="description" content="Editor de código VOROX — escribí, ejecutá y testeá Python, JavaScript y HTML en el navegador." />
   <title>Editor de código | VOROX Academia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=platform-pages" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="../styles.css?v=code-editor" />
 </head>
 <body>
   <header class="navbar" id="navbar">
@@ -16,46 +17,84 @@
       <a href="../index.html#inicio" class="navbar__logo" aria-label="VOROX Academia">
         <img src="../assets/logo-vorox.png?v=new" alt="VOROX Academia" class="logo" width="118" height="48" />
       </a>
-      <div class="navbar__actions"><div class="navbar__buttons"><a href="#" class="btn btn--cta btn--sm">Ingresar</a></div></div>
+      <div class="navbar__actions">
+        <div class="navbar__buttons">
+          <a href="../index.html#inicio" class="btn btn--outline-nav btn--sm">VOROX Academia</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main>
-    <section class="feature-hero">
-      <div class="container">
-        <a href="../index.html#inicio" class="feature-hero__back">← VOROX Academia</a>
-        <span class="feature-hero__tag">Proyectos</span>
+
+  <div class="code-playground-topbar">
+    <div class="container code-playground-topbar__inner">
+      <div>
         <h1>Editor de código</h1>
-        <p class="feature-hero__lead">Plataforma con editor de código integrado para crear, ejecutar y testear tus proyectos sin salir del campus virtual.</p>
-        <p class="feature-hero__meta">IDE en el navegador · Ejecutar y testear</p>
-        <div class="feature-hero__actions">
-          <a href="../index.html#inscripcion" class="btn btn--cta btn--lg">Quiero información</a>
-          <a href="../index.html#inicio" class="btn btn--outline-nav btn--lg">Volver al inicio</a>
+        <p>Escribí, ejecutá y testeá sin salir del campus</p>
+      </div>
+      <a href="../index.html#inicio">← Volver al inicio</a>
+    </div>
+  </div>
+
+  <main class="code-playground" id="codePlayground">
+    <div class="container code-playground__layout">
+      <div class="code-playground__toolbar">
+        <div class="code-playground__lang">
+          <label for="codeLang">Lenguaje</label>
+          <select id="codeLang" aria-label="Lenguaje">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML / CSS</option>
+          </select>
+        </div>
+        <div class="code-playground__actions">
+          <button type="button" class="btn btn--cta btn--sm" id="codeRun">▶ Ejecutar</button>
+          <button type="button" class="btn btn--outline-nav btn--sm" id="codeTest" hidden>✓ Testear</button>
+          <button type="button" class="btn btn--outline-nav btn--sm" id="codeReset">Plantilla</button>
+          <button type="button" class="btn btn--outline-nav btn--sm" id="codeClear">Limpiar salida</button>
         </div>
       </div>
-    </section>
-    <section class="feature-section">
-      <div class="container feature-content">
-        <div class="feature-block">
-          <h2>Funcionalidades</h2>
-          <ul class="feature-list">
-            <li>Editor con syntax highlighting para los lenguajes de tu carrera.</li>
-            <li>Ejecución en sandbox y consola integrada.</li>
-            <li>Tests automáticos en ejercicios y desafíos semanales.</li>
-            <li>Exportar o publicar directo a VOROX Lab y GitHub.</li>
-          </ul>
+
+      <div class="code-playground__workspace">
+        <div class="code-playground__editor-panel">
+          <div class="code-playground__panel-head">
+            <span>Editor</span>
+            <span class="code-playground__status" id="codeStatus">Listo</span>
+          </div>
+          <textarea id="codeEditor" aria-label="Editor de código"></textarea>
         </div>
-        <div class="feature-block">
-          <h2>En la práctica</h2>
-          <ul class="feature-list">
-            <li>Resolvés ejercicios sin instalar entorno local.</li>
-            <li>Proyectos evaluados con mismos tests que usa el profesor.</li>
-            <li>Ideal para pair programming en Meet o Discord.</li>
-          </ul>
+
+        <div class="code-playground__output-panel" id="outputPanel">
+          <div class="code-playground__panel-head">
+            <span id="outputLabel">Consola</span>
+          </div>
+          <pre class="code-playground__console" id="codeConsole" aria-live="polite">Presioná «Ejecutar» para ver el resultado.</pre>
+        </div>
+
+        <div class="code-playground__preview-panel" id="previewPanel" hidden>
+          <div class="code-playground__panel-head">
+            <span>Vista previa</span>
+          </div>
+          <iframe id="codePreview" title="Vista previa HTML" sandbox="allow-scripts"></iframe>
         </div>
       </div>
-    </section>
+
+      <p class="code-playground__note">Python corre en el navegador con Pyodide. JavaScript y HTML se ejecutan en un entorno local de práctica.</p>
+    </div>
   </main>
-  <footer class="footer"><div class="container footer__bottom" style="border:none;padding:24px 0;"><p>&copy; 2026 VOROX Academia. <a href="../index.html#inicio" style="color:var(--yellow);">Volver al inicio</a></p></div></footer>
-  <script src="../script.js?v=platform-pages"></script>
+
+  <footer class="footer">
+    <div class="container footer__bottom" style="border:none;padding:20px 0;">
+      <p>&copy; 2026 VOROX Academia. <a href="../index.html#inicio" style="color:var(--yellow);">Volver al inicio</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="../js/code-playground.js?v=1"></script>
+  <script src="../script.js?v=code-editor"></script>
 </body>
 </html>
