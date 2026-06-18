@@ -5,6 +5,10 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # Rutas canónicas de nivelación
+  RewriteRule ^plataforma/nivelacion\.html$ /nivelacion.html [L,R=301]
+  RewriteRule ^plataforma/nivelacion/data-analyst\.html$ /nivelacion/data-analyst.html [L,R=301]
+
   # Forzar HTTPS (descomentar cuando el SSL esté activo en Hostinger)
   # RewriteCond %{HTTPS} off
   # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
