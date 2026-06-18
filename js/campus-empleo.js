@@ -436,6 +436,7 @@ window.VoroxCampus = (function () {
         });
         html += '</div>';
       }
+      html += renderExternalPortals(profile);
     }
 
     if (tab === 'postulaciones') {
