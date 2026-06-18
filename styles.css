@@ -625,6 +625,58 @@ img { max-width: 100%; display: block; }
   border-left: 3px solid var(--yellow);
   line-height: 1.55;
 }
+.feature-section--cream { background: var(--cream); }
+
+/* Nivelación */
+.nivelacion-hub { padding: 72px 0; background: var(--white); }
+.nivelacion-hub__grid { margin-top: 8px; }
+.nivelacion-card__desc {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.55;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.career-card--ready { border-color: var(--blue); }
+.career-card--soon { opacity: 0.85; }
+.career-card__badge--muted {
+  background: var(--bg);
+  color: var(--gray);
+}
+.btn--disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-weight: 700;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  border-radius: 50px;
+  background: #e5e7eb;
+  color: var(--gray);
+  cursor: not-allowed;
+}
+.nivelacion-intro {
+  padding: 24px 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.nivelacion-intro p {
+  font-size: 1rem;
+  color: var(--gray);
+  max-width: 720px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.nivelacion-intro__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 0.9rem;
+  color: var(--dark);
+  padding-bottom: 8px;
+}
+.nivelacion-intro__meta strong { color: var(--blue); }
 
 /* 6. Vocational test */
 .vocational {
