@@ -57,9 +57,12 @@ window.VoroxClassViewer = (function () {
     return 'Zoom';
   }
 
-  function joinLabel(type) {
-    if (type === 'meet') return 'Unirse por Google Meet';
+  function joinLabel() {
     return 'Unirse por Zoom';
+  }
+
+  function renderJoinButton() {
+    return '<button type="button" class="btn btn--cta btn--sm lesson-live__join" disabled title="El link de Zoom estará disponible próximamente">Unirse por Zoom</button>';
   }
 
   function renderLiveBlock(session, liveStatus, lessonNum, classesUrl) {
@@ -70,8 +73,9 @@ window.VoroxClassViewer = (function () {
     html += '</div>';
 
     if (liveStatus === 'pending') {
-      html += '<p class="lesson-live__text">El profesor coordinará fecha y link de Zoom/Meet cuando tu cohorte avance. Completá el material de esta clase y consultá el <a href="../plataforma/google-meet.html">hub de clases en vivo</a>.</p>';
+      html += '<p class="lesson-live__text">El profesor coordinará fecha y link de Zoom cuando tu cohorte avance. Completá el material de esta clase para desbloquear la siguiente.</p>';
       html += '<p class="lesson-live__prof"><strong>Profesor:</strong> ' + escapeHtml(session.professor || 'Por asignar') + '</p>';
+      html += '<div class="lesson-live__actions">' + renderJoinButton() + '</div>';
     } else {
       html += '<p class="lesson-live__datetime"><strong>Fecha:</strong> ' + formatDate(session.scheduledAt, '') + '</p>';
       html += '<p class="lesson-live__prof"><strong>Profesor:</strong> ' + escapeHtml(session.professor || '') + '</p>';
@@ -81,9 +85,9 @@ window.VoroxClassViewer = (function () {
       if (session.notes) {
         html += '<p class="lesson-live__notes">' + escapeHtml(session.notes) + '</p>';
       }
-      if (session.meetingUrl && liveStatus !== 'completed') {
+      if (liveStatus !== 'completed') {
         html += '<div class="lesson-live__actions">';
-        html += '<a href="' + escapeHtml(session.meetingUrl) + '" class="btn btn--cta btn--sm lesson-live__join" target="_blank" rel="noopener noreferrer">' + joinLabel(session.meetingType) + '</a>';
+        html += renderJoinButton();
         if (session.meetingId) {
           html += '<span class="lesson-live__id">ID: ' + escapeHtml(session.meetingId) + '</span>';
         }
@@ -97,7 +101,6 @@ window.VoroxClassViewer = (function () {
       }
     }
 
-    html += '<a href="../plataforma/google-meet.html#clase-' + String(lessonNum).padStart(2, '0') + '" class="lesson-live__hub">Ver en agenda de clases en vivo →</a>';
     html += '</div>';
     return html;
   }
@@ -327,9 +330,7 @@ window.VoroxClassViewer = (function () {
       html += '<p class="live-schedule__date">' + formatDate(item.session.scheduledAt, liveConfig.timezoneLabel) + '</p>';
       html += '<p class="live-schedule__prof">Prof. ' + escapeHtml(item.session.professor || liveConfig.defaultProfessor) + ' · ' + meetingLabel(item.session.meetingType) + '</p>';
       html += '<div class="live-schedule__actions">';
-      if (item.session.meetingUrl && item.unlocked && item.liveStatus !== 'completed') {
-        html += '<a href="' + escapeHtml(item.session.meetingUrl) + '" class="btn btn--cta btn--sm" target="_blank" rel="noopener noreferrer">' + joinLabel(item.session.meetingType) + '</a>';
-      }
+      html += '<button type="button" class="btn btn--cta btn--sm" disabled>Unirse por Zoom</button>';
       html += '<a href="' + escapeHtml(liveConfig.classesUrl) + '#' + lessonId + '" class="btn btn--outline-nav btn--sm">Ir a la clase</a>';
       html += '</div></article>';
     });
