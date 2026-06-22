@@ -414,7 +414,9 @@ window.VoroxCampus = (function () {
           });
           html += '<article class="campus-job">';
           html += '<div class="campus-job__top">';
-          html += '<span class="campus-job__match">' + score + '% match</span>';
+          if (score > 0) {
+            html += '<span class="campus-job__match">' + score + '% match</span>';
+          }
           html += '<span class="campus-job__modality">' + escapeHtml(job.modality) + '</span>';
           html += '</div>';
           html += '<h4>' + escapeHtml(job.title) + '</h4>';
