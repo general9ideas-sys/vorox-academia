@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=campus-external" />
+  <link rel="stylesheet" href="../styles.css?v=campus-direct" />
 </head>
 <body>
   <header class="navbar" id="navbar">
@@ -35,41 +35,16 @@
     </div>
 
     <div class="container campus-body">
-      <!-- Hub: elegir rol -->
-      <section class="campus-hub" id="campusHub">
-        <p class="campus-hub__lead">Un espacio para que <strong>alumnos certificados</strong> encuentren trabajo y <strong>empresas</strong> publiquen puestos. VOROX hace el match entre ambos.</p>
-        <div class="campus-hub__grid">
-          <article class="campus-role-card">
-            <span class="campus-role-card__icon" aria-hidden="true">🎓</span>
-            <h2>Busco trabajo</h2>
-            <p>Soy egresado o alumno VOROX. Quiero armar mi CV, mostrar mi certificado y postularme a ofertas.</p>
-            <ul>
-              <li>Perfil profesional con certificado</li>
-              <li>Constructor de CV</li>
-              <li>Ofertas ordenadas por match</li>
-              <li>Monitor de postulaciones</li>
-            </ul>
-            <button type="button" class="btn btn--cta btn--lg" id="campusRoleStudent">Entrar como profesional</button>
-          </article>
-          <article class="campus-role-card campus-role-card--company">
-            <span class="campus-role-card__icon" aria-hidden="true">🏢</span>
-            <h2>Ofrezco empleo</h2>
-            <p>Soy empresa. Quiero publicar vacantes y recibir candidatos certificados por VOROX.</p>
-            <ul>
-              <li>Registro de empresa</li>
-              <li>Publicación de puestos</li>
-              <li>Postulantes con certificado verificado</li>
-              <li>Match por carrera</li>
-            </ul>
-            <button type="button" class="btn btn--outline-nav btn--lg" id="campusRoleCompany">Entrar como empresa</button>
-          </article>
-        </div>
-      </section>
+      <p class="campus-hub__lead">Alumnos certificados y empresas se conectan acá: armá tu CV, postulate o publicá vacantes.</p>
+
+      <nav class="campus-role-switch" aria-label="Tipo de acceso">
+        <button type="button" class="campus-role-switch__btn is-active" id="campusRoleStudent" data-campus-role="student">Busco trabajo</button>
+        <button type="button" class="campus-role-switch__btn" id="campusRoleCompany" data-campus-role="company">Ofrezco empleo</button>
+      </nav>
 
       <!-- Panel alumno -->
-      <section class="campus-panel" id="campusStudent" hidden>
+      <section class="campus-panel" id="campusStudent">
         <div class="campus-panel__head">
-          <button type="button" class="campus-panel__back" id="campusBackHub">← Volver</button>
           <h2>Campus — Profesional</h2>
         </div>
         <nav class="campus-tabs" aria-label="Secciones alumno">
@@ -83,7 +58,6 @@
       <!-- Panel empresa -->
       <section class="campus-panel" id="campusCompany" hidden>
         <div class="campus-panel__head">
-          <button type="button" class="campus-panel__back" id="campusBackHub2">← Volver</button>
           <h2>Campus — Empresa</h2>
         </div>
         <div id="campusCompanyPanel"></div>
@@ -97,7 +71,7 @@
     </div>
   </footer>
 
-  <script src="../js/campus-empleo.js?v=2"></script>
+  <script src="../js/campus-empleo.js?v=3"></script>
   <script>VoroxCampus.init();</script>
   <script src="../script.js?v=campus-empleo"></script>
 </body>

@@ -341,26 +341,23 @@ window.VoroxCampus = (function () {
   var currentRole = null;
   var studentTab = 'perfil';
 
-  function showHub() {
-    currentRole = null;
-    $('campusHub').hidden = false;
-    $('campusStudent').hidden = true;
-    $('campusCompany').hidden = true;
-  }
-
   function showStudent() {
     currentRole = 'student';
-    $('campusHub').hidden = true;
     $('campusStudent').hidden = false;
     $('campusCompany').hidden = true;
+    document.querySelectorAll('[data-campus-role]').forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.getAttribute('data-campus-role') === 'student');
+    });
     renderStudent();
   }
 
   function showCompany() {
     currentRole = 'company';
-    $('campusHub').hidden = true;
     $('campusStudent').hidden = true;
     $('campusCompany').hidden = false;
+    document.querySelectorAll('[data-campus-role]').forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.getAttribute('data-campus-role') === 'company');
+    });
     renderCompany();
   }
 
@@ -651,10 +648,10 @@ window.VoroxCampus = (function () {
   }
 
   function bindEvents() {
-    $('campusRoleStudent')?.addEventListener('click', showStudent);
-    $('campusRoleCompany')?.addEventListener('click', showCompany);
-    $('campusBackHub')?.addEventListener('click', showHub);
-    $('campusBackHub2')?.addEventListener('click', showHub);
+    var studentBtn = $('campusRoleStudent');
+    var companyBtn = $('campusRoleCompany');
+    if (studentBtn) studentBtn.addEventListener('click', showStudent);
+    if (companyBtn) companyBtn.addEventListener('click', showCompany);
 
     document.querySelectorAll('[data-student-tab]').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -667,7 +664,12 @@ window.VoroxCampus = (function () {
     if (!$('campusEmpleo')) return;
     ensureJobs();
     bindEvents();
-    showHub();
+    var hash = window.location.hash;
+    if (hash === '#empresa') {
+      showCompany();
+    } else {
+      showStudent();
+    }
   }
 
   return { init: init };

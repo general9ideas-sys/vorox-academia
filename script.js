@@ -10,7 +10,7 @@
   const dropdowns = document.querySelectorAll('.nav-dropdown');
 
   window.addEventListener('scroll', function () {
-    navbar.classList.toggle('navbar--scrolled', window.scrollY > 40);
+    if (navbar) navbar.classList.toggle('navbar--scrolled', window.scrollY > 40);
   });
 
   function closeAllMenus() {

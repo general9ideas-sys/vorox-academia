@@ -1821,9 +1821,37 @@ img { max-width: 100%; display: block; }
 .campus-hub__lead {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto 32px;
+  margin: 0 auto 24px;
   font-size: 1.05rem;
   color: var(--gray);
+}
+.campus-role-switch {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.campus-role-switch__btn {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border: 2px solid #e5e7eb;
+  border-radius: 50px;
+  background: var(--white);
+  color: var(--gray);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.campus-role-switch__btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.campus-role-switch__btn.is-active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
 }
 .campus-hub__grid {
   display: grid;
