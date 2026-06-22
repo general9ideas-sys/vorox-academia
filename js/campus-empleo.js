@@ -339,7 +339,7 @@ window.VoroxCampus = (function () {
   function $(id) { return document.getElementById(id); }
 
   var currentRole = null;
-  var studentTab = 'perfil';
+  var studentTab = 'empleos';
 
   function showStudent() {
     currentRole = 'student';
