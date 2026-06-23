@@ -108,6 +108,21 @@
     });
   });
 
+  document.querySelectorAll('.career-card__expand').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var detailsId = btn.getAttribute('aria-controls');
+      var details = detailsId ? document.getElementById(detailsId) : null;
+      var card = btn.closest('.career-card');
+      if (!details || !card) return;
+
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      details.hidden = expanded;
+      card.classList.toggle('is-expanded', !expanded);
+      btn.textContent = expanded ? 'Ver programa completo' : 'Ocultar detalle';
+    });
+  });
+
   if (applyForm) applyForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -155,7 +170,7 @@
   }
 
   document.querySelectorAll(
-    '.why__card, .career-card, .success-card, .pricing__card, .community__card, .platform__card'
+    '.why__card, .career-card, .success-card, .pricing__card, .community__card, .platform__card, .stats__item, .benefits__item, .teacher-card, .about-mission__card'
   ).forEach(function (el) {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';

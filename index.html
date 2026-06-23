@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="VOROX Academia — Formación práctica en tecnología con empleabilidad real. Clases en vivo, proyectos reales y comunidad activa." />
-  <title>VOROX Academia | Carreras en Tecnología</title>
+  <meta name="description" content="VOROX — Formación en IA, Data Science, Full Stack y tecnología. Programas prácticos con certificación profesional y bolsa laboral." />
+  <title>VOROX Academia | Formación en Tecnología e IA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=campus-nav" />
+  <link rel="stylesheet" href="styles.css?v=landing-v2" />
 </head>
 <body>
 
-  <!-- Navbar -->
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#inicio" class="navbar__logo" aria-label="VOROX Academia — Inicio">
@@ -26,12 +25,12 @@
             <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
           <div class="nav-dropdown__panel" hidden>
-            <p class="nav-dropdown__label">Carreras más solicitadas</p>
-            <a href="#carreras" class="nav-dropdown__item"><strong>Full Stack Development</strong><span>Full-time 4 meses · Part-time 8 meses</span></a>
-            <a href="data-science.html" class="nav-dropdown__item"><strong>Data Science</strong><span>Análisis de datos y Machine Learning</span></a>
-            <a href="#carreras" class="nav-dropdown__item"><strong>AI Engineering <span class="nav-dropdown__tag">Nueva</span></strong><span>IA aplicada y agentes inteligentes</span></a>
-            <a href="#carreras" class="nav-dropdown__item"><strong>Data Engineering</strong><span>Pipelines y sistemas a gran escala</span></a>
-            <a href="#carreras" class="nav-dropdown__footer">Ver todas las carreras →</a>
+            <p class="nav-dropdown__label">Programas</p>
+            <a href="#carreras" class="nav-dropdown__item"><strong>AI Engineering</strong><span>6 meses · Online en vivo</span></a>
+            <a href="#carreras" class="nav-dropdown__item"><strong>Full Stack Development</strong><span>8 meses · Online en vivo</span></a>
+            <a href="data-science.html" class="nav-dropdown__item"><strong>Data Science</strong><span>6 meses · Online</span></a>
+            <a href="#carreras" class="nav-dropdown__item"><strong>Data Engineering</strong><span>6 meses · Online</span></a>
+            <a href="#carreras" class="nav-dropdown__footer">Ver todos los programas →</a>
           </div>
         </div>
         <div class="nav-dropdown" data-dropdown="empresas">
@@ -41,10 +40,9 @@
           </button>
           <div class="nav-dropdown__panel" hidden>
             <p class="nav-dropdown__label">Soluciones corporativas</p>
-            <a href="#empresas-logos" class="nav-dropdown__item"><strong>Contratar talento VOROX</strong><span>Graduados listos para producir</span></a>
-            <a href="#empresas-logos" class="nav-dropdown__item"><strong>Capacitación en IA</strong><span>Formá expertos en tu equipo</span></a>
-            <a href="#empresas-logos" class="nav-dropdown__item"><strong>Programas a medida</strong><span>Upskilling tecnológico</span></a>
-            <a href="plataforma/campus-empleo.html" class="nav-dropdown__item"><strong>Campus empleo</strong><span>Publicar vacantes y recibir candidatos VOROX</span></a>
+            <a href="#inscripcion" class="nav-dropdown__item"><strong>Contratar talento VOROX</strong><span>Graduados listos para producir</span></a>
+            <a href="#inscripcion" class="nav-dropdown__item"><strong>Capacitación en IA</strong><span>Formá expertos en tu equipo</span></a>
+            <a href="plataforma/campus-empleo.html" class="nav-dropdown__item"><strong>Campus empleo</strong><span>Publicar vacantes y recibir candidatos</span></a>
             <a href="#inscripcion" class="nav-dropdown__footer">Hablar con ventas →</a>
           </div>
         </div>
@@ -62,13 +60,11 @@
             <p class="more-menu__label">Herramientas</p>
             <a href="plataforma/editor-codigo.html">Editor de código</a>
             <a href="plataforma/campus-empleo.html">Campus empleo</a>
-            <p class="more-menu__label">Formación</p>
-            <a href="nivelacion.html">Cursos de nivelación</a>
             <p class="more-menu__label">Sitio</p>
-            <a href="#por-que">¿Por qué VOROX?</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="#carreras">Programas</a>
             <a href="#metodologia">Metodología</a>
-            <a href="#test-vocacional">Test vocacional</a>
-            <a href="#planes">Planes y becas</a>
+            <a href="#docentes">Docentes</a>
             <a href="#faq">Preguntas frecuentes</a>
             <a href="#inscripcion">Inscripción</a>
           </div>
@@ -83,14 +79,12 @@
         <button class="mobile-nav__tab" data-mobile-tab="empresas" type="button">Para empresas</button>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEstudiantes">
-        <a href="#carreras">Full Stack Development</a>
+        <a href="#carreras">Programas</a>
         <a href="data-science.html">Data Science</a>
-        <a href="#carreras">AI Engineering</a>
-        <a href="#test-vocacional">Test vocacional</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="#inscripcion">Hablar con un asesor</a>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEmpresas" hidden>
-        <a href="#empresas-logos">Contratar talento</a>
-        <a href="#empresas-logos">Capacitación corporativa</a>
         <a href="plataforma/campus-empleo.html">Campus empleo</a>
         <a href="#inscripcion">Contactar ventas</a>
       </div>
@@ -98,12 +92,9 @@
         <p class="mobile-nav__group-title">Herramientas</p>
         <a href="plataforma/editor-codigo.html">Editor de código</a>
         <a href="plataforma/campus-empleo.html">Campus empleo</a>
-        <p class="mobile-nav__group-title">Formación</p>
-        <a href="nivelacion.html">Nivelación gratis</a>
-        <a href="nivelacion/data-analyst.html">Nivelación Data Analyst</a>
         <p class="mobile-nav__group-title">Sitio</p>
+        <a href="nosotros.html">Nosotros</a>
         <a href="#metodologia">Metodología</a>
-        <a href="#planes">Planes</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="mobile-nav__actions">
@@ -112,270 +103,308 @@
     </div>
   </header>
 
-  <!-- 1. Hero -->
+  <!-- 1. Portada -->
   <section class="hero" id="inicio">
     <video class="hero__bg-video" autoplay muted loop playsinline aria-hidden="true">
       <source src="assets/hero-video.webm?v=park-walk" type="video/webm" />
     </video>
     <div class="hero__overlay" aria-hidden="true"></div>
-
     <div class="container hero__inner">
-      <div class="hero__live-badge"><span class="hero__scene-live"></span> En vivo</div>
       <div class="hero__body">
         <div class="hero__text">
-          <h1 class="hero__title">Tu carrera en <span class="highlight">tecnología</span> empieza acá</h1>
+          <h1 class="hero__title">Formamos a los profesionales que liderarán la nueva era de la <span class="highlight">Inteligencia Artificial</span> y la tecnología.</h1>
+          <p class="hero__lead">Aprendé habilidades prácticas y altamente demandadas a través de programas diseñados por expertos de la industria. Capacitate con proyectos reales y preparate para los desafíos del mercado laboral actual.</p>
+          <div class="hero__actions">
+            <a href="#carreras" class="btn btn--cta btn--lg">Ver Programas</a>
+            <a href="#inscripcion" class="btn btn--outline-nav btn--lg hero__btn-secondary">Hablar con un Asesor</a>
+          </div>
         </div>
-        <a href="#inscripcion" class="btn btn--cta btn--lg hero__cta">Quiero información</a>
       </div>
     </div>
   </section>
 
-  <!-- 2. Empresas que contratan egresados -->
-  <section class="companies" id="empresas-logos">
+  <!-- 3. Estadísticas -->
+  <section class="stats" id="estadisticas">
     <div class="container">
-      <p class="companies__phrase">Nuestros alumnos trabajan en empresas líderes</p>
-      <div class="companies__carousel" aria-label="Empresas que contratan egresados">
-        <div class="companies__track">
-          <div class="companies__slide">
-            <span>Google</span>
-            <span>Mercado Libre</span>
-            <span>Globant</span>
-            <span>Accenture</span>
-            <span>Rappi</span>
-            <span>Ualá</span>
-            <span>Kavak</span>
-            <span>Scale AI</span>
-            <span>Despegar</span>
-            <span>Auth0</span>
-          </div>
-          <div class="companies__slide" aria-hidden="true">
-            <span>Google</span>
-            <span>Mercado Libre</span>
-            <span>Globant</span>
-            <span>Accenture</span>
-            <span>Rappi</span>
-            <span>Ualá</span>
-            <span>Kavak</span>
-            <span>Scale AI</span>
-            <span>Despegar</span>
-            <span>Auth0</span>
-          </div>
-        </div>
+      <div class="stats__grid">
+        <div class="stats__item"><span class="stats__number">+2.500</span><span>alumnos formados</span></div>
+        <div class="stats__item"><span class="stats__number">+1.800</span><span>egresados</span></div>
+        <div class="stats__item"><span class="stats__number">+15.000</span><span>horas de capacitación</span></div>
+        <div class="stats__item"><span class="stats__number">6</span><span>programas activos</span></div>
+        <div class="stats__item"><span class="stats__number">+8</span><span>años de experiencia</span></div>
+        <div class="stats__item"><span class="stats__number">95%</span><span>satisfacción estudiantil</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 3. ¿Por qué Vorox? -->
-  <section class="why" id="por-que">
+  <!-- 4. Programas -->
+  <section class="careers" id="carreras">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">¿Por qué VOROX?</span>
-        <h2>Lo que nos hace diferentes</h2>
+        <span class="section-tag">Programas</span>
+        <h2>Formación profesional en tecnología</h2>
+        <p class="section-sub">Elegí el programa que mejor se adapte a tus objetivos. Cada uno incluye certificación y proyectos reales.</p>
       </div>
-      <div class="why__grid">
-        <article class="why__card">
-          <div class="why__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <h3>Formación práctica</h3>
-          <p>Aprendés haciendo proyectos reales desde el primer día, no solo viendo teoría.</p>
+      <div class="careers__grid">
+
+        <article class="career-card career-card--program">
+          <h3>AI Engineering</h3>
+          <p class="career-card__short">Aprendé a diseñar, desarrollar e implementar soluciones basadas en Inteligencia Artificial utilizando herramientas modernas y modelos de última generación.</p>
+          <div class="career-card__details" id="prog-ai" hidden>
+            <p class="career-card__full">El programa AI Engineering prepara a los estudiantes para construir aplicaciones impulsadas por inteligencia artificial. Aprenderán sobre modelos de lenguaje, prompting, agentes inteligentes, integración de APIs, machine learning aplicado y despliegue de soluciones productivas. A través de proyectos prácticos, los alumnos desarrollarán aplicaciones reales capaces de automatizar procesos, generar contenido y resolver problemas complejos.</p>
+            <ul class="career-card__specs">
+              <li><strong>Duración:</strong> 6 meses</li>
+              <li><strong>Modalidad:</strong> Online en vivo + grabaciones</li>
+              <li><strong>Nivel:</strong> Intermedio</li>
+              <li><strong>Certificación:</strong> Certificado Profesional en AI Engineering</li>
+              <li><strong>Herramientas:</strong> ChatGPT, Claude, Gemini, OpenAI API, LangChain, Python, Docker, GitHub</li>
+            </ul>
+          </div>
+          <div class="career-card__actions">
+            <button type="button" class="career-card__expand" aria-expanded="false" aria-controls="prog-ai">Ver programa completo</button>
+            <a href="#inscripcion" class="btn btn--cta btn--sm">Consultar</a>
+          </div>
         </article>
-        <article class="why__card">
-          <div class="why__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <h3>Profesores con experiencia</h3>
-          <p>Mentores activos en la industria que comparten conocimiento aplicado al mercado laboral.</p>
+
+        <article class="career-card career-card--program">
+          <h3>Full Stack Development</h3>
+          <p class="career-card__short">Convertite en desarrollador Full Stack construyendo aplicaciones modernas desde el frontend hasta el backend.</p>
+          <div class="career-card__details" id="prog-fs" hidden>
+            <p class="career-card__full">Aprendé a desarrollar aplicaciones web completas utilizando tecnologías modernas. Dominarás frontend, backend, bases de datos, APIs y despliegue de aplicaciones. El programa está diseñado para que construyas proyectos reales que fortalezcan tu perfil profesional.</p>
+            <ul class="career-card__specs">
+              <li><strong>Duración:</strong> 8 meses</li>
+              <li><strong>Modalidad:</strong> Online en vivo</li>
+              <li><strong>Nivel:</strong> Principiante a Intermedio</li>
+              <li><strong>Certificación:</strong> Certificado Profesional Full Stack</li>
+              <li><strong>Herramientas:</strong> HTML, CSS, JavaScript, React, Node.js, PostgreSQL, Git</li>
+            </ul>
+          </div>
+          <div class="career-card__actions">
+            <button type="button" class="career-card__expand" aria-expanded="false" aria-controls="prog-fs">Ver programa completo</button>
+            <a href="#inscripcion" class="btn btn--cta btn--sm">Consultar</a>
+          </div>
         </article>
-        <article class="why__card">
-          <div class="why__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Acompañamiento personalizado</h3>
-          <p>Career coach, tutorías y seguimiento individual durante todo tu recorrido.</p>
+
+        <article class="career-card career-card--program">
+          <h3>Data Science</h3>
+          <p class="career-card__short">Transformá datos en información valiosa para la toma de decisiones.</p>
+          <div class="career-card__details" id="prog-ds" hidden>
+            <p class="career-card__full">Aprenderás estadística aplicada, análisis de datos, visualización, machine learning y comunicación de resultados. Trabajarás con datasets reales para desarrollar habilidades altamente demandadas.</p>
+            <ul class="career-card__specs">
+              <li><strong>Duración:</strong> 6 meses</li>
+              <li><strong>Modalidad:</strong> Online</li>
+              <li><strong>Nivel:</strong> Intermedio</li>
+              <li><strong>Certificación:</strong> Certificado en Data Science</li>
+              <li><strong>Herramientas:</strong> Python, Pandas, NumPy, Power BI, Jupyter, Scikit-Learn</li>
+            </ul>
+          </div>
+          <div class="career-card__actions">
+            <button type="button" class="career-card__expand" aria-expanded="false" aria-controls="prog-ds">Ver programa completo</button>
+            <a href="data-science.html" class="btn btn--cta btn--sm">Ver más</a>
+          </div>
         </article>
-        <article class="why__card">
-          <div class="why__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Certificación</h3>
-          <p>Certificado avalado por VOROX que valida tus competencias ante empleadores.</p>
+
+        <article class="career-card career-card--program">
+          <h3>Data Engineering</h3>
+          <p class="career-card__short">Diseñá y construí infraestructuras modernas para el procesamiento de datos.</p>
+          <div class="career-card__details" id="prog-de" hidden>
+            <p class="career-card__full">Formate en la construcción de pipelines, almacenamiento, procesamiento y arquitectura de datos para organizaciones modernas.</p>
+            <ul class="career-card__specs">
+              <li><strong>Duración:</strong> 6 meses</li>
+              <li><strong>Modalidad:</strong> Online</li>
+              <li><strong>Nivel:</strong> Intermedio</li>
+              <li><strong>Certificación:</strong> Certificado en Data Engineering</li>
+              <li><strong>Herramientas:</strong> Python, SQL, Apache Airflow, Spark, AWS</li>
+            </ul>
+          </div>
+          <div class="career-card__actions">
+            <button type="button" class="career-card__expand" aria-expanded="false" aria-controls="prog-de">Ver programa completo</button>
+            <a href="#inscripcion" class="btn btn--cta btn--sm">Consultar</a>
+          </div>
         </article>
+
+        <article class="career-card career-card--program">
+          <h3>AI Automation</h3>
+          <p class="career-card__short">Automatizá procesos utilizando inteligencia artificial y herramientas no-code y low-code.</p>
+          <div class="career-card__details" id="prog-aa" hidden>
+            <p class="career-card__full">Aprendé a crear automatizaciones inteligentes que optimicen procesos empresariales, atención al cliente, marketing y operaciones.</p>
+            <ul class="career-card__specs">
+              <li><strong>Duración:</strong> 4 meses</li>
+              <li><strong>Modalidad:</strong> Online</li>
+              <li><strong>Nivel:</strong> Principiante</li>
+              <li><strong>Certificación:</strong> Certificado en AI Automation</li>
+              <li><strong>Herramientas:</strong> Make, Zapier, n8n, OpenAI, Claude, Google Workspace</li>
+            </ul>
+          </div>
+          <div class="career-card__actions">
+            <button type="button" class="career-card__expand" aria-expanded="false" aria-controls="prog-aa">Ver programa completo</button>
+            <a href="#inscripcion" class="btn btn--cta btn--sm">Consultar</a>
+          </div>
+        </article>
+
+        <article class="career-card career-card--program">
+          <h3>Marketing Digital</h3>
+          <p class="career-card__short">Desarrollá estrategias digitales orientadas a resultados y crecimiento de negocios.</p>
+          <div class="career-card__details" id="prog-md" hidden>
+            <p class="career-card__full">Aprenderás publicidad digital, generación de leads, redes sociales, analítica, embudos de conversión y automatización de marketing.</p>
+            <ul class="career-card__specs">
+              <li><strong>Duración:</strong> 4 meses</li>
+              <li><strong>Modalidad:</strong> Online</li>
+              <li><strong>Nivel:</strong> Principiante</li>
+              <li><strong>Certificación:</strong> Certificado en Marketing Digital</li>
+              <li><strong>Herramientas:</strong> Google Ads, Meta Ads, Analytics, HubSpot, Mailchimp</li>
+            </ul>
+          </div>
+          <div class="career-card__actions">
+            <button type="button" class="career-card__expand" aria-expanded="false" aria-controls="prog-md">Ver programa completo</button>
+            <a href="#inscripcion" class="btn btn--cta btn--sm">Consultar</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- 4. Metodología de aprendizaje -->
+  <!-- 5. Beneficios -->
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Beneficios</span>
+        <h2>Lo que nos diferencia</h2>
+      </div>
+      <ul class="benefits__grid">
+        <li class="benefits__item">Clases en vivo con especialistas</li>
+        <li class="benefits__item">Acceso a grabaciones</li>
+        <li class="benefits__item">Proyectos reales</li>
+        <li class="benefits__item">Certificación profesional</li>
+        <li class="benefits__item">Mentores especializados</li>
+        <li class="benefits__item">Comunidad exclusiva</li>
+        <li class="benefits__item">Actualización permanente de contenidos</li>
+        <li class="benefits__item">Bolsa laboral y networking</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Metodología -->
   <section class="methodology" id="metodologia">
     <div class="container">
       <div class="section-header section-header--light">
         <span class="section-tag">Metodología</span>
         <h2>Cómo funciona VOROX</h2>
-        <p class="section-sub">Un camino claro desde tu primer contacto hasta tu empleo en tecnología.</p>
+        <p class="section-sub">Un camino claro desde la inscripción hasta tu certificación profesional.</p>
       </div>
       <ol class="methodology__steps">
-        <li class="methodology__step"><span class="methodology__num">01</span><div><h3>Te orientamos</h3><p>Evaluamos tu perfil y te guiamos hacia la carrera ideal para vos.</p></div></li>
-        <li class="methodology__step"><span class="methodology__num">02</span><div><h3>Elegís tu carrera</h3><p>Seleccionás entre programas intensivos adaptados a tu ritmo y objetivos.</p></div></li>
-        <li class="methodology__step"><span class="methodology__num">03</span><div><h3>Aprendés haciendo</h3><p>Clases en vivo, ejercicios prácticos y desafíos semana a semana.</p></div></li>
-        <li class="methodology__step"><span class="methodology__num">04</span><div><h3>Construís proyectos</h3><p>Desarrollás un portfolio con casos reales del mercado laboral.</p></div></li>
-        <li class="methodology__step"><span class="methodology__num">05</span><div><h3>Te preparás para trabajar</h3><p>Simulaciones de entrevistas, CV optimizado y conexión con empresas.</p></div></li>
+        <li class="methodology__step"><span class="methodology__num">01</span><div><h3>Inscripción</h3><p>El alumno selecciona el programa y completa el proceso de admisión.</p></div></li>
+        <li class="methodology__step"><span class="methodology__num">02</span><div><h3>Inicio de cursada</h3><p>Accede a la plataforma educativa y al calendario de clases.</p></div></li>
+        <li class="methodology__step"><span class="methodology__num">03</span><div><h3>Aprendizaje práctico</h3><p>Participa en clases en vivo y desarrolla proyectos reales.</p></div></li>
+        <li class="methodology__step"><span class="methodology__num">04</span><div><h3>Acompañamiento</h3><p>Recibe soporte de docentes y mentores durante toda la cursada.</p></div></li>
+        <li class="methodology__step"><span class="methodology__num">05</span><div><h3>Evaluación</h3><p>Entrega proyectos y actividades prácticas.</p></div></li>
+        <li class="methodology__step"><span class="methodology__num">06</span><div><h3>Certificación</h3><p>Obtiene su certificado al completar satisfactoriamente el programa.</p></div></li>
       </ol>
     </div>
   </section>
 
-  <!-- 5. Carreras disponibles -->
-  <section class="careers" id="carreras">
+  <!-- 7. Docentes -->
+  <section class="teachers" id="docentes">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Oferta educativa</span>
-        <h2>Carreras disponibles</h2>
+        <span class="section-tag">Docentes</span>
+        <h2>Expertos de la industria</h2>
+        <p class="section-sub">Profesionales activos que comparten experiencia real del mercado laboral.</p>
       </div>
-      <div class="careers__grid">
-        <article class="career-card">
-          <div class="career-card__badge">Nueva</div>
-          <h3>AI Engineering</h3>
-          <div class="career-card__meta">
-            <span class="tag tag--duration">2 meses</span>
-            <span class="tag tag--part">Part-time</span>
-          </div>
-          <a href="#inscripcion" class="btn btn--cta btn--sm">Ver más</a>
+      <div class="teachers__grid">
+        <article class="teacher-card">
+          <div class="teacher-card__avatar">JP</div>
+          <h3>Juan Pérez</h3>
+          <p class="teacher-card__role">Director Académico</p>
+          <p class="teacher-card__specialty">Inteligencia Artificial</p>
+          <p class="teacher-card__bio">Ingeniero especializado en IA con más de 12 años liderando proyectos tecnológicos.</p>
+          <p class="teacher-card__exp"><strong>Experiencia:</strong> Google, Mercado Libre, Globant</p>
+          <a href="https://linkedin.com/in/juanperez" class="teacher-card__link" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
         </article>
-        <article class="career-card">
-          <h3>Full Stack Development</h3>
-          <div class="career-card__meta">
-            <span class="tag tag--duration">4–8 meses</span>
-            <span class="tag tag--full">Full / Part-time</span>
-          </div>
-          <a href="#inscripcion" class="btn btn--cta btn--sm">Ver más</a>
+        <article class="teacher-card">
+          <div class="teacher-card__avatar">MG</div>
+          <h3>María González</h3>
+          <p class="teacher-card__role">Lead Data Scientist</p>
+          <p class="teacher-card__specialty">Data Science</p>
+          <p class="teacher-card__bio">Especialista en analítica avanzada y machine learning.</p>
+          <p class="teacher-card__exp"><strong>Experiencia:</strong> IBM, Accenture</p>
+          <a href="https://linkedin.com/in/mariagonzalez" class="teacher-card__link" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
         </article>
-        <article class="career-card">
-          <h3>Data Science</h3>
-          <div class="career-card__meta">
-            <span class="tag tag--duration">4–8 meses</span>
-            <span class="tag tag--full">Full / Part-time</span>
-          </div>
-          <a href="data-science.html" class="btn btn--cta btn--sm">Ver más</a>
-        </article>
-        <article class="career-card">
-          <h3>Data Engineering</h3>
-          <div class="career-card__meta">
-            <span class="tag tag--duration">8 meses</span>
-            <span class="tag tag--part">Part-time</span>
-          </div>
-          <a href="#inscripcion" class="btn btn--cta btn--sm">Ver más</a>
-        </article>
-        <article class="career-card">
-          <h3>AI Automation</h3>
-          <div class="career-card__meta">
-            <span class="tag tag--duration">2 meses</span>
-            <span class="tag tag--part">Part-time</span>
-          </div>
-          <a href="#inscripcion" class="btn btn--cta btn--sm">Ver más</a>
-        </article>
-        <article class="career-card">
-          <h3>Marketing Digital</h3>
-          <div class="career-card__meta">
-            <span class="tag tag--duration">3 meses</span>
-            <span class="tag tag--part">Part-time</span>
-          </div>
-          <a href="#inscripcion" class="btn btn--cta btn--sm">Ver más</a>
+        <article class="teacher-card">
+          <div class="teacher-card__avatar">CR</div>
+          <h3>Carlos Rodríguez</h3>
+          <p class="teacher-card__role">Senior Full Stack Developer</p>
+          <p class="teacher-card__specialty">Desarrollo Web</p>
+          <p class="teacher-card__bio">Más de 10 años desarrollando plataformas escalables.</p>
+          <p class="teacher-card__exp"><strong>Experiencia:</strong> Globant, Despegar</p>
+          <a href="https://linkedin.com/in/carlosrodriguez" class="teacher-card__link" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 6. Test vocacional -->
-  <section class="vocational" id="test-vocacional">
-    <div class="container">
-      <div class="vocational-test" id="vocationalTest" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- 8. Casos de éxito -->
-  <section class="success" id="casos-exito">
+  <!-- 8. Testimonios -->
+  <section class="success testimonials" id="testimonios">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Casos de éxito</span>
-        <h2>Historias reales de transformación</h2>
+        <span class="section-tag">Testimonios</span>
+        <h2>Lo que dicen nuestros alumnos</h2>
       </div>
       <div class="success__grid">
-        <article class="success-card">
-          <div class="success-card__photo">MA</div>
+        <article class="success-card testimonial-card">
+          <div class="success-card__photo">SM</div>
           <div class="success-card__body">
-            <h3>Micaela Álvares</h3>
-            <p class="success-card__career">Carrera: Full Stack Development</p>
-            <div class="success-card__journey">
-              <p><strong>Antes:</strong> Administrativa sin experiencia en tech.</p>
-              <p><strong>Después:</strong> Full Stack Developer en Scale AI.</p>
-            </div>
+            <h3>Sofía Martínez</h3>
+            <p class="success-card__career">Buenos Aires · AI Engineering</p>
+            <blockquote class="testimonial-card__quote">"El programa superó mis expectativas. Logré crear mis primeros proyectos con IA y mejorar mi perfil profesional."</blockquote>
           </div>
         </article>
-        <article class="success-card">
-          <div class="success-card__photo">AP</div>
+        <article class="success-card testimonial-card">
+          <div class="success-card__photo">ML</div>
           <div class="success-card__body">
-            <h3>Alberto Perrone</h3>
-            <p class="success-card__career">Carrera: Data Science</p>
-            <div class="success-card__journey">
-              <p><strong>Antes:</strong> Sin conocimientos de programación.</p>
-              <p><strong>Después:</strong> Data Scientist en Globant.</p>
-            </div>
+            <h3>Martín López</h3>
+            <p class="success-card__career">Córdoba · Full Stack Development</p>
+            <blockquote class="testimonial-card__quote">"Las clases son muy prácticas y los docentes tienen experiencia real."</blockquote>
           </div>
         </article>
-        <article class="success-card">
-          <div class="success-card__photo">JC</div>
+        <article class="success-card testimonial-card">
+          <div class="success-card__photo">LF</div>
           <div class="success-card__body">
-            <h3>Josuara Caballera</h3>
-            <p class="success-card__career">Carrera: Full Stack Development</p>
-            <div class="success-card__journey">
-              <p><strong>Antes:</strong> Trabajaba en logística.</p>
-              <p><strong>Después:</strong> Full Stack Engineer en Kavak.</p>
-            </div>
+            <h3>Lucía Fernández</h3>
+            <p class="success-card__career">Rosario · Data Science</p>
+            <blockquote class="testimonial-card__quote">"Aprendí herramientas que hoy utilizo diariamente en mi trabajo."</blockquote>
+          </div>
+        </article>
+        <article class="success-card testimonial-card">
+          <div class="success-card__photo">NG</div>
+          <div class="success-card__body">
+            <h3>Nicolás Gómez</h3>
+            <p class="success-card__career">Mendoza · AI Automation</p>
+            <blockquote class="testimonial-card__quote">"Automatizamos procesos reales desde el primer mes."</blockquote>
+          </div>
+        </article>
+        <article class="success-card testimonial-card">
+          <div class="success-card__photo">CT</div>
+          <div class="success-card__body">
+            <h3>Camila Torres</h3>
+            <p class="success-card__career">Montevideo · Marketing Digital</p>
+            <blockquote class="testimonial-card__quote">"Excelente acompañamiento y contenidos actualizados."</blockquote>
+          </div>
+        </article>
+        <article class="success-card testimonial-card">
+          <div class="success-card__photo">DH</div>
+          <div class="success-card__body">
+            <h3>Diego Herrera</h3>
+            <p class="success-card__career">Santiago · Data Engineering</p>
+            <blockquote class="testimonial-card__quote">"Los proyectos me ayudaron a conseguir nuevas oportunidades laborales."</blockquote>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 9. Comunidad Vorox -->
-  <section class="community" id="comunidad">
-    <div class="container">
-      <div class="section-header section-header--light">
-        <span class="section-tag">Comunidad VOROX</span>
-        <h2>No estudiás solo</h2>
-        <p class="section-sub">Formá parte de una red activa de estudiantes y graduados en toda Latinoamérica.</p>
-      </div>
-      <div class="community__grid">
-        <div class="community__stat"><span class="community__number">+20.000</span><span>Alumnos en la comunidad</span></div>
-        <div class="community__card"><h3>WhatsApp</h3><p>Grupos por curso para avisos, consultas y coordinación directa con tu cohorte.</p></div>
-        <div class="community__card"><h3>Discord</h3><p>Canales para alumnos y profesores: mentorías, networking y soporte entre clases.</p></div>
-        <div class="community__card"><h3>Eventos</h3><p>Webinars, hackathons y charlas con expertos de la industria cada mes.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Planes de pago / Becas -->
-  <section class="pricing" id="planes">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Inversión</span>
-        <h2>Planes de pago y becas</h2>
-        <p class="section-sub">Opciones flexibles para que nada te frene.</p>
-      </div>
-      <div class="pricing__grid">
-        <article class="pricing__card pricing__card--highlight">
-          <div class="pricing__badge">Local</div>
-          <h3>Pago en tu moneda</h3>
-          <p>Plataforma de pago integrada: <strong>pesos (ARG)</strong> y <strong>guaraníes (PY)</strong>, con cuotas y medios locales.</p>
-        </article>
-        <article class="pricing__card">
-          <h3>Cuotas</h3>
-          <p>Planes en cuotas mensuales sin interés en carreras seleccionadas.</p>
-        </article>
-        <article class="pricing__card">
-          <h3>Becas disponibles</h3>
-          <p>Becas parciales y completas según perfil y rendimiento académico.</p>
-        </article>
-        <article class="pricing__card">
-          <h3>E-commerce</h3>
-          <p>Inscripciones, materiales y productos VOROX disponibles en nuestra tienda online.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11. Preguntas frecuentes -->
+  <!-- 9. FAQ -->
   <section class="faq" id="faq">
     <div class="container">
       <div class="section-header">
@@ -384,39 +413,47 @@
       </div>
       <div class="faq__list">
         <details class="faq-item">
-          <summary>¿Qué incluye la plataforma VOROX?</summary>
-          <p>Aula virtual en vivo, cursos de nivelación gratis, agente de acompañamiento, WhatsApp, Discord, editor de código, VOROX Lab, quizzes, campus de empleabilidad y certificación. El test vocacional está en la landing.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Cómo puedo pagar desde Argentina o Paraguay?</summary>
-          <p>La plataforma de pago acepta pesos argentinos (ARG) y guaraníes paraguayos (PY), con opciones de cuotas y medios locales en cada país.</p>
-        </details>
-        <details class="faq-item" open>
-          <summary>¿Necesito experiencia previa?</summary>
-          <p>No. Nuestros programas están diseñados para que puedas empezar desde cero y llegar a un nivel profesional.</p>
+          <summary>¿Necesito conocimientos previos?</summary>
+          <p>Depende del programa. Algunos comienzan desde nivel inicial.</p>
         </details>
         <details class="faq-item">
           <summary>¿Las clases son en vivo?</summary>
-          <p>Sí. Todas las carreras incluyen clases online en vivo con profesores y espacios de mentoría en tiempo real.</p>
+          <p>Sí, la mayoría de los programas incluyen clases en vivo.</p>
         </details>
         <details class="faq-item">
-          <summary>¿Recibo certificado?</summary>
-          <p>Al completar tu carrera recibís un certificado de VOROX Academia que avala tus competencias.</p>
+          <summary>¿Hay grabaciones?</summary>
+          <p>Sí, todas las clases quedan disponibles.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Entregan certificado?</summary>
+          <p>Sí, al finalizar cada programa.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo se paga?</summary>
+          <p>Tarjeta, transferencia bancaria y medios digitales.</p>
         </details>
         <details class="faq-item">
           <summary>¿Cuál es la duración?</summary>
-          <p>Depende de la carrera: desde 2 meses (Part-time) hasta 8 meses en modalidad flexible o intensiva.</p>
+          <p>Entre 4 y 8 meses según el programa.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué pasa si falto?</summary>
+          <p>Podrás acceder a la grabación y recuperar el contenido.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- 12. Formulario de inscripción -->
+  <!-- 10. CTA final -->
   <section class="apply" id="inscripcion">
     <div class="container apply__inner">
       <div class="apply__text">
-        <h2>Empezá tu camino en VOROX</h2>
-        <p>Dejanos tus datos y un asesor te contactará para orientarte sin compromiso.</p>
+        <h2>El futuro pertenece a quienes se preparan hoy.</h2>
+        <p>Comenzá tu transformación profesional con Vorox.</p>
+        <div class="apply__contact">
+          <a href="https://wa.me/541155555555" class="apply__contact-link" target="_blank" rel="noopener noreferrer">WhatsApp: +54 11 5555-5555</a>
+          <a href="mailto:info@vorox.net" class="apply__contact-link">Email: info@vorox.net</a>
+        </div>
       </div>
       <form class="apply__form" id="applyForm" novalidate>
         <div class="form-group">
@@ -429,64 +466,66 @@
         </div>
         <div class="form-group">
           <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="+54 11 0000 0000" />
+          <input type="tel" id="telefono" name="telefono" placeholder="+54 11 5555-5555" />
         </div>
         <div class="form-group">
-          <label for="carrera">Carrera de interés</label>
+          <label for="carrera">Programa de interés</label>
           <select id="carrera" name="carrera" required>
-            <option value="" disabled selected>Seleccioná una carrera</option>
+            <option value="" disabled selected>Seleccioná un programa</option>
             <option value="ai-engineering">AI Engineering</option>
             <option value="full-stack">Full Stack Development</option>
             <option value="data-science">Data Science</option>
             <option value="data-engineering">Data Engineering</option>
             <option value="ai-automation">AI Automation</option>
             <option value="marketing">Marketing Digital</option>
-            <option value="no-se">Aún no lo sé — test vocacional</option>
           </select>
         </div>
-        <button type="submit" class="btn btn--cta btn--lg btn--full">Quiero que me contacten</button>
+        <button type="submit" class="btn btn--cta btn--lg btn--full">Enviar consulta</button>
         <p class="form-note">Al enviar aceptás recibir información sobre VOROX Academia.</p>
       </form>
     </div>
   </section>
 
-  <!-- 13. Footer -->
+  <!-- 11. Footer -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
         <a href="#inicio" class="footer__logo" aria-label="VOROX Academia">
           <img src="assets/logo-vorox-footer.png?v=new" alt="VOROX Academia" class="logo" width="125" height="48" />
         </a>
-        <p>Educación en tecnología con foco en empleabilidad.</p>
+        <p>Formación en tecnología e inteligencia artificial con foco en empleabilidad.</p>
         <div class="footer__contact">
-          <a href="mailto:info@vorox.academia">info@vorox.academia</a>
-          <a href="tel:+541100000000">+54 11 0000-0000</a>
+          <a href="tel:+541155555555">+54 11 5555-5555</a>
+          <a href="mailto:info@vorox.net">info@vorox.net</a>
+          <span>Buenos Aires, Argentina</span>
         </div>
         <div class="footer__social">
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
-          <a href="#" aria-label="YouTube">YouTube</a>
+          <a href="https://instagram.com/voroxacademy" target="_blank" rel="noopener noreferrer">Instagram @voroxacademy</a>
+          <a href="https://linkedin.com/company/vorox-academy" target="_blank" rel="noopener noreferrer">LinkedIn Vorox Academy</a>
+          <a href="https://youtube.com/@voroxacademy" target="_blank" rel="noopener noreferrer">YouTube Vorox Academy</a>
+          <a href="https://tiktok.com/@voroxacademy" target="_blank" rel="noopener noreferrer">TikTok @voroxacademy</a>
         </div>
       </div>
       <div class="footer__links">
         <div>
           <h4>Programas</h4>
-          <a href="#carreras">Carreras</a>
+          <a href="#carreras">Programas</a>
           <a href="#metodologia">Metodología</a>
+          <a href="#docentes">Docentes</a>
           <a href="nivelacion.html">Nivelación</a>
-          <a href="#planes">Planes y becas</a>
         </div>
         <div>
           <h4>VOROX</h4>
-          <a href="#por-que">¿Por qué VOROX?</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="#testimonios">Testimonios</a>
           <a href="#faq">FAQ</a>
+          <a href="#inscripcion">Contacto</a>
         </div>
         <div class="footer__legal">
           <button type="button" class="footer__legal-trigger" id="legalTrigger" aria-expanded="false" aria-controls="legalCredit">Legal</button>
           <p class="footer__legal-credit" id="legalCredit" hidden>Nicole Chraust</p>
           <a href="#">Políticas de privacidad</a>
           <a href="#">Términos y condiciones</a>
-          <a href="#inscripcion">Contacto</a>
         </div>
       </div>
     </div>
@@ -497,8 +536,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=vocational"></script>
-  <script src="js/vocational-test.js?v=1"></script>
-  <script>VoroxVocationalTest.init('vocationalTest');</script>
+  <script src="script.js?v=landing-v2"></script>
 </body>
 </html>
