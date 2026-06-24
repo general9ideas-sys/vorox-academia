@@ -251,7 +251,7 @@ img { max-width: 100%; display: block; }
   margin-top: 76px;
   padding: 0;
   overflow: hidden;
-  min-height: clamp(520px, 72vh, 680px);
+  min-height: clamp(560px, 78vh, 720px);
   display: flex;
   align-items: stretch;
 }
@@ -270,10 +270,10 @@ img { max-width: 100%; display: block; }
   inset: 0;
   z-index: 1;
   background: linear-gradient(
-    105deg,
-    rgba(26, 26, 26, 0.82) 0%,
-    rgba(26, 26, 26, 0.55) 45%,
-    rgba(26, 26, 26, 0.35) 100%
+    120deg,
+    rgba(26, 26, 26, 0.78) 0%,
+    rgba(26, 26, 26, 0.45) 55%,
+    rgba(26, 26, 26, 0.22) 100%
   );
 }
 .hero__inner {
@@ -281,21 +281,21 @@ img { max-width: 100%; display: block; }
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  padding: 40px 24px 32px;
+  padding: 64px 24px;
   min-height: inherit;
 }
 .hero__body {
   flex: 1;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
   gap: 32px;
-  padding-bottom: 28px;
+  padding-bottom: 0;
 }
 .hero__text {
-  max-width: 560px;
+  max-width: 620px;
   flex: 1;
 }
 .hero__cta {
@@ -323,10 +323,11 @@ img { max-width: 100%; display: block; }
 }
 .hero__title {
   font-family: var(--font-body);
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
   font-weight: 700;
   color: var(--white);
   margin-bottom: 0;
+  line-height: 1.15;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
 }
 .hero__title .highlight {
@@ -334,18 +335,18 @@ img { max-width: 100%; display: block; }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .hero__lead {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.92);
-  margin-top: 20px;
-  max-width: 560px;
-  line-height: 1.65;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.82);
+  margin-top: 24px;
+  max-width: 480px;
+  line-height: 1.6;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 14px;
+  margin-top: 36px;
 }
 .hero__btn-secondary {
   border-color: rgba(255, 255, 255, 0.85);
@@ -359,48 +360,12 @@ img { max-width: 100%; display: block; }
 .hero__eyebrow {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--yellow);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
-.hero__cta-group { margin-top: 24px; }
-.hero__cta-group:first-of-type { margin-top: 20px; }
-.hero__cta-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 10px;
-}
-.hero__actions--primary,
-.hero__actions--secondary { gap: 10px; }
-.hero__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.hero__chip {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-  font-family: var(--font-title);
-  font-size: 0.78rem;
-  font-weight: 700;
-  transition: var(--transition);
-}
-.hero__chip:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: var(--yellow);
-  color: var(--yellow);
-}
-.hero__text { max-width: 720px; }
-.hero__body { align-items: center; padding-bottom: 48px; }
 
 /* Visual strip */
 .visual-strip {
@@ -2555,7 +2520,6 @@ img { max-width: 100%; display: block; }
   .testimonials .success__grid, .about-values__list,
   .methodology__features, .visual-strip__grid { grid-template-columns: 1fr; }
   .visual-strip__item--wide { grid-column: auto; }
-  .hero__actions--primary, .hero__actions--secondary { flex-direction: column; align-items: stretch; }
   .apply--cta-only .apply__contact { flex-direction: column; align-items: stretch; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
