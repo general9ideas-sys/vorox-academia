@@ -825,38 +825,60 @@ img { max-width: 100%; display: block; }
 }
 .career-card__body {
   padding: 36px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(150px, 210px) 1fr;
+  grid-template-areas:
+    "title title"
+    "facts desc"
+    "details details"
+    "actions actions";
+  gap: 18px 40px;
+  align-content: center;
 }
-.career-card__top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px 32px;
-}
+.career-card__top { display: contents; }
 .career-card--showcase h3 {
+  grid-area: title;
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   padding-right: 0;
-  flex: 1 1 220px;
   margin: 0;
 }
 .career-card__facts {
+  grid-area: facts;
   display: flex;
-  flex-wrap: wrap;
-  gap: 18px 28px;
+  flex-direction: column;
+  gap: 0;
   list-style: none;
   margin: 0;
-  flex: 1 1 280px;
-  justify-content: flex-end;
+  align-self: center;
 }
 .career-card__facts li {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-width: 88px;
+  padding: 11px 0;
+  border-bottom: 1px solid #ececec;
+}
+.career-card__facts li:first-child { padding-top: 0; }
+.career-card__facts li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.career-card__short {
+  grid-area: desc;
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.65;
+  align-self: center;
+  margin: 0;
+  max-width: 36em;
+  justify-self: end;
+  text-align: left;
+  padding-left: 12px;
+}
+.career-card--showcase .career-card__details { grid-area: details; }
+.career-card--showcase .career-card__actions {
+  grid-area: actions;
+  margin-top: 4px;
 }
 .career-card__fact-label {
   font-family: var(--font-title);
@@ -872,7 +894,6 @@ img { max-width: 100%; display: block; }
   color: var(--black);
   line-height: 1.2;
 }
-.career-card__short { font-size: 0.92rem; color: var(--gray); line-height: 1.55; flex: 1; }
 .career-card__full { font-size: 0.9rem; color: var(--gray); margin-bottom: 12px; line-height: 1.6; }
 .career-card__specs { list-style: none; font-size: 0.85rem; color: var(--gray); }
 .career-card__specs li { padding: 4px 0; border-top: 1px solid #eef0f3; }
@@ -1387,7 +1408,7 @@ img { max-width: 100%; display: block; }
 .career-card__thumb--3 { background-image: url('assets/hero-career-4.png'); }
 .career-card__thumb--4 { background-image: url('assets/hero-career-4.png'); }
 .career-card--program:not(.career-card--showcase) { scroll-margin-top: 100px; }
-.career-card--showcase .career-card__actions { margin-top: 8px; }
+.career-card--showcase .career-card__short { flex: unset; }
 
 .methodology__features {
   display: grid;
@@ -2864,8 +2885,23 @@ img { max-width: 100%; display: block; }
   }
   .career-card__media { min-height: 220px; }
   .career-card__thumb { min-height: 220px; }
-  .career-card__body { padding: 28px 24px; }
-  .career-card__facts { justify-content: flex-start; }
+  .career-card__body {
+    padding: 28px 24px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "facts"
+      "desc"
+      "details"
+      "actions";
+    gap: 16px;
+  }
+  .career-card__short {
+    justify-self: stretch;
+    max-width: none;
+    padding-left: 0;
+  }
+  .career-card__facts { align-self: stretch; }
   .community__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__grid { grid-template-columns: repeat(2, 1fr); }
   .apply__inner { grid-template-columns: 1fr; }
