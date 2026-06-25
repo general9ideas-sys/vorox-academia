@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=hero-reveal" />
+  <link rel="stylesheet" href="styles.css?v=nav-mega" />
 </head>
 <body>
 
@@ -24,14 +24,45 @@
             Estudiantes
             <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
-          <div class="nav-dropdown__panel" hidden>
-            <p class="nav-dropdown__label">Programas</p>
-            <a href="#carreras" class="nav-dropdown__item"><strong>AI Engineering</strong><span>6 meses · Online en vivo</span></a>
-            <a href="#carreras" class="nav-dropdown__item"><strong>Full Stack Development</strong><span>8 meses · Online en vivo</span></a>
-            <a href="data-science.html" class="nav-dropdown__item"><strong>Data Science</strong><span>6 meses · Online</span></a>
-            <a href="#carreras" class="nav-dropdown__item"><strong>Data Engineering</strong><span>6 meses · Online</span></a>
-            <a href="#prog-da" class="nav-dropdown__item"><strong>Data Analyst</strong><span>6 meses · Online en vivo</span></a>
-            <a href="#carreras" class="nav-dropdown__footer">Ver todos los programas →</a>
+          <div class="nav-dropdown__panel nav-dropdown__panel--mega" hidden>
+            <div class="nav-mega">
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Carreras</p>
+                <a href="#prog-ai" class="nav-mega__link">AI Engineering</a>
+                <a href="#prog-fs" class="nav-mega__link">Full Stack Development</a>
+                <a href="data-science.html" class="nav-mega__link">Data Science</a>
+                <a href="#prog-de" class="nav-mega__link">Data Engineering</a>
+                <a href="#prog-da" class="nav-mega__link">Data Analyst</a>
+                <a href="#prog-ux" class="nav-mega__link">Diseño UX/UI</a>
+                <a href="#prog-cyber" class="nav-mega__link">Ciberseguridad</a>
+                <a href="#prog-aa" class="nav-mega__link">AI Automation</a>
+                <a href="#prog-robo" class="nav-mega__link">Robótica</a>
+                <a href="#prog-md" class="nav-mega__link">Marketing Digital</a>
+                <a href="#carreras" class="nav-mega__footer">Ver todas →</a>
+              </div>
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Cursos</p>
+                <p class="nav-mega__subtitle">Módulos de carreras</p>
+                <a href="data-science/clases.html" class="nav-mega__link">Clases Data Science</a>
+                <a href="data-science.html#programa" class="nav-mega__link">Módulo Python &amp; ML</a>
+                <a href="#prog-fs" class="nav-mega__link">Módulo Full Stack Web</a>
+                <a href="#prog-ai" class="nav-mega__link">Módulo IA aplicada</a>
+                <p class="nav-mega__subtitle">Cursos gratuitos</p>
+                <p class="nav-mega__subtitle nav-mega__subtitle--nested">Introductorios</p>
+                <a href="nivelacion/data-science.html" class="nav-mega__link nav-mega__link--nested">Nivelación Data Science</a>
+                <a href="nivelacion/data-analyst.html" class="nav-mega__link nav-mega__link--nested">Nivelación Data Analyst</a>
+                <a href="nivelacion.html" class="nav-mega__link nav-mega__link--nested">Ver introductorios</a>
+              </div>
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Workshops</p>
+                <a href="#contacto" class="nav-mega__link">Prompt Engineering</a>
+                <a href="#contacto" class="nav-mega__link">Automatización con IA</a>
+                <a href="#contacto" class="nav-mega__link">Dashboards en Power BI</a>
+                <a href="#contacto" class="nav-mega__link">Prototipado UX en Figma</a>
+                <a href="#contacto" class="nav-mega__link">Git &amp; GitHub express</a>
+                <a href="#contacto" class="nav-mega__footer">Consultar fechas →</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-dropdown" data-dropdown="empresas">
@@ -80,10 +111,38 @@
         <button class="mobile-nav__tab" data-mobile-tab="empresas" type="button">Empresas</button>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEstudiantes">
-        <a href="#carreras">Programas</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="nivelacion.html">Cursos</a>
-        <a href="#contacto">Contacto</a>
+        <details class="mobile-nav__group" open>
+          <summary>Carreras</summary>
+          <a href="#prog-ai">AI Engineering</a>
+          <a href="#prog-fs">Full Stack Development</a>
+          <a href="data-science.html">Data Science</a>
+          <a href="#prog-de">Data Engineering</a>
+          <a href="#prog-da">Data Analyst</a>
+          <a href="#prog-ux">Diseño UX/UI</a>
+          <a href="#prog-cyber">Ciberseguridad</a>
+          <a href="#prog-aa">AI Automation</a>
+          <a href="#prog-robo">Robótica</a>
+          <a href="#prog-md">Marketing Digital</a>
+        </details>
+        <details class="mobile-nav__group">
+          <summary>Cursos</summary>
+          <p class="mobile-nav__subheading">Módulos de carreras</p>
+          <a href="data-science/clases.html">Clases Data Science</a>
+          <a href="data-science.html#programa">Módulo Python &amp; ML</a>
+          <a href="#prog-fs">Módulo Full Stack Web</a>
+          <p class="mobile-nav__subheading">Cursos gratuitos</p>
+          <p class="mobile-nav__subheading mobile-nav__subheading--nested">Introductorios</p>
+          <a href="nivelacion/data-science.html" class="mobile-nav__link--nested">Nivelación Data Science</a>
+          <a href="nivelacion/data-analyst.html" class="mobile-nav__link--nested">Nivelación Data Analyst</a>
+          <a href="nivelacion.html" class="mobile-nav__link--nested">Ver introductorios</a>
+        </details>
+        <details class="mobile-nav__group">
+          <summary>Workshops</summary>
+          <a href="#contacto">Prompt Engineering</a>
+          <a href="#contacto">Automatización con IA</a>
+          <a href="#contacto">Dashboards en Power BI</a>
+          <a href="#contacto">Prototipado UX en Figma</a>
+        </details>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEmpresas" hidden>
         <a href="plataforma/campus-empleo.html">Campus empleo</a>
