@@ -829,7 +829,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: minmax(150px, 210px) 1fr;
   grid-template-areas:
     "title title"
-    "facts desc"
+    "desc facts"
     "details details"
     "actions actions";
   gap: 18px 40px;
@@ -842,27 +842,6 @@ img { max-width: 100%; display: block; }
   padding-right: 0;
   margin: 0;
 }
-.career-card__facts {
-  grid-area: facts;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  list-style: none;
-  margin: 0;
-  align-self: center;
-}
-.career-card__facts li {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 11px 0;
-  border-bottom: 1px solid #ececec;
-}
-.career-card__facts li:first-child { padding-top: 0; }
-.career-card__facts li:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
 .career-card__short {
   grid-area: desc;
   font-size: 0.95rem;
@@ -871,14 +850,39 @@ img { max-width: 100%; display: block; }
   align-self: center;
   margin: 0;
   max-width: 36em;
-  justify-self: end;
+  justify-self: start;
   text-align: left;
-  padding-left: 12px;
+  padding-right: 12px;
+}
+.career-card__facts {
+  grid-area: facts;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  align-self: center;
+  justify-self: end;
+  min-width: 160px;
 }
 .career-card--showcase .career-card__details { grid-area: details; }
 .career-card--showcase .career-card__actions {
   grid-area: actions;
   margin-top: 4px;
+}
+.career-card__facts li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 11px 0;
+  border-bottom: 1px solid #ececec;
+  text-align: right;
+  align-items: flex-end;
+}
+.career-card__facts li:first-child { padding-top: 0; }
+.career-card__facts li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 .career-card__fact-label {
   font-family: var(--font-title);
@@ -2899,9 +2903,17 @@ img { max-width: 100%; display: block; }
   .career-card__short {
     justify-self: stretch;
     max-width: none;
-    padding-left: 0;
+    padding-right: 0;
   }
-  .career-card__facts { align-self: stretch; }
+  .career-card__facts {
+    align-self: stretch;
+    justify-self: stretch;
+    min-width: 0;
+  }
+  .career-card__facts li {
+    text-align: left;
+    align-items: flex-start;
+  }
   .community__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__grid { grid-template-columns: repeat(2, 1fr); }
   .apply__inner { grid-template-columns: 1fr; }
