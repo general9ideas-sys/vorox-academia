@@ -516,7 +516,15 @@ img { max-width: 100%; display: block; }
 .methodology__step p { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
 
 /* 5. Careers */
-.careers { padding: 88px 0; background: var(--white); }
+.careers {
+  padding: 88px 0;
+  background: var(--yellow);
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+}
+.careers .section-tag { color: var(--black); }
+.careers .section-header h2 { color: var(--black); }
+.careers .section-sub { color: rgba(0, 0, 0, 0.72); }
 .careers__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .career-card {
   position: relative; background: var(--white); border: 1px solid var(--black);
