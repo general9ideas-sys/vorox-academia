@@ -89,17 +89,38 @@
             </div>
           </div>
         </div>
-        <div class="nav-dropdown" data-dropdown="empresas">
+        <div class="nav-dropdown" data-dropdown="empresas" data-dropdown-hover>
           <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
             Empresas
             <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
-          <div class="nav-dropdown__panel" hidden>
-            <p class="nav-dropdown__label">Soluciones corporativas</p>
-            <a href="#contacto" class="nav-dropdown__item"><strong>Contratar talento VOROX</strong><span>Graduados listos para producir</span></a>
-            <a href="#contacto" class="nav-dropdown__item"><strong>Capacitación en IA</strong><span>Formá expertos en tu equipo</span></a>
-            <a href="plataforma/campus-empleo.html" class="nav-dropdown__item"><strong>Campus empleo</strong><span>Publicar vacantes y recibir candidatos</span></a>
-            <a href="#contacto" class="nav-dropdown__footer">Hablar con ventas →</a>
+          <div class="nav-dropdown__panel nav-dropdown__panel--stack" hidden>
+            <div class="nav-mega nav-mega--stack">
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Campus empleo</p>
+                <div class="nav-mega__body">
+                  <a href="plataforma/campus-empleo.html" class="nav-mega__link">Publicar vacantes y recibir candidatos</a>
+                </div>
+              </div>
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Contratar talento</p>
+                <div class="nav-mega__body">
+                  <a href="#contacto" class="nav-mega__link">Graduados VOROX listos para producir</a>
+                </div>
+              </div>
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Capacitación</p>
+                <div class="nav-mega__body">
+                  <a href="#contacto" class="nav-mega__link">Programas a medida para tu equipo</a>
+                </div>
+              </div>
+              <div class="nav-mega__col">
+                <p class="nav-mega__title">Consultoría</p>
+                <div class="nav-mega__body">
+                  <a href="#contacto" class="nav-mega__link">Asesoramiento en transformación digital e IA</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -189,8 +210,22 @@
         </details>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEmpresas" hidden>
-        <a href="plataforma/campus-empleo.html">Campus empleo</a>
-        <a href="#contacto">Contactar ventas</a>
+        <details class="mobile-nav__group">
+          <summary>Campus empleo</summary>
+          <a href="plataforma/campus-empleo.html">Publicar vacantes y recibir candidatos</a>
+        </details>
+        <details class="mobile-nav__group">
+          <summary>Contratar talento</summary>
+          <a href="#contacto">Graduados VOROX listos para producir</a>
+        </details>
+        <details class="mobile-nav__group">
+          <summary>Capacitación</summary>
+          <a href="#contacto">Programas a medida para tu equipo</a>
+        </details>
+        <details class="mobile-nav__group">
+          <summary>Consultoría</summary>
+          <a href="#contacto">Asesoramiento en transformación digital e IA</a>
+        </details>
       </div>
       <div class="mobile-nav__extras">
         <p class="mobile-nav__group-title">Herramientas</p>
