@@ -1361,6 +1361,19 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-title); font-weight: 700; font-size: 2rem; color: var(--yellow);
 }
+.testimonial-card .success-card__photo--face {
+  height: 160px;
+  background-image: url('assets/testimonials-faces-grid.png');
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  background-color: #e8e8e8;
+}
+.testimonial-card .success-card__photo--face-1 { background-position: 0% 0%; }
+.testimonial-card .success-card__photo--face-2 { background-position: 50% 0%; }
+.testimonial-card .success-card__photo--face-3 { background-position: 100% 0%; }
+.testimonial-card .success-card__photo--face-4 { background-position: 0% 50%; }
+.testimonial-card .success-card__photo--face-5 { background-position: 50% 50%; }
+.testimonial-card .success-card__photo--face-6 { background-position: 100% 50%; }
 .success-card__body { padding: 24px; }
 .success-card__body h3 { font-size: 1.1rem; margin-bottom: 4px; }
 .success-card__career { font-size: 0.85rem; color: var(--black); font-weight: 700; margin-bottom: 12px; }
