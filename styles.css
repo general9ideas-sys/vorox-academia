@@ -1094,20 +1094,37 @@ img { max-width: 100%; display: block; }
   border: 0;
 }
 
-.apply--cta-only .apply__contact {
-  flex-direction: row;
-  flex-wrap: wrap;
+.apply--cta-only .apply__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 12px;
+  text-align: center;
+}
+.apply--cta-only .apply__text--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.apply--cta-only .apply__text--center h2,
+.apply--cta-only .apply__text--center p {
+  text-align: center;
+}
+.apply--cta-only .apply__text--center .btn {
   margin-top: 28px;
 }
-.apply--cta-only .apply__btn-mail {
-  border-color: rgba(255, 255, 255, 0.85);
-  color: var(--white);
-  background: transparent;
+.apply--cta-only .apply__email-link {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  transition: var(--transition);
 }
-.apply--cta-only .apply__btn-mail:hover {
-  background: rgba(255, 255, 255, 0.12);
+.apply--cta-only .apply__email-link:hover {
+  color: var(--yellow);
 }
 
 /* Benefits */
@@ -2520,7 +2537,6 @@ img { max-width: 100%; display: block; }
   .testimonials .success__grid, .about-values__list,
   .methodology__features, .visual-strip__grid { grid-template-columns: 1fr; }
   .visual-strip__item--wide { grid-column: auto; }
-  .apply--cta-only .apply__contact { flex-direction: column; align-items: stretch; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 460px; }
