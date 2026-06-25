@@ -1362,7 +1362,11 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-title); font-weight: 700; font-size: 2rem; color: var(--yellow);
 }
 .testimonial-card .success-card__photo--face {
-  height: 160px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  display: block;
+  flex: none;
   background-image: url('assets/testimonials-faces-grid.png');
   background-size: 300% 300%;
   background-repeat: no-repeat;
