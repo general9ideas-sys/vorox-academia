@@ -772,8 +772,9 @@ img { max-width: 100%; display: block; }
 .careers__stack {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 24px;
   width: 100%;
+  padding: 0 clamp(16px, 3vw, 48px) 8px;
 }
 .career-card {
   position: relative; background: var(--white); border: 1px solid var(--black);
@@ -802,15 +803,14 @@ img { max-width: 100%; display: block; }
   grid-template-columns: minmax(300px, 44%) 1fr;
   gap: 0;
   padding: 0;
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   min-height: 340px;
   scroll-margin-top: 100px;
 }
-.career-card--showcase:first-child { border-top: none; }
 .career-card--showcase:hover {
-  transform: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
   z-index: 1;
 }
 .career-card--showcase:nth-child(even) {
