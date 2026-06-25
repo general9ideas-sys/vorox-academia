@@ -292,9 +292,35 @@ img { max-width: 100%; display: block; }
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 32px;
   padding-bottom: 0;
+}
+.hero__text--brand {
+  max-width: none;
+  width: 100%;
+  text-align: center;
+}
+.hero__brand {
+  font-family: var(--font-title);
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  margin: 0;
+}
+.hero__tagline {
+  font-family: var(--font-title);
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  text-transform: lowercase;
+  color: var(--yellow);
+  margin: 20px 0 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 }
 .hero__text {
   max-width: 620px;
