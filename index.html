@@ -21,7 +21,7 @@
       <nav class="navbar__audience" aria-label="Audiencias">
         <div class="nav-dropdown" data-dropdown="estudiantes">
           <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
-            Para estudiantes
+            Estudiantes
             <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
           <div class="nav-dropdown__panel" hidden>
@@ -36,7 +36,7 @@
         </div>
         <div class="nav-dropdown" data-dropdown="empresas">
           <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
-            Para empresas
+            Empresas
             <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
           <div class="nav-dropdown__panel" hidden>
@@ -51,24 +51,7 @@
 
       <div class="navbar__actions">
         <div class="navbar__buttons">
-          <a href="#" class="btn btn--cta btn--sm">Ingresar</a>
-        </div>
-        <div class="more-menu-wrap">
-          <button class="more-menu__btn" id="moreMenuBtn" type="button" aria-label="Menú" aria-expanded="false" aria-haspopup="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="5" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="19" cy="12" r="1.8" fill="currentColor"/></svg>
-          </button>
-          <div class="more-menu more-menu--full" id="moreMenu" hidden>
-            <p class="more-menu__label">Herramientas</p>
-            <a href="plataforma/editor-codigo.html">Editor de código</a>
-            <a href="plataforma/campus-empleo.html">Campus empleo</a>
-            <p class="more-menu__label">Sitio</p>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="#carreras">Programas</a>
-            <a href="#metodologia">Metodología</a>
-            <a href="#testimonios">Testimonios</a>
-            <a href="#faq">Preguntas frecuentes</a>
-            <a href="#contacto">Contacto</a>
-          </div>
+          <a href="plataforma/aula-virtual.html" class="btn btn--cta btn--sm">Aula</a>
         </div>
         <button class="navbar__toggle" id="navToggle" aria-label="Menú móvil"><span></span><span></span><span></span></button>
       </div>
@@ -76,30 +59,21 @@
 
     <div class="mobile-nav" id="mobileNav" hidden>
       <div class="mobile-nav__tabs">
-        <button class="mobile-nav__tab active" data-mobile-tab="estudiantes" type="button">Para estudiantes</button>
-        <button class="mobile-nav__tab" data-mobile-tab="empresas" type="button">Para empresas</button>
+        <button class="mobile-nav__tab active" data-mobile-tab="estudiantes" type="button">Estudiantes</button>
+        <button class="mobile-nav__tab" data-mobile-tab="empresas" type="button">Empresas</button>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEstudiantes">
         <a href="#carreras">Programas</a>
         <a href="data-science.html">Data Science</a>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="#contacto">Hablar con un asesor</a>
+        <a href="nivelacion.html">Cursos</a>
+        <a href="#contacto">Contacto</a>
       </div>
       <div class="mobile-nav__panel" id="mobilePanelEmpresas" hidden>
         <a href="plataforma/campus-empleo.html">Campus empleo</a>
         <a href="#contacto">Contactar ventas</a>
       </div>
-      <div class="mobile-nav__extras">
-        <p class="mobile-nav__group-title">Herramientas</p>
-        <a href="plataforma/editor-codigo.html">Editor de código</a>
-        <a href="plataforma/campus-empleo.html">Campus empleo</a>
-        <p class="mobile-nav__group-title">Sitio</p>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="#metodologia">Metodología</a>
-        <a href="#faq">FAQ</a>
-      </div>
       <div class="mobile-nav__actions">
-        <a href="#" class="btn btn--cta btn--sm btn--full">Ingresar</a>
+        <a href="plataforma/aula-virtual.html" class="btn btn--cta btn--sm btn--full">Aula</a>
       </div>
     </div>
   </header>
