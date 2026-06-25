@@ -29,15 +29,32 @@
   dropdowns.forEach(function (dropdown) {
     const trigger = dropdown.querySelector('.nav-dropdown__trigger');
     const panel = dropdown.querySelector('.nav-dropdown__panel');
+    const hoverEnabled = dropdown.hasAttribute('data-dropdown-hover');
+
+    function openDropdown() {
+      closeAllMenus();
+      dropdown.classList.add('is-open');
+      panel.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown() {
+      dropdown.classList.remove('is-open');
+      panel.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    if (hoverEnabled && window.matchMedia('(hover: hover) and (min-width: 992px)').matches) {
+      dropdown.addEventListener('mouseenter', openDropdown);
+      dropdown.addEventListener('mouseleave', closeDropdown);
+    }
 
     trigger.addEventListener('click', function (e) {
       e.stopPropagation();
       const isOpen = dropdown.classList.contains('is-open');
       closeAllMenus();
       if (!isOpen) {
-        dropdown.classList.add('is-open');
-        panel.hidden = false;
-        trigger.setAttribute('aria-expanded', 'true');
+        openDropdown();
       }
     });
 
