@@ -830,7 +830,6 @@ img { max-width: 100%; display: block; }
   grid-template-areas:
     "title title"
     "desc facts"
-    "details details"
     "actions actions";
   gap: 18px 40px;
   align-content: center;
@@ -865,7 +864,6 @@ img { max-width: 100%; display: block; }
   justify-self: end;
   min-width: 160px;
 }
-.career-card--showcase .career-card__details { grid-area: details; }
 .career-card--showcase .career-card__actions {
   grid-area: actions;
   margin-top: 4px;
@@ -2896,7 +2894,6 @@ img { max-width: 100%; display: block; }
       "title"
       "facts"
       "desc"
-      "details"
       "actions";
     gap: 16px;
   }
