@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=carousel-infinite" />
+  <link rel="stylesheet" href="styles.css?v=hero-slider" />
 </head>
 <body>
 
@@ -243,10 +243,30 @@
 
   <!-- 1. Portada -->
   <section class="hero" id="inicio">
-    <video class="hero__bg-video" autoplay muted loop playsinline aria-hidden="true">
-      <source src="assets/hero-video.mp4?v=medium" type="video/mp4" />
-    </video>
+    <div class="hero__slider" id="heroSlider">
+      <div class="hero__slider-track">
+        <div class="hero__slide">
+          <video class="hero__bg-video" data-hero-video autoplay muted loop playsinline aria-hidden="true">
+            <source src="assets/hero-video.mp4?v=medium" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero__slide">
+          <video class="hero__bg-video" data-hero-video muted loop playsinline aria-hidden="true">
+            <source src="assets/hero-video-2.mp4?v=medium" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
     <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__slider-controls" aria-label="Videos del hero">
+      <button type="button" class="hero__slider-btn hero__slider-btn--prev" aria-label="Video anterior">
+        <span aria-hidden="true">‹</span>
+      </button>
+      <div class="hero__slider-dots" role="tablist" aria-label="Seleccionar video"></div>
+      <button type="button" class="hero__slider-btn hero__slider-btn--next" aria-label="Siguiente video">
+        <span aria-hidden="true">›</span>
+      </button>
+    </div>
     <div class="container hero__inner">
       <div class="hero__body">
         <div class="hero__text hero__text--brand">
@@ -678,6 +698,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=carousel-infinite"></script>
+  <script src="script.js?v=hero-slider"></script>
 </body>
 </html>
