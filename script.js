@@ -19,98 +19,19 @@
     if (!hero || !slider) return;
 
     var track = slider.querySelector('.hero__slider-track');
-    if (!track) return;
-
-    var CDN = 'https://cdn.jsdelivr.net/gh/general9ideas-sys/vorox-academia@main/assets/';
-    var files = [
-      'hero-video.mp4',
-      'hero-video-2.mp4',
-      'hero-video-3.mp4',
-      'hero-video-4.mp4'
-    ];
-    var useCdn = !/^(localhost|127\.0\.0\.1)$/i.test(location.hostname) && location.protocol !== 'file:';
-
-    function videoSrc(file) {
-      return useCdn ? CDN + file : 'assets/' + file + '?v=4videos';
-    }
-
-    function createSlide(file, isFirst) {
-      var slide = document.createElement('div');
-      slide.className = 'hero__slide';
-      var video = document.createElement('video');
-      video.className = 'hero__bg-video';
-      video.setAttribute('data-hero-video', '');
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.preload = 'auto';
-      video.setAttribute('playsinline', '');
-      video.setAttribute('aria-hidden', 'true');
-      if (isFirst) video.autoplay = true;
-      var source = document.createElement('source');
-      source.type = 'video/mp4';
-      source.src = videoSrc(file);
-      video.appendChild(source);
-      slide.appendChild(video);
-      return slide;
-    }
-
-    function sourceHasFile(source, file) {
-      var attr = source.getAttribute('src') || '';
-      var resolved = source.src || '';
-      return attr.indexOf(file) !== -1 || resolved.indexOf(file) !== -1;
-    }
-
-    function patchVideoSource(video, file, src, shouldLoad) {
-      var source = video.querySelector('source');
-      if (!source) {
-        source = document.createElement('source');
-        source.type = 'video/mp4';
-        video.appendChild(source);
-      }
-      if (sourceHasFile(source, file)) return;
-      source.src = src;
-      if (shouldLoad) video.load();
-    }
-
-    var slides = track.querySelectorAll('.hero__slide');
-    if (slides.length < files.length) {
-      for (var i = slides.length; i < files.length; i++) {
-        track.appendChild(createSlide(files[i], false));
-      }
-    }
-
-    track.querySelectorAll('.hero__slide').forEach(function (slide, i) {
-      if (i >= files.length) return;
-      var video = slide.querySelector('[data-hero-video]');
-      if (!video) return;
-      video.preload = i === 0 ? 'auto' : 'metadata';
-      if (i === 0) {
-        if (!video.autoplay) video.autoplay = true;
-        return;
-      }
-      if (useCdn) {
-        patchVideoSource(video, files[i], CDN + files[i], true);
-      }
-    });
-
-    var videos = track.querySelectorAll('[data-hero-video]');
+    var videos = slider.querySelectorAll('[data-hero-video]');
     var index = 0;
     var total = videos.length;
 
-    function playVideo(video) {
-      function start() {
-        var playPromise = video.play();
-        if (playPromise && playPromise.catch) playPromise.catch(function () {});
-      }
-      if (video.readyState >= 2) start();
-      else video.addEventListener('canplay', start, { once: true });
-    }
-
     function syncVideos() {
       videos.forEach(function (video, i) {
-        if (i === index) playVideo(video);
-        else video.pause();
+        if (i === index) {
+          var playPromise = video.play();
+          if (playPromise && playPromise.catch) playPromise.catch(function () {});
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
       });
     }
 
@@ -134,6 +55,8 @@
         next();
       }
     });
+
+    goTo(0);
   })();
 
   (function initHomeScroll() {
