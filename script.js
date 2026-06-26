@@ -19,7 +19,49 @@
     if (!hero || !slider) return;
 
     var track = slider.querySelector('.hero__slider-track');
-    var videos = slider.querySelectorAll('[data-hero-video]');
+    if (!track) return;
+
+    var CDN = 'https://cdn.jsdelivr.net/gh/general9ideas-sys/vorox-academia@main/assets/';
+    var files = [
+      'hero-video.mp4',
+      'hero-video-2.mp4',
+      'hero-video-3.mp4',
+      'hero-video-4.mp4'
+    ];
+    var cache = '?v=4videos';
+
+    track.textContent = '';
+    files.forEach(function (file, i) {
+      var slide = document.createElement('div');
+      slide.className = 'hero__slide';
+
+      var video = document.createElement('video');
+      video.className = 'hero__bg-video';
+      video.setAttribute('data-hero-video', '');
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('aria-hidden', 'true');
+      if (i === 0) video.autoplay = true;
+
+      var source = document.createElement('source');
+      source.type = 'video/mp4';
+      source.src = 'assets/' + file + cache;
+      video.appendChild(source);
+
+      video.addEventListener('error', function () {
+        if (source.src.indexOf('jsdelivr.net') === -1) {
+          source.src = CDN + file;
+          video.load();
+        }
+      });
+
+      slide.appendChild(video);
+      track.appendChild(slide);
+    });
+
+    var videos = track.querySelectorAll('[data-hero-video]');
     var index = 0;
     var total = videos.length;
 
