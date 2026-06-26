@@ -1570,7 +1570,65 @@ img { max-width: 100%; display: block; }
 }
 .teacher-card__link:hover { color: var(--blue-deep); }
 
-/* Testimonials */
+/* Comunidad (landing) */
+.landing-community .success__grid { grid-template-columns: repeat(3, 1fr); }
+.landing-community__cert {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 460px);
+  gap: 48px;
+  align-items: center;
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid #e8e8e8;
+}
+.landing-community__cert-copy h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  margin: 10px 0 14px;
+}
+.landing-community__cert-copy p {
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  max-width: 42em;
+}
+.landing-community__cert-list {
+  list-style: none;
+  margin: 0 0 22px;
+}
+.landing-community__cert-list li {
+  position: relative;
+  padding: 8px 0 8px 22px;
+  color: var(--dark);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.landing-community__cert-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-weight: 700;
+  color: var(--black);
+}
+.landing-community__cert-visual {
+  margin: 0;
+}
+.landing-community__cert-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--black);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.landing-community__cert-visual figcaption {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+/* Testimonials (legacy alias) */
 .testimonials .success__grid { grid-template-columns: repeat(3, 1fr); }
 .testimonial-card__quote {
   font-size: 0.92rem;
@@ -2952,6 +3010,11 @@ img { max-width: 100%; display: block; }
   .why__grid, .careers__grid, .success__grid,
   .platform__grid, .community__grid, .pricing__grid,
   .stats__grid, .stats__grid--5, .benefits__grid, .teachers__grid,
+  .landing-community__cert {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .landing-community .success__grid,
   .testimonials .success__grid, .about-values__list,
   .methodology__features, .visual-strip__grid { grid-template-columns: 1fr; }
   .visual-strip__item--wide { grid-column: auto; }
