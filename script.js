@@ -23,6 +23,18 @@
     var index = 0;
     var total = videos.length;
 
+    function replayBrandAnimation() {
+      var brand = hero.querySelector('.hero__brand');
+      var tagline = hero.querySelector('.hero__tagline');
+      if (!brand || !tagline) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      [brand, tagline].forEach(function (el) {
+        el.style.animation = 'none';
+        void el.offsetWidth;
+        el.style.removeProperty('animation');
+      });
+    }
+
     function syncVideos() {
       videos.forEach(function (video, i) {
         if (i === index) {
@@ -36,9 +48,11 @@
     }
 
     function goTo(target) {
+      var prev = index;
       index = ((target % total) + total) % total;
       track.style.transform = 'translateX(-' + (index * 100) + '%)';
       syncVideos();
+      if (prev !== index) replayBrandAnimation();
     }
 
     function next() {
