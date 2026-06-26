@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=comunidad-cert" />
+  <link rel="stylesheet" href="styles.css?v=comunidad-carousel" />
 </head>
 <body>
 
@@ -508,7 +508,12 @@
           <iframe src="https://player.vimeo.com/video/658948892?title=0&byline=0&portrait=0" title="Comunidad VOROX Academia" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
-      <div class="success__grid">
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <button type="button" class="testimonial-carousel__nav testimonial-carousel__nav--prev" aria-label="Comentario anterior">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="testimonial-carousel__viewport">
+          <div class="testimonial-carousel__track">
         <article class="success-card testimonial-card">
           <div class="success-card__photo success-card__photo--face success-card__photo--face-1" role="img" aria-label="Sofía Martínez"></div>
           <div class="success-card__body">
@@ -557,6 +562,12 @@
             <blockquote class="testimonial-card__quote">"Los proyectos me ayudaron a conseguir nuevas oportunidades laborales."</blockquote>
           </div>
         </article>
+          </div>
+        </div>
+        <button type="button" class="testimonial-carousel__nav testimonial-carousel__nav--next" aria-label="Siguiente comentario">
+          <span aria-hidden="true">›</span>
+        </button>
+        <div class="testimonial-carousel__dots" role="tablist" aria-label="Comentarios de la comunidad"></div>
       </div>
 
       <div class="landing-community__cert">
@@ -667,6 +678,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=nav-hover"></script>
+  <script src="script.js?v=comunidad-carousel"></script>
 </body>
 </html>

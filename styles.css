@@ -1571,7 +1571,79 @@ img { max-width: 100%; display: block; }
 .teacher-card__link:hover { color: var(--blue-deep); }
 
 /* Comunidad (landing) */
-.landing-community .success__grid { grid-template-columns: repeat(3, 1fr); }
+.testimonial-carousel {
+  position: relative;
+  margin-bottom: 8px;
+}
+.testimonial-carousel__viewport {
+  overflow: hidden;
+  margin: 0 52px;
+}
+.testimonial-carousel__track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.landing-community .testimonial-carousel .testimonial-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: 0;
+}
+.testimonial-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--black);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.testimonial-carousel__nav:hover {
+  background: var(--black);
+  color: var(--yellow);
+}
+.testimonial-carousel__nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: var(--white);
+  color: var(--black);
+}
+.testimonial-carousel__nav--prev { left: 0; }
+.testimonial-carousel__nav--next { right: 0; }
+.testimonial-carousel__nav span {
+  display: block;
+  margin-top: -2px;
+}
+.testimonial-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+.testimonial-carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.testimonial-carousel__dot.is-active,
+.testimonial-carousel__dot:hover {
+  background: var(--black);
+}
 .landing-community__cert {
   display: grid;
   grid-template-columns: 1fr minmax(280px, 460px);
@@ -2986,6 +3058,14 @@ img { max-width: 100%; display: block; }
     text-align: left;
     align-items: flex-start;
   }
+  .landing-community .testimonial-carousel .testimonial-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+  .testimonial-carousel__viewport { margin: 0 44px; }
+  .landing-community__cert {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
   .community__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__grid { grid-template-columns: repeat(2, 1fr); }
   .apply__inner { grid-template-columns: 1fr; }
@@ -3010,13 +3090,13 @@ img { max-width: 100%; display: block; }
   .why__grid, .careers__grid, .success__grid,
   .platform__grid, .community__grid, .pricing__grid,
   .stats__grid, .stats__grid--5, .benefits__grid, .teachers__grid,
-  .landing-community__cert {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .landing-community .success__grid,
   .testimonials .success__grid, .about-values__list,
   .methodology__features, .visual-strip__grid { grid-template-columns: 1fr; }
+  .landing-community .testimonial-carousel .testimonial-card {
+    flex: 0 0 100%;
+  }
+  .testimonial-carousel__viewport { margin: 0 40px; }
+  .testimonial-carousel__nav { width: 38px; height: 38px; font-size: 1.35rem; }
   .visual-strip__item--wide { grid-column: auto; }
   .footer__inner { grid-template-columns: 1fr; }
   .footer__links { grid-template-columns: 1fr 1fr; }
