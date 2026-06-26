@@ -125,6 +125,31 @@
     goTo(0);
   })();
 
+  (function initHomeScroll() {
+    function scrollToTop(smooth) {
+      window.scrollTo({ top: 0, left: 0, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    if (location.hash === '#inicio') {
+      scrollToTop(false);
+      requestAnimationFrame(function () { scrollToTop(false); });
+    }
+
+    document.querySelectorAll('a[href="#inicio"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (location.hash !== '#inicio') {
+          history.pushState(null, '', '#inicio');
+        }
+        scrollToTop(true);
+      });
+    });
+
+    window.addEventListener('hashchange', function () {
+      if (location.hash === '#inicio') scrollToTop(true);
+    });
+  })();
+
   function closeAllMenus() {
     dropdowns.forEach(function (dd) {
       dd.classList.remove('is-open');
