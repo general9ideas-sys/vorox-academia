@@ -14,46 +14,14 @@
   });
 
   (function initHeroSlider() {
+    var hero = document.getElementById('inicio');
     var slider = document.getElementById('heroSlider');
-    if (!slider) return;
+    if (!hero || !slider) return;
 
     var track = slider.querySelector('.hero__slider-track');
     var videos = slider.querySelectorAll('[data-hero-video]');
-    var prevBtn = document.querySelector('.hero__slider-btn--prev');
-    var nextBtn = document.querySelector('.hero__slider-btn--next');
-    var dotsWrap = document.querySelector('.hero__slider-dots');
     var index = 0;
     var total = videos.length;
-    var autoplayTimer = null;
-    var touchStartX = 0;
-
-    function buildDots() {
-      if (!dotsWrap) return;
-      dotsWrap.innerHTML = '';
-      for (var i = 0; i < total; i++) {
-        (function (dotIndex) {
-          var dot = document.createElement('button');
-          dot.type = 'button';
-          dot.className = 'hero__slider-dot';
-          dot.setAttribute('aria-label', 'Video ' + (dotIndex + 1));
-          dot.setAttribute('role', 'tab');
-          dot.addEventListener('click', function () {
-            goTo(dotIndex);
-            startAutoplay();
-          });
-          dotsWrap.appendChild(dot);
-        })(i);
-      }
-    }
-
-    function updateDots() {
-      if (!dotsWrap) return;
-      dotsWrap.querySelectorAll('.hero__slider-dot').forEach(function (dot, i) {
-        var active = i === index;
-        dot.classList.toggle('is-active', active);
-        dot.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-    }
 
     function syncVideos() {
       videos.forEach(function (video, i) {
@@ -70,7 +38,6 @@
     function goTo(target) {
       index = ((target % total) + total) % total;
       track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      updateDots();
       syncVideos();
     }
 
@@ -78,47 +45,18 @@
       goTo(index + 1);
     }
 
-    function prev() {
-      goTo(index - 1);
-    }
-
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayTimer = setInterval(next, 8000);
-    }
-
-    function stopAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function () {
-        prev();
-        startAutoplay();
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function () {
+    hero.addEventListener('click', next);
+    hero.setAttribute('role', 'button');
+    hero.setAttribute('tabindex', '0');
+    hero.setAttribute('aria-label', 'Clic para cambiar el video de fondo');
+    hero.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
         next();
-        startAutoplay();
-      });
-    }
+      }
+    });
 
-    slider.addEventListener('touchstart', function (e) {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    slider.addEventListener('touchend', function (e) {
-      var diff = e.changedTouches[0].screenX - touchStartX;
-      if (Math.abs(diff) < 50) return;
-      if (diff < 0) next();
-      else prev();
-      startAutoplay();
-    }, { passive: true });
-
-    buildDots();
     goTo(0);
-    startAutoplay();
   })();
 
   function closeAllMenus() {
