@@ -1445,10 +1445,16 @@ img { max-width: 100%; display: block; }
   background-size: cover;
   background-position: center;
 }
-.career-card__thumb--1 { background-image: url('assets/hero-career-1.png'); }
-.career-card__thumb--2 { background-image: url('assets/hero-career-2.png'); }
-.career-card__thumb--3 { background-image: url('assets/hero-career-4.png'); }
-.career-card__thumb--4 { background-image: url('assets/hero-career-4.png'); }
+.career-card__thumb--ai { background-image: url('assets/career-photo-studio.png'); }
+.career-card__thumb--fs { background-image: url('assets/career-photo-balcony.png'); }
+.career-card__thumb--ds { background-image: url('assets/career-photo-study.png'); }
+.career-card__thumb--de { background-image: url('assets/hero-career-1.png'); }
+.career-card__thumb--aa { background-image: url('assets/career-photo-kitchen.png'); }
+.career-card__thumb--md { background-image: url('assets/career-photo-focus.png'); }
+.career-card__thumb--da { background-image: url('assets/hero-career-2.png'); }
+.career-card__thumb--ux { background-image: url('assets/hero-career-4.png'); }
+.career-card__thumb--cyber { background-image: url('assets/hero-career-1.png'); background-position: center 25%; }
+.career-card__thumb--robo { background-image: url('assets/hero-career-2.png'); background-position: center 30%; }
 .career-card--program:not(.career-card--showcase) { scroll-margin-top: 100px; }
 .career-card--showcase .career-card__short { flex: unset; }
 
