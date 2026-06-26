@@ -134,8 +134,6 @@
         next();
       }
     });
-
-    goTo(0);
   })();
 
   (function initHomeScroll() {
