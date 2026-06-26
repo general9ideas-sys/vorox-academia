@@ -425,7 +425,7 @@ img { max-width: 100%; display: block; }
   min-height: clamp(560px, 78vh, 720px);
   display: flex;
   align-items: stretch;
-  background: #0a0a0a;
+  background: #111 url('assets/career-photo-studio.png?v=4videos') center/cover no-repeat;
 }
 #inicio {
   scroll-margin-top: 0;
@@ -438,7 +438,7 @@ img { max-width: 100%; display: block; }
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #111 url('assets/career-photo-studio.png?v=4videos') center/cover no-repeat;
 }
 .hero__slider-track {
   display: flex;

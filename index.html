@@ -8,7 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=scroll-top" />
+  <link rel="stylesheet" href="styles.css?v=hero-poster" />
+  <link rel="preload" as="video" href="assets/hero-video.mp4?v=4videos" type="video/mp4" />
+  <link rel="preload" as="image" href="assets/career-photo-studio.png?v=4videos" />
 </head>
 <body>
 
@@ -246,7 +248,7 @@
     <div class="hero__slider" id="heroSlider" aria-hidden="true">
       <div class="hero__slider-track">
         <div class="hero__slide">
-          <video class="hero__bg-video" data-hero-video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+          <video class="hero__bg-video" data-hero-video autoplay muted loop playsinline preload="auto" poster="assets/career-photo-studio.png?v=4videos" aria-hidden="true">
             <source src="assets/hero-video.mp4?v=4videos" type="video/mp4" />
           </video>
         </div>
@@ -279,21 +281,6 @@
       </div>
     </div>
   </section>
-  <script>
-    (function () {
-      if (/^(localhost|127\.0\.0\.1)$/i.test(location.hostname) || location.protocol === 'file:') return;
-      var cdn = 'https://cdn.jsdelivr.net/gh/general9ideas-sys/vorox-academia@main/assets/';
-      var files = ['hero-video.mp4', 'hero-video-2.mp4', 'hero-video-3.mp4', 'hero-video-4.mp4'];
-      var track = document.querySelector('#heroSlider .hero__slider-track');
-      if (!track) return;
-      track.querySelectorAll('[data-hero-video]').forEach(function (video, i) {
-        if (!files[i]) return;
-        var source = video.querySelector('source');
-        if (!source) return;
-        source.src = cdn + files[i];
-      });
-    })();
-  </script>
 
   <!-- 3. Estadísticas -->
   <section class="stats" id="estadisticas">
@@ -714,6 +701,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=scroll-top"></script>
+  <script src="script.js?v=hero-poster"></script>
 </body>
 </html>

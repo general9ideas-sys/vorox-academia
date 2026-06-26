@@ -55,6 +55,24 @@
       return slide;
     }
 
+    function sourceHasFile(source, file) {
+      var attr = source.getAttribute('src') || '';
+      var resolved = source.src || '';
+      return attr.indexOf(file) !== -1 || resolved.indexOf(file) !== -1;
+    }
+
+    function patchVideoSource(video, file, src, shouldLoad) {
+      var source = video.querySelector('source');
+      if (!source) {
+        source = document.createElement('source');
+        source.type = 'video/mp4';
+        video.appendChild(source);
+      }
+      if (sourceHasFile(source, file)) return;
+      source.src = src;
+      if (shouldLoad) video.load();
+    }
+
     var slides = track.querySelectorAll('.hero__slide');
     if (slides.length < files.length) {
       for (var i = slides.length; i < files.length; i++) {
@@ -66,18 +84,13 @@
       if (i >= files.length) return;
       var video = slide.querySelector('[data-hero-video]');
       if (!video) return;
-      video.preload = 'auto';
-      if (i === 0 && !video.autoplay) video.autoplay = true;
-      var source = video.querySelector('source');
-      if (!source) {
-        source = document.createElement('source');
-        source.type = 'video/mp4';
-        video.appendChild(source);
+      video.preload = i === 0 ? 'auto' : 'metadata';
+      if (i === 0) {
+        if (!video.autoplay) video.autoplay = true;
+        return;
       }
-      var src = videoSrc(files[i]);
-      if (source.getAttribute('src') !== src) {
-        source.src = src;
-        video.load();
+      if (useCdn) {
+        patchVideoSource(video, files[i], CDN + files[i], true);
       }
     });
 
