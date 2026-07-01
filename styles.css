@@ -95,9 +95,17 @@ img { max-width: 100%; display: block; }
   padding: var(--logo-protection); margin: calc(var(--logo-protection) * -1);
 }
 .logo { display: block; height: 28px; width: auto; }
-.navbar__logo .logo { height: 36px; }
+.navbar__logo .logo,
 .footer__logo .logo {
   height: 36px;
+  width: auto;
+  max-width: none;
+}
+.footer__logo .logo {
+  height: 36px;
+  width: calc(36px * 1024 / 287);
+  object-fit: contain;
+  object-position: left center;
 }
 .navbar__audience { display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; }
 .nav-dropdown { position: relative; }
