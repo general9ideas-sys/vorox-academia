@@ -95,15 +95,15 @@ img { max-width: 100%; display: block; }
   padding: var(--logo-protection); margin: calc(var(--logo-protection) * -1);
 }
 .logo { display: block; height: 28px; width: auto; }
-.navbar__logo .logo,
-.footer__logo .logo {
+.navbar__logo .logo {
   height: 36px;
   width: auto;
   max-width: none;
 }
 .footer__logo .logo {
-  height: 36px;
-  width: calc(36px * 1024 / 287);
+  height: 48px;
+  width: calc(48px * 1024 / 287);
+  max-width: none;
   object-fit: contain;
   object-position: left center;
 }
