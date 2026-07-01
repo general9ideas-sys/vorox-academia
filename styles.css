@@ -98,10 +98,6 @@ img { max-width: 100%; display: block; }
 .navbar__logo .logo { height: 36px; }
 .footer__logo .logo {
   height: 36px;
-  background: var(--white);
-  border-radius: 8px;
-  padding: 4px 7px;
-  box-sizing: content-box;
 }
 .navbar__audience { display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; }
 .nav-dropdown { position: relative; }
