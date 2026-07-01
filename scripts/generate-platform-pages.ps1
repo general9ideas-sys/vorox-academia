@@ -295,7 +295,7 @@ $itemsHtml          </ul>
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="../index.html#inicio" class="navbar__logo" aria-label="VOROX Academia">
-        <img src="../assets/logo-vorox.png?v=new" alt="VOROX Academia" class="logo" width="118" height="48" />
+        <img src="../assets/logo-vorox.png?v=academia" alt="VOROX Academia" class="logo" width="171" height="48" />
       </a>
       <div class="navbar__actions">
         <div class="navbar__buttons">
