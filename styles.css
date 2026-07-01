@@ -94,13 +94,13 @@ img { max-width: 100%; display: block; }
   display: inline-flex; align-items: center; flex-shrink: 0;
   padding: var(--logo-protection); margin: calc(var(--logo-protection) * -1);
 }
-.logo { display: block; height: 32px; width: auto; }
-.navbar__logo .logo { height: 40px; }
+.logo { display: block; height: 28px; width: auto; }
+.navbar__logo .logo { height: 36px; }
 .footer__logo .logo {
-  height: 40px;
+  height: 36px;
   background: var(--white);
   border-radius: 8px;
-  padding: 5px 8px;
+  padding: 4px 7px;
   box-sizing: content-box;
 }
 .navbar__audience { display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; }
