@@ -12,46 +12,8 @@
 </head>
 <body>
 
-  <header class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="index.html#inicio" class="navbar__logo" aria-label="VOROX Academia — Inicio">
-        <img src="assets/logo-vorox.png?v=academia" alt="VOROX Academia" class="logo" width="171" height="48" />
-      </a>
-      <nav class="navbar__audience" aria-label="Audiencias">
-        <div class="nav-dropdown" data-dropdown="estudiantes">
-          <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
-            Para estudiantes
-            <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </button>
-          <div class="nav-dropdown__panel" hidden>
-            <p class="nav-dropdown__label">Carreras más solicitadas</p>
-            <a href="ai-engineering.html" class="nav-dropdown__item"><strong>AI Engineering <span class="nav-dropdown__tag">Nueva</span></strong><span>LLMs, RAG y agentes inteligentes</span></a>
-            <a href="data-science.html" class="nav-dropdown__item"><strong>Data Science</strong><span>Análisis de datos y Machine Learning</span></a>
-            <a href="index.html#carreras" class="nav-dropdown__item"><strong>Full Stack Development</strong><span>Desarrollo web completo</span></a>
-            <a href="index.html#carreras" class="nav-dropdown__footer">Ver todas las carreras →</a>
-          </div>
-        </div>
-        <div class="nav-dropdown" data-dropdown="empresas">
-          <button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true">
-            Para empresas
-            <svg class="nav-dropdown__chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </button>
-          <div class="nav-dropdown__panel" hidden>
-            <p class="nav-dropdown__label">Soluciones corporativas</p>
-            <a href="index.html#contacto" class="nav-dropdown__item"><strong>Contratar talento VOROX</strong><span>Graduados listos para producir</span></a>
-            <a href="index.html#contacto" class="nav-dropdown__item"><strong>Capacitación en IA</strong><span>Formá expertos en tu equipo</span></a>
-            <a href="index.html#contacto" class="nav-dropdown__footer">Hablar con ventas →</a>
-          </div>
-        </div>
-      </nav>
-      <div class="navbar__actions">
-        <div class="navbar__buttons">
-          <a href="#" class="btn btn--cta btn--sm">Ingresar</a>
-        </div>
-        <button class="navbar__toggle" id="navToggle" aria-label="Menú móvil"><span></span><span></span><span></span></button>
-      </div>
-    </div>
-  </header>
+  <header class="navbar" id="navbar" data-site-nav data-nav-depth="0"></header>
+  <script src="js/site-navbar.js?v=1"></script>
 
   <main>
     <section class="course-hero">
