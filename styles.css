@@ -1151,6 +1151,149 @@ img { max-width: 100%; display: block; }
   color: var(--blue);
 }
 
+/* Landing — ritmo visual entre sectores */
+.landing-section {
+  position: relative;
+  isolation: isolate;
+}
+.landing-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    var(--yellow) 0%,
+    var(--yellow) 22%,
+    var(--blue) 50%,
+    var(--yellow) 78%,
+    var(--blue-deep) 100%
+  );
+}
+.landing-section--stats {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: linear-gradient(180deg, var(--blue-soft) 0%, #d4e0f5 100%);
+}
+.landing-section--stats::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent, var(--vorox-navy));
+  pointer-events: none;
+  z-index: 0;
+}
+.landing-section--stats .stats__item {
+  padding: 20px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(56, 94, 167, 0.15);
+  box-shadow: 0 8px 24px rgba(56, 94, 167, 0.08);
+}
+.landing-section--programs {
+  padding-top: 96px;
+}
+.landing-section--programs::before {
+  height: 5px;
+  background: var(--yellow);
+}
+.landing-section--programs::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 64px;
+  background: linear-gradient(to bottom, transparent, var(--yellow-soft));
+  pointer-events: none;
+}
+.landing-section--compare {
+  padding-top: 96px;
+}
+.landing-section--compare::before {
+  background: linear-gradient(90deg, var(--blue) 0%, var(--yellow) 100%);
+}
+.landing-section--benefits {
+  background: var(--yellow-soft);
+  border-top: 1px solid rgba(253, 199, 0, 0.45);
+  border-bottom: 1px solid rgba(56, 94, 167, 0.12);
+}
+.landing-section--benefits::before {
+  background: var(--blue);
+  height: 3px;
+}
+.landing-section--benefits .section-tag {
+  color: var(--blue-deep);
+}
+.landing-section--benefits .section-header h2 {
+  color: var(--dark);
+}
+.landing-section--benefits .benefits__item {
+  background: var(--white);
+  border-color: rgba(56, 94, 167, 0.18);
+  color: var(--dark);
+  box-shadow: var(--shadow);
+}
+.landing-section--community {
+  background:
+    linear-gradient(180deg, var(--white) 0%, var(--brand-surface) 100%);
+  box-shadow: inset 0 1px 0 var(--salmon-border);
+}
+.landing-section--community::before {
+  background: linear-gradient(90deg, var(--yellow) 0%, var(--blue-soft) 50%, var(--yellow) 100%);
+}
+.landing-section--community .landing-community__cert {
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid var(--salmon-border);
+  background: linear-gradient(135deg, var(--blue-soft) 0%, var(--white) 55%);
+  border-top: none;
+  margin-top: 48px;
+  padding-top: 32px;
+}
+.landing-section--faq {
+  background: linear-gradient(180deg, var(--brand-surface) 0%, var(--blue-soft) 55%, var(--white) 100%);
+}
+.landing-section--faq::before {
+  height: 3px;
+  opacity: 0.9;
+}
+.landing-section--faq .section-tag {
+  color: var(--blue);
+}
+.landing-section--faq .section-header h2 {
+  color: var(--dark);
+}
+.landing-section--faq .faq-item {
+  background: var(--white);
+  border: 1px solid var(--salmon-border);
+  box-shadow: var(--shadow);
+}
+.landing-section--cta {
+  background: linear-gradient(125deg, var(--blue-deep) 0%, var(--blue) 42%, #152238 100%);
+  border-top: none;
+}
+.landing-section--cta::before {
+  height: 6px;
+  background: var(--yellow);
+}
+.landing-section--cta::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: min(42%, 520px);
+  height: 100%;
+  background: radial-gradient(ellipse at 100% 0%, rgba(253, 199, 0, 0.18) 0%, transparent 62%);
+  pointer-events: none;
+}
+
 .path-card__badge {
   align-self: flex-start;
   display: inline-flex;
@@ -3730,11 +3873,10 @@ img { max-width: 100%; display: block; }
   color: var(--yellow);
 }
 
-/* Landing — bandas claras branding */
-.vorox-site .stats {
-  background: var(--blue-soft);
-  border-top: none;
-  border-bottom: none;
+/* Landing — bandas claras branding (vorox-site) */
+.vorox-site .landing-section--stats.stats {
+  background: linear-gradient(180deg, var(--blue-soft) 0%, #d4e0f5 100%);
+  border: none;
   color: var(--dark);
 }
 .vorox-site .stats__number {
@@ -3743,9 +3885,9 @@ img { max-width: 100%; display: block; }
 .vorox-site .stats__item span:last-child {
   color: var(--gray);
 }
-.vorox-site .success,
-.vorox-site .landing-community {
-  background: var(--white);
+.vorox-site .landing-section--community.success,
+.vorox-site .landing-section--community.landing-community {
+  background: linear-gradient(180deg, var(--white) 0%, var(--brand-surface) 100%);
   color: var(--dark);
 }
 .vorox-site .landing-community .section-tag,
@@ -3809,26 +3951,28 @@ img { max-width: 100%; display: block; }
   color: var(--gray-light);
 }
 
-.vorox-site .benefits {
+.vorox-site .landing-section--benefits.benefits {
   background: var(--yellow-soft);
 }
-.vorox-site .benefits .section-header h2 {
+.vorox-site .landing-section--benefits .benefits .section-header h2,
+.vorox-site .landing-section--benefits.benefits .section-header h2 {
   color: var(--dark);
 }
-.vorox-site .benefits__item {
-  border-color: rgba(56, 94, 167, 0.2);
+.vorox-site .landing-section--benefits .benefits__item {
+  border-color: rgba(56, 94, 167, 0.18);
   border-radius: 16px;
   background: var(--white);
   color: var(--dark);
 }
 
-.vorox-site .faq {
-  background: var(--brand-surface);
+.vorox-site .landing-section--faq.faq {
+  background: linear-gradient(180deg, var(--brand-surface) 0%, var(--blue-soft) 55%, var(--white) 100%);
 }
-.vorox-site .faq .section-header h2 {
+.vorox-site .landing-section--faq.faq .section-header h2 {
   color: var(--dark);
 }
-.vorox-site .faq .section-tag {
+.vorox-site .landing-section--faq .faq .section-tag,
+.vorox-site .landing-section--faq.faq .section-tag {
   color: var(--blue);
 }
 .vorox-site .faq-item {
@@ -3844,9 +3988,9 @@ img { max-width: 100%; display: block; }
   color: var(--gray);
 }
 
-.vorox-site .apply {
-  background: var(--vorox-navy-raised);
-  border-top: 1px solid var(--vorox-border);
+.vorox-site .landing-section--cta.apply {
+  background: linear-gradient(125deg, var(--blue-deep) 0%, var(--blue) 42%, #152238 100%);
+  border-top: none;
 }
 
 /* Páginas de carrera */
