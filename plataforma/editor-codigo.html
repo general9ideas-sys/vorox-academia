@@ -3,33 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Editor de código VOROX — escribí, ejecutá y testeá Python, JavaScript y HTML en el navegador." />
-  <title>Editor de código | VOROX Academia</title>
+  <meta name="description" content="Editor de cï¿½digo VOROX ï¿½ escribï¿½, ejecutï¿½ y testeï¿½ Python, JavaScript y HTML en el navegador." />
+  <title>Editor de cï¿½digo | VOROX Academia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
-  <link rel="stylesheet" href="../styles.css?v=code-editor" />
+  <link rel="stylesheet" href="../styles.css?v=figma-vorox-1" />
+  <link rel="stylesheet" href="../styles.css?v=figma-vorox-1" />
 </head>
-<body>
-  <header class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="../index.html#inicio" class="navbar__logo" aria-label="VOROX Academia">
-        <img src="../assets/logo-vorox.png?v=academia" alt="VOROX Academia" class="logo" width="171" height="48" />
-      </a>
-      <div class="navbar__actions">
-        <div class="navbar__buttons">
-          <a href="../index.html#inicio" class="btn btn--outline-nav btn--sm">VOROX Academia</a>
-        </div>
-      </div>
-    </div>
-  </header>
+<body class="vorox-site">
+    <header class="navbar" id="navbar" data-site-nav data-nav-depth="1"></header>
+  <script src="../js/site-navbar.js?v=2"></script>
 
   <div class="code-playground-topbar">
     <div class="container code-playground-topbar__inner">
       <div>
-        <h1>Editor de código</h1>
-        <p>Escribí, ejecutá y testeá sin salir del campus</p>
+        <h1>Editor de cï¿½digo</h1>
+        <p>Escribï¿½, ejecutï¿½ y testeï¿½ sin salir del campus</p>
       </div>
       <a href="../index.html#inicio">? Volver al inicio</a>
     </div>
@@ -60,14 +50,14 @@
             <span>Editor</span>
             <span class="code-playground__status" id="codeStatus">Listo</span>
           </div>
-          <textarea id="codeEditor" aria-label="Editor de código"></textarea>
+          <textarea id="codeEditor" aria-label="Editor de cï¿½digo"></textarea>
         </div>
 
         <div class="code-playground__output-panel" id="outputPanel">
           <div class="code-playground__panel-head">
             <span id="outputLabel">Consola</span>
           </div>
-          <pre class="code-playground__console" id="codeConsole" aria-live="polite">Presioná «Ejecutar» para ver el resultado.</pre>
+          <pre class="code-playground__console" id="codeConsole" aria-live="polite">Presionï¿½ ï¿½Ejecutarï¿½ para ver el resultado.</pre>
         </div>
 
         <div class="code-playground__preview-panel" id="previewPanel" hidden>
@@ -78,7 +68,7 @@
         </div>
       </div>
 
-      <p class="code-playground__note">Python corre en el navegador con Pyodide. JavaScript y HTML se ejecutan en un entorno local de práctica.</p>
+      <p class="code-playground__note">Python corre en el navegador con Pyodide. JavaScript y HTML se ejecutan en un entorno local de prï¿½ctica.</p>
     </div>
   </main>
 

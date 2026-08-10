@@ -21,7 +21,7 @@
     return ''
       + '<div class="container navbar__inner">'
       + '<a href="' + h('#inicio', depth, isHome) + '" class="navbar__logo" aria-label="VOROX Academia — Inicio">'
-      + '<img src="' + p('assets/logo-vorox.png?v=academia') + '" alt="VOROX Academia" class="logo" width="171" height="48" />'
+      + '<img src="' + p('assets/logo-vorox-footer.png?v=white') + '" alt="VOROX Academia" class="logo logo--nav" width="171" height="48" />'
       + '</a>'
       + '<nav class="navbar__audience" aria-label="Audiencias">'
       + '<div class="nav-dropdown" data-dropdown="estudiantes" data-dropdown-hover>'

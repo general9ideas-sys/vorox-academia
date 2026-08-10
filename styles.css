@@ -24,6 +24,14 @@
   --font-body: 'Raleway', sans-serif;
   --transition: 0.25s ease;
   --logo-protection: 8px;
+  /* Vorox Figma — superficies */
+  --vorox-navy: #070b14;
+  --vorox-navy-raised: #0a101c;
+  --vorox-navy-card: rgba(255, 255, 255, 0.03);
+  --vorox-border: rgba(255, 255, 255, 0.1);
+  --vorox-border-strong: rgba(255, 255, 255, 0.18);
+  --vorox-text-muted: rgba(255, 255, 255, 0.55);
+  --vorox-glow: radial-gradient(ellipse 75% 55% at 100% 0%, rgba(253, 199, 0, 0.14) 0%, transparent 55%);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -3398,4 +3406,437 @@ img { max-width: 100%; display: block; }
     max-width: none;
   }
   .hero__inner { padding: 28px 24px 24px; }
+}
+
+/* ===================================================================
+   Vorox Figma — tema global (body.vorox-site en todas las páginas)
+   =================================================================== */
+.vorox-site {
+  background: var(--vorox-navy);
+  color: rgba(255, 255, 255, 0.88);
+}
+.vorox-site h1,
+.vorox-site h2,
+.vorox-site h3,
+.vorox-site h4 {
+  color: var(--white);
+}
+
+/* Nav oscuro */
+.vorox-site .navbar {
+  background: rgba(7, 11, 20, 0.88);
+  border-bottom: 1px solid var(--vorox-border);
+  backdrop-filter: blur(14px);
+}
+.vorox-site .navbar--scrolled {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+.vorox-site .nav-dropdown__trigger,
+.vorox-site .nav-link-simple,
+.vorox-site .more-menu__trigger {
+  color: rgba(255, 255, 255, 0.92);
+}
+.vorox-site .nav-dropdown__trigger:hover,
+.vorox-site .nav-dropdown.is-open .nav-dropdown__trigger,
+.vorox-site .nav-link-simple:hover,
+.vorox-site .nav-link-simple--active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--yellow);
+}
+.vorox-site .nav-dropdown__panel,
+.vorox-site .mobile-nav {
+  background: var(--vorox-navy-raised);
+  border-color: var(--vorox-border-strong);
+}
+.vorox-site .nav-dropdown__item:hover,
+.vorox-site .nav-mega__link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.vorox-site .nav-dropdown__item strong,
+.vorox-site .nav-mega__title,
+.vorox-site .nav-mega__link {
+  color: rgba(255, 255, 255, 0.92);
+}
+.vorox-site .nav-dropdown__item span:not(.nav-dropdown__tag),
+.vorox-site .nav-dropdown__label {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .nav-mega.nav-mega--stack .nav-mega__col {
+  border-bottom-color: var(--vorox-border);
+}
+.vorox-site .nav-dropdown__footer {
+  border-top-color: var(--vorox-border);
+  color: var(--yellow);
+}
+.vorox-site .mobile-nav a {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: var(--vorox-border);
+}
+.vorox-site .navbar__toggle span {
+  background: var(--white);
+}
+.vorox-site .btn--outline-nav {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--white);
+}
+.vorox-site .btn--outline-nav:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  background: rgba(253, 199, 0, 0.08);
+}
+.vorox-site .navbar__logo .logo--nav {
+  height: 32px;
+  width: auto;
+}
+
+/* Heroes internos (Figma) */
+.vorox-site .course-hero,
+.vorox-site .feature-hero,
+.vorox-site .page-hero {
+  background: var(--vorox-navy);
+  background-image: var(--vorox-glow);
+}
+.vorox-site .course-hero .section-tag {
+  color: var(--yellow);
+}
+
+/* Landing — secciones claras → oscuras */
+.vorox-site .stats {
+  background: var(--vorox-navy-raised);
+  border-top: 1px solid var(--vorox-border);
+  border-bottom: 1px solid var(--vorox-border);
+}
+.vorox-site .success,
+.vorox-site .landing-community {
+  background: var(--vorox-navy);
+  color: var(--white);
+}
+.vorox-site .landing-community .section-tag,
+.vorox-site .success .section-tag {
+  color: var(--yellow);
+}
+.vorox-site .landing-community .section-header h2,
+.vorox-site .success .section-header h2 {
+  color: var(--white);
+}
+.vorox-site .success-card {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  border-radius: 22px;
+  box-shadow: none;
+}
+.vorox-site .success-card__body h3 {
+  color: var(--white);
+}
+.vorox-site .success-card__career {
+  color: var(--yellow);
+}
+.vorox-site .testimonial-card__quote {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .testimonial-carousel__nav {
+  background: var(--vorox-navy-card);
+  border-color: var(--vorox-border-strong);
+  color: var(--white);
+}
+.vorox-site .testimonial-carousel__nav:hover {
+  background: rgba(253, 199, 0, 0.15);
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+.vorox-site .testimonial-carousel__dot {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.vorox-site .testimonial-carousel__dot.is-active,
+.vorox-site .testimonial-carousel__dot:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+.vorox-site .landing-community__cert {
+  border-top-color: var(--vorox-border);
+}
+.vorox-site .landing-community__cert-copy h3 {
+  color: var(--white);
+}
+.vorox-site .landing-community__cert-copy p,
+.vorox-site .landing-community__cert-list li {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .landing-community__cert-list li::before {
+  color: var(--yellow);
+}
+.vorox-site .landing-community__cert-visual img {
+  border-color: var(--vorox-border-strong);
+  border-radius: 16px;
+}
+.vorox-site .landing-community__cert-visual figcaption {
+  color: var(--vorox-text-muted);
+}
+
+.vorox-site .benefits {
+  background: var(--vorox-navy-raised);
+}
+.vorox-site .benefits__item {
+  border-color: var(--vorox-border-strong);
+  border-radius: 16px;
+  background: var(--vorox-navy-card);
+}
+
+.vorox-site .faq {
+  background: var(--vorox-navy);
+}
+.vorox-site .faq .section-header h2 {
+  color: var(--white);
+}
+.vorox-site .faq-item {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  border-radius: 16px;
+}
+.vorox-site .faq-item summary {
+  color: var(--white);
+}
+.vorox-site .faq-item p {
+  color: var(--vorox-text-muted);
+}
+
+.vorox-site .apply {
+  background: var(--vorox-navy-raised);
+  border-top: 1px solid var(--vorox-border);
+}
+
+/* Páginas de carrera */
+.vorox-site .course-section {
+  background: var(--vorox-navy);
+}
+.vorox-site .course-section--cream {
+  background: var(--vorox-navy-raised);
+}
+.vorox-site .course-section .section-header h2,
+.vorox-site .course-summary h2 {
+  color: var(--white);
+}
+.vorox-site .course-section .section-sub {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .course-list li {
+  color: rgba(255, 255, 255, 0.78);
+}
+.vorox-site .course-stack h3 {
+  color: var(--white);
+}
+.vorox-site .course-stack p {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .course-stack__tags span {
+  background: transparent;
+  border: 1px solid var(--vorox-border-strong);
+  color: rgba(255, 255, 255, 0.88);
+}
+.vorox-site .course-module {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  border-radius: 22px;
+  box-shadow: none;
+}
+.vorox-site .course-module.is-open .course-module__header {
+  background: rgba(255, 255, 255, 0.04);
+}
+.vorox-site .course-module__info strong {
+  color: var(--white);
+}
+.vorox-site .course-module__info span,
+.vorox-site .course-module__goal,
+.vorox-site .course-project {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .course-module__num {
+  color: var(--yellow);
+}
+.vorox-site .course-module__body {
+  border-top-color: var(--vorox-border);
+}
+.vorox-site .course-lessons li {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.88);
+}
+.vorox-site .course-lessons li span {
+  color: var(--yellow);
+}
+.vorox-site .course-project {
+  background: rgba(253, 199, 0, 0.08);
+  border-left-color: var(--yellow);
+}
+.vorox-site .course-project strong {
+  color: var(--white);
+}
+.vorox-site .course-module__link {
+  color: var(--yellow);
+}
+.vorox-site .course-module__link:hover {
+  color: var(--yellow-hover);
+}
+.vorox-site .course-pillars article {
+  background: var(--vorox-navy-card);
+  border-color: var(--vorox-border);
+  border-radius: 16px;
+}
+.vorox-site .course-pillars p {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .course-cta {
+  background: var(--vorox-navy-raised);
+  border-top: 1px solid var(--vorox-border);
+}
+
+/* Plataforma / nivelación hub */
+.vorox-site .feature-section,
+.vorox-site .nivelacion-hub {
+  background: var(--vorox-navy);
+}
+.vorox-site .feature-section--cream {
+  background: var(--vorox-navy-raised);
+}
+.vorox-site .feature-block h2 {
+  color: var(--yellow);
+}
+.vorox-site .feature-list li {
+  background: var(--vorox-navy-card);
+  border-left-color: var(--yellow);
+  color: rgba(255, 255, 255, 0.82);
+}
+.vorox-site .nivelacion-hub .section-header h2 {
+  color: var(--white);
+}
+.vorox-site .nivelacion-hub .section-sub {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .nivelacion-hub .section-sub a {
+  color: var(--yellow);
+}
+.vorox-site .nivelacion-hub .career-card {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  border-radius: 22px;
+  color: var(--white);
+}
+.vorox-site .nivelacion-hub .career-card h3 {
+  color: var(--white);
+}
+.vorox-site .nivelacion-card__desc {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .nivelacion-hub .career-card--ready {
+  border-color: rgba(253, 199, 0, 0.35);
+}
+.vorox-site .career-card__badge {
+  position: static;
+  align-self: flex-start;
+  margin-bottom: 8px;
+}
+
+/* Nosotros */
+.vorox-site .about-section,
+.vorox-site .about-values {
+  background: var(--vorox-navy);
+}
+.vorox-site .about-section__content p {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .about-mission {
+  background: var(--vorox-navy-raised);
+}
+.vorox-site .about-mission__card {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  box-shadow: none;
+  border-radius: 22px;
+}
+.vorox-site .about-mission__card h3 {
+  color: var(--yellow);
+}
+.vorox-site .about-mission__card p {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .about-values__list li {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Visor de clases */
+.vorox-site .classes-layout {
+  background: var(--vorox-navy);
+}
+.vorox-site .classes-sidebar {
+  background: var(--vorox-navy-card);
+  border-color: var(--vorox-border);
+  border-radius: 22px;
+}
+.vorox-site .classes-sidebar h2 {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .classes-nav__toggle {
+  color: rgba(255, 255, 255, 0.9);
+}
+.vorox-site .classes-nav__toggle:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.vorox-site .classes-nav__link {
+  color: var(--vorox-text-muted);
+}
+.vorox-site .classes-nav__link.is-active,
+.vorox-site .classes-nav__link:hover {
+  color: var(--yellow);
+  background: rgba(253, 199, 0, 0.08);
+}
+.vorox-site .lesson {
+  background: var(--vorox-navy-card);
+  border: 1px solid var(--vorox-border);
+  border-radius: 22px;
+}
+.vorox-site .lesson__top h1,
+.vorox-site .lesson h2,
+.vorox-site .lesson h3 {
+  color: var(--white);
+}
+.vorox-site .lesson p,
+.vorox-site .lesson li {
+  color: rgba(255, 255, 255, 0.82);
+}
+.vorox-site .lesson pre,
+.vorox-site .lesson code {
+  border-color: var(--vorox-border);
+}
+.vorox-site .progress-bar {
+  background: rgba(255, 255, 255, 0.08);
+}
+.vorox-site .progress-bar__fill {
+  background: var(--yellow);
+}
+
+.vorox-site .section-tag {
+  color: var(--yellow);
+}
+.vorox-site .section-header h2 {
+  color: var(--white);
+}
+.vorox-site .section-sub {
+  color: var(--vorox-text-muted);
+}
+
+.vorox-site .classes-topbar {
+  background: var(--vorox-navy-raised);
+  border-bottom: 1px solid var(--vorox-border);
+}
+.vorox-site .classes-topbar h1 {
+  color: var(--white);
+}
+.vorox-site .classes-topbar a {
+  color: var(--yellow);
+}
+
+.vorox-site .footer {
+  background: #050810;
+  border-top: 1px solid var(--vorox-border);
 }

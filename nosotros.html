@@ -8,34 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=bw-theme" />
+  <link rel="stylesheet" href="styles.css?v=figma-vorox-1" />
 </head>
-<body>
+<body class="vorox-site">
 
-  <header class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="index.html#inicio" class="navbar__logo" aria-label="VOROX Academia — Inicio">
-        <img src="assets/logo-vorox.png?v=academia" alt="VOROX Academia" class="logo" width="171" height="48" />
-      </a>
-      <nav class="navbar__audience" aria-label="Navegación">
-        <a href="index.html#carreras" class="nav-link-simple">Programas</a>
-        <a href="nosotros.html" class="nav-link-simple nav-link-simple--active">Nosotros</a>
-        <a href="index.html#inscripcion" class="nav-link-simple">Contacto</a>
-      </nav>
-      <div class="navbar__actions">
-        <div class="navbar__buttons">
-          <a href="#" class="btn btn--cta btn--sm">Ingresar</a>
-        </div>
-        <button class="navbar__toggle" id="navToggle" aria-label="Menú móvil"><span></span><span></span><span></span></button>
-      </div>
-    </div>
-    <div class="mobile-nav" id="mobileNav" hidden>
-      <a href="index.html#carreras">Programas</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="index.html#inscripcion">Contacto</a>
-      <a href="index.html">Volver al inicio</a>
-    </div>
-  </header>
+  <header class="navbar" id="navbar" data-site-nav data-nav-depth="0"></header>
+  <script src="js/site-navbar.js?v=2"></script>
 
   <section class="page-hero">
     <div class="container">
@@ -108,7 +86,7 @@
         <p>Conocé nuestros programas y empezá tu transformación profesional.</p>
       </div>
       <a href="index.html#carreras" class="btn btn--cta btn--lg">Ver Programas</a>
-      <a href="index.html#inscripcion" class="btn btn--outline-nav btn--lg">Hablar con un Asesor</a>
+      <a href="index.html#contacto" class="btn btn--outline-nav btn--lg">Hablar con un Asesor</a>
     </div>
   </section>
 
@@ -135,7 +113,7 @@
           <h4>VOROX</h4>
           <a href="nosotros.html">Nosotros</a>
           <a href="index.html#faq">FAQ</a>
-          <a href="index.html#inscripcion">Contacto</a>
+          <a href="index.html#contacto">Contacto</a>
         </div>
       </div>
     </div>
