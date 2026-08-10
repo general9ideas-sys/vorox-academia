@@ -3,10 +3,12 @@
 :root {
   --blue: #385EA7;
   --blue-deep: #2c4d8a;
-  --blue-soft: #f0f0f0;
+  --blue-soft: #e8eef8;
   --yellow: #FDC700;
   --yellow-hover: #e4b300;
   --yellow-soft: #fff8e0;
+  --brand-cream: #fffbf0;
+  --brand-surface: #f7f9fc;
   --gray: #4a4a4a;
   --gray-light: #888888;
   --black: #000000;
@@ -918,13 +920,15 @@ img { max-width: 100%; display: block; }
   grid-column: span 2;
 }
 
-/* 4b. Comparativa (landing) */
+/* 4b. Comparativa (landing) — banda clara branding */
 .compare {
   padding: 88px 0 96px;
-  background: var(--vorox-navy-raised);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(165deg, var(--yellow-soft) 0%, var(--white) 42%, var(--blue-soft) 100%);
+  border-top: 1px solid var(--salmon-border);
+  border-bottom: 1px solid var(--salmon-border);
   overflow: hidden;
+  color: var(--dark);
 }
 .compare__head {
   max-width: 720px;
@@ -937,22 +941,22 @@ img { max-width: 100%; display: block; }
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--yellow);
+  color: var(--blue);
   margin-bottom: 16px;
 }
 .compare__title {
   font-size: clamp(2rem, 4.2vw, 3rem);
   line-height: 1.12;
-  color: var(--white);
+  color: var(--dark);
   margin-bottom: 16px;
 }
 .compare__title span {
-  color: var(--yellow);
+  color: var(--blue-deep);
 }
 .compare__lead {
   font-size: 1.05rem;
   line-height: 1.65;
-  color: var(--vorox-text-muted);
+  color: var(--gray);
   max-width: 52ch;
 }
 .compare__stage {
@@ -965,7 +969,7 @@ img { max-width: 100%; display: block; }
   left: 28%;
   width: 44%;
   height: 80%;
-  background: radial-gradient(ellipse at center, rgba(253, 199, 0, 0.22) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(56, 94, 167, 0.12) 0%, transparent 70%);
   pointer-events: none;
   filter: blur(8px);
   animation: compareGlow 6s ease-in-out infinite alternate;
@@ -979,34 +983,34 @@ img { max-width: 100%; display: block; }
 }
 .compare__board {
   position: relative;
-  border: 1px solid var(--vorox-border);
+  border: 1px solid var(--salmon-border);
   border-radius: 24px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
 }
 .compare__row {
   display: grid;
   grid-template-columns: 1.35fr 1fr 1fr 1fr;
   gap: 0;
-  border-bottom: 1px solid var(--vorox-border);
+  border-bottom: 1px solid var(--salmon-border);
 }
 .compare__row:last-child {
   border-bottom: none;
 }
 .compare__row--head {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--blue-soft);
 }
 .compare__row--foot {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--brand-cream);
 }
 .compare__row:not(.compare__row--head):hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(56, 94, 167, 0.04);
 }
 .compare__cell {
   padding: 18px 20px;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--gray);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1015,14 +1019,14 @@ img { max-width: 100%; display: block; }
 }
 .compare__cell--feature {
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.92);
-  border-right: 1px solid var(--vorox-border);
+  color: var(--dark);
+  border-right: 1px solid var(--salmon-border);
 }
 .compare__cell--alt {
   text-align: center;
   align-items: center;
-  color: var(--vorox-text-muted);
-  border-right: 1px solid var(--vorox-border);
+  color: var(--gray-light);
+  border-right: 1px solid var(--salmon-border);
 }
 .compare__cell--alt:last-child {
   border-right: none;
@@ -1030,11 +1034,10 @@ img { max-width: 100%; display: block; }
 .compare__cell--vorox {
   text-align: center;
   align-items: center;
-  background:
-    linear-gradient(180deg, rgba(253, 199, 0, 0.12) 0%, rgba(253, 199, 0, 0.04) 100%);
-  border-left: 2px solid rgba(253, 199, 0, 0.55);
-  border-right: 2px solid rgba(253, 199, 0, 0.55);
-  box-shadow: inset 0 0 40px rgba(253, 199, 0, 0.06);
+  background: linear-gradient(180deg, var(--yellow-soft) 0%, rgba(255, 248, 224, 0.45) 100%);
+  border-left: 2px solid var(--yellow);
+  border-right: 2px solid var(--yellow);
+  box-shadow: inset 0 0 32px rgba(253, 199, 0, 0.12);
 }
 .compare__row--head .compare__cell--vorox {
   padding-top: 22px;
@@ -1044,7 +1047,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-title);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--white);
+  color: var(--blue-deep);
 }
 .compare__pill {
   display: inline-block;
@@ -1072,27 +1075,27 @@ img { max-width: 100%; display: block; }
   font-size: 1rem;
 }
 .compare__yes--muted {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.55);
+  background: var(--blue-soft);
+  color: var(--blue);
 }
 .compare__no {
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--gray-light);
   font-size: 1.25rem;
 }
 .compare__partial {
   font-size: 0.78rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--gray-light);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 .compare__row--foot .compare__cell--vorox strong {
-  color: var(--yellow);
+  color: var(--blue-deep);
   font-size: 0.95rem;
 }
 .compare__row--foot .compare__cell--vorox span {
   font-size: 0.78rem;
-  color: var(--vorox-text-muted);
+  color: var(--gray);
 }
 .compare__row--foot strong {
   font-family: var(--font-title);
@@ -1108,27 +1111,28 @@ img { max-width: 100%; display: block; }
 .compare__highlights li {
   padding: 22px 20px;
   border-radius: 18px;
-  border: 1px solid var(--vorox-border);
-  background: var(--vorox-navy-card);
+  border: 1px solid var(--salmon-border);
+  background: var(--white);
   display: flex;
   flex-direction: column;
   gap: 6px;
   transition: var(--transition);
+  box-shadow: var(--shadow);
 }
 .compare__highlights li:hover {
-  border-color: rgba(253, 199, 0, 0.35);
+  border-color: var(--blue);
   transform: translateY(-2px);
 }
 .compare__stat {
   font-family: var(--font-title);
   font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--yellow);
+  color: var(--blue);
   line-height: 1;
 }
 .compare__highlights li span:last-child {
   font-size: 0.88rem;
-  color: var(--vorox-text-muted);
+  color: var(--gray);
 }
 .compare__actions {
   display: flex;
@@ -1140,11 +1144,11 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-title);
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--yellow);
+  color: var(--blue-deep);
   transition: var(--transition);
 }
 .compare__secondary:hover {
-  color: var(--yellow-hover);
+  color: var(--blue);
 }
 
 .path-card__badge {
@@ -3617,14 +3621,14 @@ img { max-width: 100%; display: block; }
   }
   .compare__row:not(.compare__row--head) {
     padding: 12px 0;
-    border: 1px solid var(--vorox-border);
+    border: 1px solid var(--salmon-border);
     border-radius: 16px;
     margin-bottom: 10px;
-    background: var(--vorox-navy-card);
+    background: var(--white);
   }
   .compare__row:not(.compare__row--head) .compare__cell--feature {
     border-right: none;
-    border-bottom: 1px solid var(--vorox-border);
+    border-bottom: 1px solid var(--salmon-border);
     padding-bottom: 12px;
     font-size: 0.85rem;
   }
@@ -3641,21 +3645,21 @@ img { max-width: 100%; display: block; }
     font-family: var(--font-title);
     font-weight: 700;
     font-size: 0.72rem;
-    color: var(--yellow);
+    color: var(--blue-deep);
   }
   .compare__row:not(.compare__row--head) .compare__cell--alt:nth-child(3)::before {
     content: "Bootcamp";
     font-family: var(--font-title);
     font-weight: 700;
     font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: var(--gray-light);
   }
   .compare__row:not(.compare__row--head) .compare__cell--alt:nth-child(4)::before {
     content: "Solo online";
     font-family: var(--font-title);
     font-weight: 700;
     font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: var(--gray-light);
   }
   .compare__board {
     border: none;
@@ -3698,77 +3702,21 @@ img { max-width: 100%; display: block; }
    Vorox Figma — tema global (body.vorox-site en todas las páginas)
    =================================================================== */
 .vorox-site {
-  background: var(--vorox-navy);
-  color: rgba(255, 255, 255, 0.88);
-}
-.vorox-site h1,
-.vorox-site h2,
-.vorox-site h3,
-.vorox-site h4 {
-  color: var(--white);
+  background: var(--brand-surface);
+  color: var(--dark);
 }
 
-/* Nav oscuro */
+/* Nav claro — coincide con fondo del logo */
 .vorox-site .navbar {
-  background: rgba(7, 11, 20, 0.88);
-  border-bottom: 1px solid var(--vorox-border);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--salmon-border);
+  backdrop-filter: blur(10px);
 }
 .vorox-site .navbar--scrolled {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-}
-.vorox-site .nav-dropdown__trigger,
-.vorox-site .nav-link-simple,
-.vorox-site .more-menu__trigger {
-  color: rgba(255, 255, 255, 0.92);
-}
-.vorox-site .nav-dropdown__trigger:hover,
-.vorox-site .nav-dropdown.is-open .nav-dropdown__trigger,
-.vorox-site .nav-link-simple:hover,
-.vorox-site .nav-link-simple--active {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--yellow);
-}
-.vorox-site .nav-dropdown__panel,
-.vorox-site .mobile-nav {
-  background: var(--vorox-navy-raised);
-  border-color: var(--vorox-border-strong);
-}
-.vorox-site .nav-dropdown__item:hover,
-.vorox-site .nav-mega__link:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-.vorox-site .nav-dropdown__item strong,
-.vorox-site .nav-mega__title,
-.vorox-site .nav-mega__link {
-  color: rgba(255, 255, 255, 0.92);
-}
-.vorox-site .nav-dropdown__item span:not(.nav-dropdown__tag),
-.vorox-site .nav-dropdown__label {
-  color: var(--vorox-text-muted);
-}
-.vorox-site .nav-mega.nav-mega--stack .nav-mega__col {
-  border-bottom-color: var(--vorox-border);
-}
-.vorox-site .nav-dropdown__footer {
-  border-top-color: var(--vorox-border);
-  color: var(--yellow);
-}
-.vorox-site .mobile-nav a {
-  color: rgba(255, 255, 255, 0.9);
-  border-bottom-color: var(--vorox-border);
+  box-shadow: var(--shadow);
 }
 .vorox-site .navbar__toggle span {
-  background: var(--white);
-}
-.vorox-site .btn--outline-nav {
-  border-color: rgba(255, 255, 255, 0.35);
-  color: var(--white);
-}
-.vorox-site .btn--outline-nav:hover {
-  border-color: var(--yellow);
-  color: var(--yellow);
-  background: rgba(253, 199, 0, 0.08);
+  background: var(--dark);
 }
 
 /* Heroes internos (Figma) */
@@ -3782,104 +3730,118 @@ img { max-width: 100%; display: block; }
   color: var(--yellow);
 }
 
-/* Landing — secciones claras → oscuras */
+/* Landing — bandas claras branding */
 .vorox-site .stats {
-  background: var(--vorox-navy-raised);
-  border-top: 1px solid var(--vorox-border);
-  border-bottom: 1px solid var(--vorox-border);
+  background: var(--blue-soft);
+  border-top: none;
+  border-bottom: none;
+  color: var(--dark);
+}
+.vorox-site .stats__number {
+  color: var(--blue-deep);
+}
+.vorox-site .stats__item span:last-child {
+  color: var(--gray);
 }
 .vorox-site .success,
 .vorox-site .landing-community {
-  background: var(--vorox-navy);
-  color: var(--white);
+  background: var(--white);
+  color: var(--dark);
 }
 .vorox-site .landing-community .section-tag,
 .vorox-site .success .section-tag {
-  color: var(--yellow);
+  color: var(--blue);
 }
 .vorox-site .landing-community .section-header h2,
 .vorox-site .success .section-header h2 {
-  color: var(--white);
+  color: var(--dark);
 }
 .vorox-site .success-card {
-  background: var(--vorox-navy-card);
-  border: 1px solid var(--vorox-border);
+  background: var(--white);
+  border: 1px solid var(--salmon-border);
   border-radius: 22px;
-  box-shadow: none;
+  box-shadow: var(--shadow);
 }
 .vorox-site .success-card__body h3 {
-  color: var(--white);
+  color: var(--dark);
 }
 .vorox-site .success-card__career {
-  color: var(--yellow);
+  color: var(--blue);
 }
 .vorox-site .testimonial-card__quote {
-  color: var(--vorox-text-muted);
+  color: var(--gray);
 }
 .vorox-site .testimonial-carousel__nav {
-  background: var(--vorox-navy-card);
-  border-color: var(--vorox-border-strong);
-  color: var(--white);
+  background: var(--white);
+  border-color: var(--salmon-border);
+  color: var(--dark);
 }
 .vorox-site .testimonial-carousel__nav:hover {
-  background: rgba(253, 199, 0, 0.15);
+  background: var(--yellow-soft);
   border-color: var(--yellow);
-  color: var(--yellow);
+  color: var(--blue-deep);
 }
 .vorox-site .testimonial-carousel__dot {
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: var(--gray-light);
 }
 .vorox-site .testimonial-carousel__dot.is-active,
 .vorox-site .testimonial-carousel__dot:hover {
-  background: var(--yellow);
-  border-color: var(--yellow);
+  background: var(--blue);
+  border-color: var(--blue);
 }
 .vorox-site .landing-community__cert {
-  border-top-color: var(--vorox-border);
+  border-top-color: var(--salmon-border);
 }
 .vorox-site .landing-community__cert-copy h3 {
-  color: var(--white);
+  color: var(--dark);
 }
 .vorox-site .landing-community__cert-copy p,
 .vorox-site .landing-community__cert-list li {
-  color: var(--vorox-text-muted);
+  color: var(--gray);
 }
 .vorox-site .landing-community__cert-list li::before {
-  color: var(--yellow);
+  color: var(--blue);
 }
 .vorox-site .landing-community__cert-visual img {
-  border-color: var(--vorox-border-strong);
-  border-radius: 16px;
+  border-color: var(--salmon-border);
 }
 .vorox-site .landing-community__cert-visual figcaption {
-  color: var(--vorox-text-muted);
+  color: var(--gray-light);
 }
 
 .vorox-site .benefits {
-  background: var(--vorox-navy-raised);
+  background: var(--yellow-soft);
+}
+.vorox-site .benefits .section-header h2 {
+  color: var(--dark);
 }
 .vorox-site .benefits__item {
-  border-color: var(--vorox-border-strong);
+  border-color: rgba(56, 94, 167, 0.2);
   border-radius: 16px;
-  background: var(--vorox-navy-card);
+  background: var(--white);
+  color: var(--dark);
 }
 
 .vorox-site .faq {
-  background: var(--vorox-navy);
+  background: var(--brand-surface);
 }
 .vorox-site .faq .section-header h2 {
-  color: var(--white);
+  color: var(--dark);
+}
+.vorox-site .faq .section-tag {
+  color: var(--blue);
 }
 .vorox-site .faq-item {
-  background: var(--vorox-navy-card);
-  border: 1px solid var(--vorox-border);
+  background: var(--white);
+  border: 1px solid var(--salmon-border);
   border-radius: 16px;
+  box-shadow: var(--shadow);
 }
 .vorox-site .faq-item summary {
-  color: var(--white);
+  color: var(--dark);
 }
 .vorox-site .faq-item p {
-  color: var(--vorox-text-muted);
+  color: var(--gray);
 }
 
 .vorox-site .apply {
