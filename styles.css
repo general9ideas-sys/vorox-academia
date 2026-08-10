@@ -2697,15 +2697,25 @@ img { max-width: 100%; display: block; }
 /* Comunidad — comentarios flotantes */
 .testimonial-float {
   position: relative;
-  margin: 8px -24px 32px;
-  padding: 12px 0 8px;
+  margin: 8px -24px 40px;
+  padding: 48px 0 56px;
+  min-height: clamp(460px, 52vh, 620px);
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 4%, #000 96%, transparent),
+    linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, #000 4%, #000 96%, transparent),
+    linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 .testimonial-float__row {
+  position: relative;
   overflow: hidden;
-  margin-bottom: 18px;
+  min-height: clamp(200px, 24vh, 280px);
+  margin-bottom: 28px;
+  padding: 16px 0;
 }
 .testimonial-float__row:last-child {
   margin-bottom: 0;
@@ -2717,19 +2727,24 @@ img { max-width: 100%; display: block; }
   animation: testimonialDriftWave var(--drift-dur, 52s) var(--drift-ease, linear) infinite;
   animation-delay: var(--drift-delay, 0s);
   animation-direction: var(--drift-dir, normal);
+  align-items: center;
+}
+.testimonial-float--js .testimonial-float__card {
+  animation: none;
+  will-change: transform;
 }
 .testimonial-float:has(.testimonial-float__card:hover) .testimonial-float__track {
   animation-play-state: paused;
 }
-.testimonial-float:has(.testimonial-float__card:hover) .testimonial-float__card {
-  animation-play-state: paused;
-}
 @keyframes testimonialDriftWave {
-  0% { transform: translate3d(0, 0, 0); }
-  20% { transform: translate3d(calc(var(--drift-x, -50%) * 0.22), var(--drift-y, 6px), 0); }
-  45% { transform: translate3d(calc(var(--drift-x, -50%) * 0.48), calc(var(--drift-y, 6px) * -0.65), 0); }
-  70% { transform: translate3d(calc(var(--drift-x, -50%) * 0.74), calc(var(--drift-y, 6px) * 0.45), 0); }
-  100% { transform: translate3d(var(--drift-x, -50%), 0, 0); }
+  0% { transform: translate3d(0, var(--y0, 0px), 0); }
+  14% { transform: translate3d(calc(var(--drift-x, -50%) * 0.14 + var(--x1, 0px)), var(--y1, 0px), 0); }
+  28% { transform: translate3d(calc(var(--drift-x, -50%) * 0.28 + var(--x2, 0px)), var(--y2, 0px), 0); }
+  42% { transform: translate3d(calc(var(--drift-x, -50%) * 0.42 + var(--x3, 0px)), var(--y3, 0px), 0); }
+  57% { transform: translate3d(calc(var(--drift-x, -50%) * 0.57 + var(--x4, 0px)), var(--y4, 0px), 0); }
+  71% { transform: translate3d(calc(var(--drift-x, -50%) * 0.71 + var(--x5, 0px)), var(--y5, 0px), 0); }
+  85% { transform: translate3d(calc(var(--drift-x, -50%) * 0.85 + var(--x6, 0px)), var(--y6, 0px), 0); }
+  100% { transform: translate3d(var(--drift-x, -50%), var(--y0, 0px), 0); }
 }
 .testimonial-float__group {
   display: flex;
@@ -2749,32 +2764,17 @@ img { max-width: 100%; display: block; }
   background: var(--programs-card);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
   transition: border-color var(--transition), box-shadow var(--transition);
-  animation: testimonialCardWander var(--card-dur, 5s) ease-in-out infinite alternate;
-  animation-delay: var(--card-delay, 0s);
   transform: rotate(var(--card-tilt, 0deg));
 }
-@keyframes testimonialCardWander {
-  0% {
-    transform: rotate(var(--card-tilt, 0deg)) translate3d(0, 0, 0);
-  }
-  35% {
-    transform: rotate(calc(var(--card-tilt, 0deg) + var(--card-spin, 1deg))) translate3d(var(--card-shift-x, 0px), calc(var(--card-shift-y, 6px) * -1), 0);
-  }
-  70% {
-    transform: rotate(calc(var(--card-tilt, 0deg) - var(--card-spin, 1deg))) translate3d(calc(var(--card-shift-x, 0px) * -0.6), var(--card-shift-y, 6px), 0);
-  }
-  100% {
-    transform: rotate(var(--card-tilt, 0deg)) translate3d(0, calc(var(--card-shift-y, 6px) * 0.35), 0);
-  }
-}
-.testimonial-float__card:hover {
+.testimonial-float__card:hover,
+.testimonial-float__card.is-hover-freeze {
   border-color: rgba(253, 199, 0, 0.45);
   box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(253, 199, 0, 0.15);
-  transform: translate3d(0, -4px, 0) rotate(0deg) !important;
   z-index: 2;
 }
-
-.testimonial-float__avatar {
+.testimonial-float__card.is-hover-freeze {
+  transform: translate3d(0, -6px, 0) rotate(0deg) !important;
+}
   width: 52px;
   height: 52px;
   flex-shrink: 0;

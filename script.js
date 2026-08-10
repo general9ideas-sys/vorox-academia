@@ -417,6 +417,8 @@
     if (!root) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    root.classList.add('testimonial-float--js');
+
     var easings = [
       'linear',
       'ease-in-out',
@@ -433,27 +435,97 @@
       return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    root.querySelectorAll('.testimonial-float__track').forEach(function (track, trackIndex) {
+    function randPx(min, max) {
+      return rand(min, max).toFixed(1) + 'px';
+    }
+
+    root.querySelectorAll('.testimonial-float__track').forEach(function (track) {
       var reverse = Math.random() > 0.45;
-      track.style.setProperty('--drift-dur', rand(34, 78).toFixed(1) + 's');
-      track.style.setProperty('--drift-delay', rand(0, 9).toFixed(2) + 's');
+      track.style.setProperty('--drift-dur', rand(38, 88).toFixed(1) + 's');
+      track.style.setProperty('--drift-delay', rand(0, 12).toFixed(2) + 's');
       track.style.setProperty('--drift-dir', reverse ? 'reverse' : 'normal');
       track.style.setProperty('--drift-x', reverse ? '50%' : '-50%');
-      track.style.setProperty('--drift-y', rand(4, 16).toFixed(1) + 'px');
       track.style.setProperty('--drift-ease', pick(easings));
-    });
-
-    root.querySelectorAll('.testimonial-float__card').forEach(function (card, i) {
-      var tilt = rand(-2.4, 2.4);
-      card.style.setProperty('--card-tilt', tilt.toFixed(2) + 'deg');
-      card.style.setProperty('--card-spin', rand(0.6, 2.2).toFixed(2) + 'deg');
-      card.style.setProperty('--card-shift-y', rand(3, 11).toFixed(1) + 'px');
-      card.style.setProperty('--card-shift-x', rand(-10, 10).toFixed(1) + 'px');
-      card.style.setProperty('--card-dur', rand(3.2, 7.8).toFixed(2) + 's');
-      card.style.setProperty('--card-delay', rand(0, 5).toFixed(2) + 's');
-      if (Math.random() > 0.55) {
-        card.style.animationDirection = Math.random() > 0.5 ? 'reverse' : 'alternate-reverse';
+      track.style.setProperty('--y0', randPx(-52, 52));
+      for (var k = 1; k <= 6; k++) {
+        track.style.setProperty('--y' + k, randPx(-58, 58));
+        track.style.setProperty('--x' + k, randPx(-28, 28));
       }
     });
+
+    var paused = false;
+    var hoverCard = null;
+    var bodies = [];
+
+    root.querySelectorAll('.testimonial-float__card').forEach(function (card) {
+      var tilt = rand(-3.5, 3.5);
+      card.style.setProperty('--card-tilt', tilt.toFixed(2) + 'deg');
+      bodies.push({
+        el: card,
+        x: rand(-36, 36),
+        y: rand(-72, 72),
+        vx: rand(-0.55, 0.55),
+        vy: rand(-0.48, 0.48),
+        rot: tilt + rand(-1.5, 1.5),
+        vr: rand(-0.035, 0.035),
+        bx: rand(28, 48),
+        by: rand(58, 88),
+        chaosAt: performance.now() + rand(1200, 4200)
+      });
+
+      card.addEventListener('mouseenter', function () {
+        paused = true;
+        hoverCard = card;
+        root.querySelectorAll('.testimonial-float__card').forEach(function (c) {
+          c.classList.toggle('is-hover-freeze', c === card);
+        });
+      });
+      card.addEventListener('mouseleave', function () {
+        paused = false;
+        hoverCard = null;
+        root.querySelectorAll('.testimonial-float__card').forEach(function (c) {
+          c.classList.remove('is-hover-freeze');
+        });
+      });
+    });
+
+    function nudge(body) {
+      body.vx += rand(-0.12, 0.12);
+      body.vy += rand(-0.12, 0.12);
+      body.vr += rand(-0.012, 0.012);
+      var maxV = 0.85;
+      body.vx = Math.max(-maxV, Math.min(maxV, body.vx));
+      body.vy = Math.max(-maxV, Math.min(maxV, body.vy));
+    }
+
+    function tick(now) {
+      bodies.forEach(function (body) {
+        if (!paused) {
+          if (now >= body.chaosAt) {
+            nudge(body);
+            body.chaosAt = now + rand(1400, 4800);
+          }
+          body.x += body.vx;
+          body.y += body.vy;
+          body.rot += body.vr;
+          if (body.x > body.bx || body.x < -body.bx) {
+            body.vx *= -1;
+            body.x = Math.max(-body.bx, Math.min(body.bx, body.x));
+          }
+          if (body.y > body.by || body.y < -body.by) {
+            body.vy *= -1;
+            body.y = Math.max(-body.by, Math.min(body.by, body.y));
+          }
+        }
+
+        var lift = body.el === hoverCard ? -6 : 0;
+        var flatRot = body.el === hoverCard ? 0 : body.rot;
+        body.el.style.transform =
+          'translate3d(' + body.x.toFixed(2) + 'px,' + (body.y + lift).toFixed(2) + 'px,0) rotate(' + flatRot.toFixed(2) + 'deg)';
+      });
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
   })();
 })();
