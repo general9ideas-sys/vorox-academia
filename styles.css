@@ -851,19 +851,13 @@ img { max-width: 100%; display: block; }
   gap: 14px;
   align-items: stretch;
 }
-.careers-path__more {
-  margin-top: 56px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  scroll-margin-top: 100px;
+.careers-path__programs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-.careers-path__more-title {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.55);
-  font-weight: 700;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.careers-path__programs .careers-path__grid {
+  scroll-margin-top: 100px;
 }
 .careers-path__grid {
   display: grid;
@@ -920,6 +914,239 @@ img { max-width: 100%; display: block; }
   grid-column: 1;
   grid-row: 2;
 }
+.careers-path__grid .path-card--corp {
+  grid-column: span 2;
+}
+
+/* 4b. Comparativa (landing) */
+.compare {
+  padding: 88px 0 96px;
+  background: var(--vorox-navy-raised);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+.compare__head {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+.compare__eyebrow {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 16px;
+}
+.compare__title {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.compare__title span {
+  color: var(--yellow);
+}
+.compare__lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--vorox-text-muted);
+  max-width: 52ch;
+}
+.compare__stage {
+  position: relative;
+  margin-bottom: 40px;
+}
+.compare__glow {
+  position: absolute;
+  top: -20%;
+  left: 28%;
+  width: 44%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, rgba(253, 199, 0, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(8px);
+  animation: compareGlow 6s ease-in-out infinite alternate;
+}
+@keyframes compareGlow {
+  from { opacity: 0.65; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .compare__glow { animation: none; }
+}
+.compare__board {
+  position: relative;
+  border: 1px solid var(--vorox-border);
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+.compare__row {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--vorox-border);
+}
+.compare__row:last-child {
+  border-bottom: none;
+}
+.compare__row--head {
+  background: rgba(255, 255, 255, 0.04);
+}
+.compare__row--foot {
+  background: rgba(255, 255, 255, 0.02);
+}
+.compare__row:not(.compare__row--head):hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.compare__cell {
+  padding: 18px 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 56px;
+}
+.compare__cell--feature {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  border-right: 1px solid var(--vorox-border);
+}
+.compare__cell--alt {
+  text-align: center;
+  align-items: center;
+  color: var(--vorox-text-muted);
+  border-right: 1px solid var(--vorox-border);
+}
+.compare__cell--alt:last-child {
+  border-right: none;
+}
+.compare__cell--vorox {
+  text-align: center;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(253, 199, 0, 0.12) 0%, rgba(253, 199, 0, 0.04) 100%);
+  border-left: 2px solid rgba(253, 199, 0, 0.55);
+  border-right: 2px solid rgba(253, 199, 0, 0.55);
+  box-shadow: inset 0 0 40px rgba(253, 199, 0, 0.06);
+}
+.compare__row--head .compare__cell--vorox {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.compare__brand {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+}
+.compare__pill {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--dark);
+  font-family: var(--font-title);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.compare__yes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(253, 199, 0, 0.2);
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.compare__yes--muted {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+}
+.compare__no {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.25rem;
+}
+.compare__partial {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.compare__row--foot .compare__cell--vorox strong {
+  color: var(--yellow);
+  font-size: 0.95rem;
+}
+.compare__row--foot .compare__cell--vorox span {
+  font-size: 0.78rem;
+  color: var(--vorox-text-muted);
+}
+.compare__row--foot strong {
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+}
+.compare__highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.compare__highlights li {
+  padding: 22px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--vorox-border);
+  background: var(--vorox-navy-card);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: var(--transition);
+}
+.compare__highlights li:hover {
+  border-color: rgba(253, 199, 0, 0.35);
+  transform: translateY(-2px);
+}
+.compare__stat {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--yellow);
+  line-height: 1;
+}
+.compare__highlights li span:last-child {
+  font-size: 0.88rem;
+  color: var(--vorox-text-muted);
+}
+.compare__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 28px;
+}
+.compare__secondary {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--yellow);
+  transition: var(--transition);
+}
+.compare__secondary:hover {
+  color: var(--yellow-hover);
+}
+
 .path-card__badge {
   align-self: flex-start;
   display: inline-flex;
@@ -3379,6 +3606,65 @@ img { max-width: 100%; display: block; }
   .careers-path__grid {
     grid-template-columns: 1fr;
   }
+  .careers-path__grid .path-card--corp {
+    grid-column: auto;
+  }
+  .compare__row {
+    grid-template-columns: 1fr;
+  }
+  .compare__row--head {
+    display: none;
+  }
+  .compare__row:not(.compare__row--head) {
+    padding: 12px 0;
+    border: 1px solid var(--vorox-border);
+    border-radius: 16px;
+    margin-bottom: 10px;
+    background: var(--vorox-navy-card);
+  }
+  .compare__row:not(.compare__row--head) .compare__cell--feature {
+    border-right: none;
+    border-bottom: 1px solid var(--vorox-border);
+    padding-bottom: 12px;
+    font-size: 0.85rem;
+  }
+  .compare__row:not(.compare__row--head) .compare__cell--vorox,
+  .compare__row:not(.compare__row--head) .compare__cell--alt {
+    border: none;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 10px 16px;
+  }
+  .compare__row:not(.compare__row--head) .compare__cell--vorox::before {
+    content: "VOROX";
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--yellow);
+  }
+  .compare__row:not(.compare__row--head) .compare__cell--alt:nth-child(3)::before {
+    content: "Bootcamp";
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  .compare__row:not(.compare__row--head) .compare__cell--alt:nth-child(4)::before {
+    content: "Solo online";
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  .compare__board {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+  .compare__highlights {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -3483,10 +3769,6 @@ img { max-width: 100%; display: block; }
   border-color: var(--yellow);
   color: var(--yellow);
   background: rgba(253, 199, 0, 0.08);
-}
-.vorox-site .navbar__logo .logo--nav {
-  height: 32px;
-  width: auto;
 }
 
 /* Heroes internos (Figma) */
