@@ -272,15 +272,17 @@
   }
 
   document.querySelectorAll(
-    '.why__card, .career-card, .success-card, .pricing__card, .community__card, .platform__card, .stats__item, .benefits__item, .teacher-card, .about-mission__card, .testimonial-carousel'
+    '.why__card, .career-card, .success-card, .pricing__card, .community__card, .platform__card, .stats__item, .benefits__item, .teacher-card, .about-mission__card, .testimonial-float'
   ).forEach(function (el) {
     if (el.classList.contains('success-card') && el.closest('.testimonial-carousel')) return;
+    if (el.classList.contains('testimonial-float__card')) return;
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
 
+  /* Landing: carrusel clásico solo si existe (testimonial-float usa CSS) */
   (function initTestimonialCarousel() {
     var carousel = document.getElementById('testimonialCarousel');
     if (!carousel) return;
