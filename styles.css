@@ -955,6 +955,15 @@ img { max-width: 100%; display: block; }
   color: var(--figma-muted);
   margin-top: 4px;
 }
+.landing-intro__proof-item--highlight .landing-intro__proof-num {
+  color: var(--yellow);
+}
+.landing-intro__proof-item--highlight .landing-intro__proof-label {
+  color: var(--blue-mid);
+}
+.landing-intro__proof-item--highlight:hover .landing-intro__proof-label {
+  color: var(--yellow);
+}
 .landing-intro__proof-div {
   width: 1px;
   height: 40px;
@@ -1630,13 +1639,61 @@ img { max-width: 100%; display: block; }
   background: var(--blue);
 }
 .landing-section--community .landing-community__cert {
-  padding: 32px;
-  border-radius: var(--radius);
-  border: 1px solid var(--figma-border);
-  background: var(--figma-card);
-  border-top: none;
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 460px);
+  gap: 40px;
+  align-items: center;
   margin-top: 48px;
-  padding-top: 32px;
+  padding: 36px 32px;
+  border-radius: var(--programs-radius);
+  border: 1px solid rgba(253, 199, 0, 0.2);
+  background:
+    radial-gradient(ellipse 70% 60% at 0% 0%, rgba(56, 94, 167, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 100% 100%, rgba(253, 199, 0, 0.08) 0%, transparent 50%),
+    var(--programs-card);
+  border-top: 1px solid var(--figma-border);
+}
+.landing-section--community .landing-community__cert .section-tag {
+  color: var(--yellow);
+  margin-bottom: 0;
+}
+.landing-section--community .landing-community__cert-copy h3 {
+  color: var(--figma-text);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  margin: 12px 0 14px;
+}
+.landing-section--community .landing-community__cert-copy h3 strong,
+.landing-section--community .landing-community__cert-copy em {
+  color: var(--yellow);
+  font-style: normal;
+}
+.landing-section--community .landing-community__cert-copy p {
+  color: var(--blue-mid);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+.landing-section--community .landing-community__cert-list li {
+  color: var(--figma-text);
+  padding-left: 26px;
+}
+.landing-section--community .landing-community__cert-list li::before {
+  color: var(--yellow);
+}
+.landing-section--community .landing-community__cert-visual img {
+  border: 1px solid var(--figma-border);
+  border-radius: var(--programs-radius);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+}
+.landing-section--community .landing-community__cert-visual figcaption {
+  color: var(--figma-muted);
+}
+.landing-section--community .landing-community__cert .btn--outline-nav {
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+.landing-section--community .landing-community__cert .btn--outline-nav:hover {
+  background: var(--yellow);
+  color: var(--programs-bg);
 }
 .landing-section--faq {
   background: var(--figma-dark-2);
@@ -2718,14 +2775,15 @@ img { max-width: 100%; display: block; }
   align-items: center;
   margin-top: 56px;
   padding-top: 56px;
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--figma-border);
 }
 .landing-community__cert-copy h3 {
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   margin: 10px 0 14px;
+  color: var(--figma-text);
 }
 .landing-community__cert-copy p {
-  color: var(--gray);
+  color: var(--blue-mid);
   line-height: 1.65;
   margin-bottom: 18px;
   max-width: 42em;
@@ -2736,8 +2794,8 @@ img { max-width: 100%; display: block; }
 }
 .landing-community__cert-list li {
   position: relative;
-  padding: 8px 0 8px 22px;
-  color: var(--dark);
+  padding: 8px 0 8px 26px;
+  color: var(--figma-text);
   font-size: 0.92rem;
   line-height: 1.5;
 }
@@ -2747,7 +2805,10 @@ img { max-width: 100%; display: block; }
   left: 0;
   top: 8px;
   font-weight: 700;
-  color: var(--black);
+  color: var(--yellow);
+}
+.landing-community__cert .section-tag {
+  color: var(--yellow);
 }
 .landing-community__cert-visual {
   margin: 0;
@@ -2756,15 +2817,23 @@ img { max-width: 100%; display: block; }
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--black);
-  border-radius: var(--radius);
+  border: 1px solid var(--figma-border);
+  border-radius: var(--programs-radius);
   box-shadow: var(--shadow-lg);
 }
 .landing-community__cert-visual figcaption {
   margin-top: 10px;
   font-size: 0.78rem;
-  color: var(--gray);
+  color: var(--figma-muted);
   text-align: center;
+}
+.landing-community__cert .btn--outline-nav {
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+.landing-community__cert .btn--outline-nav:hover {
+  background: var(--yellow);
+  color: var(--programs-bg);
 }
 
 /* Testimonials (legacy alias) */
