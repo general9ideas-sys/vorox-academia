@@ -2713,19 +2713,23 @@ img { max-width: 100%; display: block; }
 .testimonial-float__track {
   display: flex;
   width: max-content;
-  animation: testimonialFloatDrift 52s linear infinite;
   will-change: transform;
-}
-.testimonial-float__row--reverse .testimonial-float__track {
-  animation-direction: reverse;
-  animation-duration: 58s;
+  animation: testimonialDriftWave var(--drift-dur, 52s) var(--drift-ease, linear) infinite;
+  animation-delay: var(--drift-delay, 0s);
+  animation-direction: var(--drift-dir, normal);
 }
 .testimonial-float:has(.testimonial-float__card:hover) .testimonial-float__track {
   animation-play-state: paused;
 }
-@keyframes testimonialFloatDrift {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.testimonial-float:has(.testimonial-float__card:hover) .testimonial-float__card {
+  animation-play-state: paused;
+}
+@keyframes testimonialDriftWave {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(calc(var(--drift-x, -50%) * 0.22), var(--drift-y, 6px), 0); }
+  45% { transform: translate3d(calc(var(--drift-x, -50%) * 0.48), calc(var(--drift-y, 6px) * -0.65), 0); }
+  70% { transform: translate3d(calc(var(--drift-x, -50%) * 0.74), calc(var(--drift-y, 6px) * 0.45), 0); }
+  100% { transform: translate3d(var(--drift-x, -50%), 0, 0); }
 }
 .testimonial-float__group {
   display: flex;
@@ -2744,21 +2748,29 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--figma-border);
   background: var(--programs-card);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  animation: testimonialCardWander var(--card-dur, 5s) ease-in-out infinite alternate;
+  animation-delay: var(--card-delay, 0s);
+  transform: rotate(var(--card-tilt, 0deg));
 }
-.testimonial-float__card--tilt {
-  transform: rotate(-1.2deg);
-}
-.testimonial-float__group .testimonial-float__card:nth-child(even) {
-  transform: rotate(0.8deg);
-}
-.testimonial-float__group .testimonial-float__card--tilt:nth-child(even) {
-  transform: rotate(-0.6deg);
+@keyframes testimonialCardWander {
+  0% {
+    transform: rotate(var(--card-tilt, 0deg)) translate3d(0, 0, 0);
+  }
+  35% {
+    transform: rotate(calc(var(--card-tilt, 0deg) + var(--card-spin, 1deg))) translate3d(var(--card-shift-x, 0px), calc(var(--card-shift-y, 6px) * -1), 0);
+  }
+  70% {
+    transform: rotate(calc(var(--card-tilt, 0deg) - var(--card-spin, 1deg))) translate3d(calc(var(--card-shift-x, 0px) * -0.6), var(--card-shift-y, 6px), 0);
+  }
+  100% {
+    transform: rotate(var(--card-tilt, 0deg)) translate3d(0, calc(var(--card-shift-y, 6px) * 0.35), 0);
+  }
 }
 .testimonial-float__card:hover {
   border-color: rgba(253, 199, 0, 0.45);
   box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(253, 199, 0, 0.15);
-  transform: translateY(-4px) rotate(0deg) !important;
+  transform: translate3d(0, -4px, 0) rotate(0deg) !important;
   z-index: 2;
 }
 

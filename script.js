@@ -411,4 +411,49 @@
     setTransform(false);
     startAutoplay();
   })();
+
+  (function initTestimonialFloatRandom() {
+    var root = document.getElementById('testimonialFloat');
+    if (!root) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var easings = [
+      'linear',
+      'ease-in-out',
+      'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
+      'cubic-bezier(0.36, 0.66, 0.04, 1)',
+      'cubic-bezier(0.65, 0, 0.35, 1)'
+    ];
+
+    function rand(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    root.querySelectorAll('.testimonial-float__track').forEach(function (track, trackIndex) {
+      var reverse = Math.random() > 0.45;
+      track.style.setProperty('--drift-dur', rand(34, 78).toFixed(1) + 's');
+      track.style.setProperty('--drift-delay', rand(0, 9).toFixed(2) + 's');
+      track.style.setProperty('--drift-dir', reverse ? 'reverse' : 'normal');
+      track.style.setProperty('--drift-x', reverse ? '50%' : '-50%');
+      track.style.setProperty('--drift-y', rand(4, 16).toFixed(1) + 'px');
+      track.style.setProperty('--drift-ease', pick(easings));
+    });
+
+    root.querySelectorAll('.testimonial-float__card').forEach(function (card, i) {
+      var tilt = rand(-2.4, 2.4);
+      card.style.setProperty('--card-tilt', tilt.toFixed(2) + 'deg');
+      card.style.setProperty('--card-spin', rand(0.6, 2.2).toFixed(2) + 'deg');
+      card.style.setProperty('--card-shift-y', rand(3, 11).toFixed(1) + 'px');
+      card.style.setProperty('--card-shift-x', rand(-10, 10).toFixed(1) + 'px');
+      card.style.setProperty('--card-dur', rand(3.2, 7.8).toFixed(2) + 's');
+      card.style.setProperty('--card-delay', rand(0, 5).toFixed(2) + 's');
+      if (Math.random() > 0.55) {
+        card.style.animationDirection = Math.random() > 0.5 ? 'reverse' : 'alternate-reverse';
+      }
+    });
+  })();
 })();
