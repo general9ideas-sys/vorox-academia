@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=logo-footer-lg" />
+  <link rel="stylesheet" href="styles.css?v=careers-path-bento" />
 </head>
 <body>
 
@@ -68,202 +68,131 @@
   </section>
 
   <!-- 4. Programas -->
-  <section class="careers" id="carreras">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Programas</span>
-        <h2>Formación profesional en tecnología</h2>
-        <p class="section-sub">Elegí el programa que mejor se adapte a tus objetivos. Cada uno incluye certificación y proyectos reales.</p>
-      </div>
+  <section class="careers-path" id="carreras">
+    <div class="container careers-path__head">
+      <h2 class="careers-path__title">Elegí tu camino.<br /><span>Construyamoslo juntos.</span></h2>
+      <a href="#carreras-todos" class="careers-path__all-btn">Ver todos los programas →</a>
     </div>
-    <div class="careers__stack">
 
-        <article class="career-card career-card--program career-card--showcase" id="prog-ai">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--ai" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>AI Engineering</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>960 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>6 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online en vivo</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Aprendé a diseñar, desarrollar e implementar soluciones basadas en Inteligencia Artificial utilizando herramientas modernas y modelos de última generación.</p>
-            <div class="career-card__actions"><a href="ai-engineering.html" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+    <div class="container careers-path__bento">
+      <article class="path-card path-card--featured career-card" id="prog-fs">
+        <span class="path-card__badge">★ Más elegido</span>
+        <span class="path-card__num" aria-hidden="true">01</span>
+        <p class="path-card__label">Carrera · 8 meses · Online en vivo</p>
+        <h3 class="path-card__title">Full Stack Development</h3>
+        <p class="path-card__desc">Convertite en desarrollador Full Stack: frontend con React, backend con Node.js, bases de datos y despliegue de apps listas para producción.</p>
+        <ul class="path-card__tags">
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>PostgreSQL</li>
+        </ul>
+        <div class="path-card__foot">
+          <a href="full-stack-development.html" class="path-card__link">Ver programa completo →</a>
+          <p class="path-card__cohort">Próxima cohorte <strong>12 · 08</strong></p>
+        </div>
+      </article>
+
+      <article class="path-card path-card--side career-card" id="prog-ai">
+        <span class="path-card__num" aria-hidden="true">02</span>
+        <p class="path-card__label">Carrera · 6 meses</p>
+        <h3 class="path-card__title">AI Engineering</h3>
+        <p class="path-card__desc">Diseñá e implementá productos con IA: LLMs, RAG, agentes inteligentes y despliegue en producción.</p>
+        <ul class="path-card__tags">
+          <li>Python</li>
+          <li>LLMs</li>
+          <li>RAG</li>
+        </ul>
+        <a href="ai-engineering.html" class="path-card__link">Ver programa →</a>
+      </article>
+
+      <article class="path-card path-card--side career-card" id="prog-ds">
+        <span class="path-card__num" aria-hidden="true">03</span>
+        <p class="path-card__label">Carrera · 6 meses</p>
+        <h3 class="path-card__title">Data Science</h3>
+        <p class="path-card__desc">Python, estadística y Machine Learning aplicado a problemas reales de negocio.</p>
+        <ul class="path-card__tags">
+          <li>Python</li>
+          <li>SQL</li>
+          <li>scikit-learn</li>
+        </ul>
+        <a href="data-science.html" class="path-card__link">Ver programa →</a>
+      </article>
+
+      <article class="path-card path-card--bottom career-card" id="prog-da">
+        <span class="path-card__num" aria-hidden="true">04</span>
+        <p class="path-card__label">Carrera · 6 meses</p>
+        <h3 class="path-card__title">Data Analyst</h3>
+        <p class="path-card__desc">Analizá datos de negocio con Excel, SQL, Python y visualización para decisiones estratégicas.</p>
+        <ul class="path-card__tags">
+          <li>Excel</li>
+          <li>SQL</li>
+          <li>Power BI</li>
+        </ul>
+        <a href="nivelacion/data-analyst.html" class="path-card__link">Ver programa →</a>
+      </article>
+    </div>
+
+    <div class="container careers-path__more" id="carreras-todos">
+      <h3 class="careers-path__more-title">Más programas VOROX</h3>
+      <div class="careers-path__grid">
+        <article class="path-card path-card--compact career-card" id="prog-de">
+          <span class="path-card__num" aria-hidden="true">05</span>
+          <p class="path-card__label">Carrera · 6 meses</p>
+          <h3 class="path-card__title">Data Engineering</h3>
+          <p class="path-card__desc">Pipelines de datos, SQL avanzado e infraestructura a escala.</p>
+          <ul class="path-card__tags"><li>SQL</li><li>Python</li><li>ETL</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-fs">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--fs" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Full Stack Development</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>1.280 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante a Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>8 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online en vivo</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Convertite en desarrollador Full Stack construyendo aplicaciones modernas desde el frontend hasta el backend.</p>
-            <div class="career-card__actions"><a href="full-stack-development.html" class="btn btn--cta btn--sm">Ver más</a></div>
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--ds" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Data Science</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>960 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>6 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Transformá datos en información valiosa para la toma de decisiones.</p>
-            <div class="career-card__actions"><a href="data-science.html" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+        <article class="path-card path-card--compact career-card" id="prog-aa">
+          <span class="path-card__num" aria-hidden="true">06</span>
+          <p class="path-card__label">Carrera · 4 meses</p>
+          <h3 class="path-card__title">AI Automation</h3>
+          <p class="path-card__desc">Automatizá procesos con IA, APIs y flujos no-code y low-code.</p>
+          <ul class="path-card__tags"><li>APIs</li><li>Agentes</li><li>n8n</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-de">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--de" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Data Engineering</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>960 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>6 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Diseñá y construí infraestructuras modernas para el procesamiento de datos.</p>
-            <div class="career-card__actions"><a href="#contacto" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+        <article class="path-card path-card--compact career-card" id="prog-md">
+          <span class="path-card__num" aria-hidden="true">07</span>
+          <p class="path-card__label">Carrera · 4 meses</p>
+          <h3 class="path-card__title">Marketing Digital</h3>
+          <p class="path-card__desc">Estrategia digital, funnels y analítica de campañas.</p>
+          <ul class="path-card__tags"><li>SEO</li><li>Ads</li><li>Analytics</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-aa">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--aa" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>AI Automation</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>640 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>4 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Automatizá procesos utilizando inteligencia artificial y herramientas no-code y low-code.</p>
-            <div class="career-card__actions"><a href="#contacto" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+        <article class="path-card path-card--compact career-card" id="prog-ux">
+          <span class="path-card__num" aria-hidden="true">08</span>
+          <p class="path-card__label">Carrera · 5 meses</p>
+          <h3 class="path-card__title">Diseño UX/UI</h3>
+          <p class="path-card__desc">Experiencias digitales centradas en el usuario con Figma.</p>
+          <ul class="path-card__tags"><li>Figma</li><li>Research</li><li>UI</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-md">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--md" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Marketing Digital</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>640 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>4 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Desarrollá estrategias digitales orientadas a resultados y crecimiento de negocios.</p>
-            <div class="career-card__actions"><a href="#contacto" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+        <article class="path-card path-card--compact career-card" id="prog-cyber">
+          <span class="path-card__num" aria-hidden="true">09</span>
+          <p class="path-card__label">Carrera · 7 meses</p>
+          <h3 class="path-card__title">Ciberseguridad</h3>
+          <p class="path-card__desc">Protección de sistemas, redes y respuesta a incidentes.</p>
+          <ul class="path-card__tags"><li>Redes</li><li>Ethical Hacking</li><li>SOC</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-da">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--da" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Data Analyst</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>960 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante a Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>6 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online en vivo</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Aprendé a analizar datos, generar reportes y transformar información en decisiones estratégicas utilizando herramientas líderes de la industria.</p>
-            <div class="career-card__actions"><a href="nivelacion/data-analyst.html" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+        <article class="path-card path-card--compact career-card" id="prog-robo">
+          <span class="path-card__num" aria-hidden="true">10</span>
+          <p class="path-card__label">Carrera · 8 meses</p>
+          <h3 class="path-card__title">Robótica</h3>
+          <p class="path-card__desc">Electrónica, automatización y control de sistemas robóticos.</p>
+          <ul class="path-card__tags"><li>Arduino</li><li>Python</li><li>IoT</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-ux">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--ux" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Diseño UX/UI</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>800 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante a Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>5 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online en vivo</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Diseñá experiencias digitales intuitivas y atractivas centradas en las necesidades reales de los usuarios.</p>
-            <div class="career-card__actions"><a href="#contacto" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
+        <article class="path-card path-card--compact path-card--corp career-card">
+          <span class="path-card__num" aria-hidden="true">—</span>
+          <p class="path-card__label">Corporate · A medida</p>
+          <h3 class="path-card__title">VOROX para Empresas</h3>
+          <p class="path-card__desc">Capacitación in-company, upskilling tech y contratación de talento.</p>
+          <ul class="path-card__tags"><li>Custom</li><li>B2B</li><li>Mentoring</li></ul>
+          <a href="#contacto" class="path-card__link">Ver programa →</a>
         </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-cyber">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--cyber" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Ciberseguridad</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>1.120 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante a Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>7 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online en vivo</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Protegé sistemas, redes y datos aprendiendo las técnicas y herramientas utilizadas por los profesionales de seguridad informática.</p>
-            <div class="career-card__actions"><a href="#contacto" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
-        </article>
-
-        <article class="career-card career-card--program career-card--showcase" id="prog-robo">
-          <div class="career-card__media">
-            <div class="career-card__thumb career-card__thumb--robo" aria-hidden="true"></div>
-          </div>
-          <div class="career-card__body">
-            <div class="career-card__top">
-              <h3>Robótica</h3>
-              <ul class="career-card__facts" aria-label="Datos del programa">
-                <li><span class="career-card__fact-label">Horas</span><strong>1.280 h</strong></li>
-                <li><span class="career-card__fact-label">Nivel</span><strong>Principiante a Intermedio</strong></li>
-                <li><span class="career-card__fact-label">Duración</span><strong>8 meses</strong></li>
-                <li><span class="career-card__fact-label">Modalidad</span><strong>Online en vivo</strong></li>
-              </ul>
-            </div>
-            <p class="career-card__short">Aprendé a diseñar, programar y controlar sistemas robóticos aplicando electrónica, automatización y programación.</p>
-            <div class="career-card__actions"><a href="#contacto" class="btn btn--cta btn--sm">Ver más</a></div>
-          </div>
-        </article>
-
+      </div>
     </div>
   </section>
 
