@@ -272,149 +272,112 @@
   }
 
   document.querySelectorAll(
-    '.why__card, .career-card, .success-card, .pricing__card, .community__card, .platform__card, .stats__item, .benefits__item, .teacher-card, .about-mission__card, .testimonial-carousel, .testimonial-trust'
+    '.why__card, .career-card, .learn-card, .alumni-chat, .more-card, .empleo-card, .ia-boost__info, .ia-boost__visual, .pricing__card, .community__card, .platform__card, .stats__item, .teacher-card, .about-mission__card, .intro-courses'
   ).forEach(function (el) {
-    if (el.classList.contains('success-card') && el.closest('.testimonial-carousel')) return;
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
 
-  /* Carrusel infinito de opiniones */
-  (function initTestimonialCarousel() {
-    var carousel = document.getElementById('testimonialCarousel');
-    if (!carousel) return;
+  /* Carrusel de cursos introductorios / otros */
+  (function initIntroCoursesCarousel() {
+    var root = document.getElementById('introCoursesCarousel');
+    var section = document.getElementById('cursos-intro');
+    if (!root || !section) return;
 
-    var track = carousel.querySelector('.testimonial-carousel__track');
-    var prevBtn = carousel.querySelector('.testimonial-carousel__nav--prev');
-    var nextBtn = carousel.querySelector('.testimonial-carousel__nav--next');
-    var dotsWrap = carousel.querySelector('.testimonial-carousel__dots');
-    var originals = Array.prototype.slice.call(track.querySelectorAll('.testimonial-card'));
-    var total = originals.length;
-    if (!total) return;
-
-    originals.forEach(function (slide) {
-      track.appendChild(slide.cloneNode(true));
-    });
-
+    var track = root.querySelector('.intro-courses__track');
+    var prevBtn = root.querySelector('.intro-courses__nav-btn--prev');
+    var nextBtn = root.querySelector('.intro-courses__nav-btn--next');
+    var filters = section.querySelectorAll('.intro-courses__filter');
+    var titleEl = document.getElementById('intro-courses-title');
+    var gap = 12;
     var index = 0;
-    var autoplayTimer = null;
-    var gap = 24;
+    var activeFilter = 'nivelacion';
+    var titles = {
+      nivelacion: 'Prepará tu ingreso a la carrera',
+      otros: 'Herramientas tech que agregan valor'
+    };
 
-    function getStep() {
-      var slide = track.querySelector('.testimonial-card');
-      return slide ? slide.offsetWidth + gap : 0;
-    }
-
-    function normalizedIndex() {
-      return ((index % total) + total) % total;
-    }
-
-    function buildDots() {
-      if (!dotsWrap) return;
-      dotsWrap.innerHTML = '';
-      for (var i = 0; i < total; i++) {
-        (function (dotIndex) {
-          var dot = document.createElement('button');
-          dot.type = 'button';
-          dot.className = 'testimonial-carousel__dot';
-          dot.setAttribute('aria-label', 'Ir al comentario ' + (dotIndex + 1));
-          dot.setAttribute('role', 'tab');
-          dot.addEventListener('click', function () {
-            index = dotIndex;
-            setTransform(true);
-            startAutoplay();
-          });
-          dotsWrap.appendChild(dot);
-        })(i);
-      }
-    }
-
-    function updateDots() {
-      if (!dotsWrap) return;
-      var active = normalizedIndex();
-      dotsWrap.querySelectorAll('.testimonial-carousel__dot').forEach(function (dot, i) {
-        dot.classList.toggle('is-active', i === active);
-        dot.setAttribute('aria-selected', i === active ? 'true' : 'false');
+    function visibleCards() {
+      return Array.prototype.slice.call(track.querySelectorAll('.intro-course-card')).filter(function (card) {
+        return !card.hidden;
       });
     }
 
+    function getPerView() {
+      var w = window.innerWidth;
+      if (w <= 560) return 1;
+      if (w <= 800) return 2;
+      if (w <= 1100) return 3;
+      return 4;
+    }
+
+    function getStep() {
+      var cards = visibleCards();
+      if (!cards.length) return 0;
+      return cards[0].offsetWidth + gap;
+    }
+
+    function maxIndex() {
+      return Math.max(0, visibleCards().length - getPerView());
+    }
+
     function setTransform(animate) {
-      track.style.transition = animate ? 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+      track.style.transition = animate === false ? 'none' : 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)';
       track.style.transform = 'translateX(-' + (index * getStep()) + 'px)';
-      updateDots();
+      if (prevBtn) prevBtn.disabled = index <= 0;
+      if (nextBtn) nextBtn.disabled = index >= maxIndex();
     }
 
-    function resetIfNeeded() {
-      if (index >= total) {
-        index = 0;
+    function applyFilter(filter) {
+      activeFilter = filter;
+      index = 0;
+      track.querySelectorAll('.intro-course-card').forEach(function (card) {
+        var show = card.getAttribute('data-course-cat') === filter;
+        card.hidden = !show;
+        if (show) {
+          card.style.removeProperty('display');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      filters.forEach(function (btn) {
+        var on = btn.getAttribute('data-course-filter') === filter;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if (titleEl && titles[filter]) titleEl.textContent = titles[filter];
+      setTransform(false);
+      requestAnimationFrame(function () {
         setTransform(false);
-      } else if (index < 0) {
-        index = total - 1;
-        setTransform(false);
-      }
+      });
     }
 
-    function next() {
-      index += 1;
-      setTransform(true);
-      track.addEventListener('transitionend', function onEnd() {
-        track.removeEventListener('transitionend', onEnd);
-        resetIfNeeded();
-      }, { once: true });
-    }
-
-    function prev() {
-      if (index <= 0) {
-        index = total;
-        setTransform(false);
-        requestAnimationFrame(function () {
-          index = total - 1;
-          setTransform(true);
-        });
-        return;
-      }
-      index -= 1;
-      setTransform(true);
-    }
-
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayTimer = setInterval(next, 4500);
-    }
-
-    function stopAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
-    }
+    filters.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyFilter(btn.getAttribute('data-course-filter'));
+      });
+    });
 
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
-        prev();
-        startAutoplay();
+        index = Math.max(0, index - 1);
+        setTransform(true);
       });
     }
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
-        next();
-        startAutoplay();
+        index = Math.min(maxIndex(), index + 1);
+        setTransform(true);
       });
     }
 
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-    carousel.addEventListener('focusin', stopAutoplay);
-    carousel.addEventListener('focusout', function (e) {
-      if (!carousel.contains(e.relatedTarget)) startAutoplay();
-    });
-
     window.addEventListener('resize', function () {
+      if (index > maxIndex()) index = maxIndex();
       setTransform(false);
-      updateDots();
     });
 
-    buildDots();
-    setTransform(false);
-    startAutoplay();
+    applyFilter(activeFilter);
   })();
 })();
