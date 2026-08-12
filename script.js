@@ -272,7 +272,7 @@
   }
 
   document.querySelectorAll(
-    '.why__card, .career-card, .learn-card, .alumni-chat, .more-card, .empleo-card, .ia-boost__info, .ia-boost__visual, .pricing__card, .community__card, .platform__card, .stats__item, .teacher-card, .about-mission__card, .intro-courses'
+    '.why__card, .career-card, .learn-card, .alumni-chat, .more-card, .empleo-card, .ia-boost__banner, .pricing__card, .community__card, .platform__card, .stats__item, .teacher-card, .about-mission__card, .intro-courses'
   ).forEach(function (el) {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
